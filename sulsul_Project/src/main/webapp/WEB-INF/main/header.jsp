@@ -15,43 +15,36 @@
 					<a href="#" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
 
 					<ul class="js-clone-nav pl-0 d-none d-lg-inline-block site-menu">
-						<li class="active"><a href="#">Home</a></li>
+						<li class="active"><a href="#">홈</a></li>
+						<!-- 
 						<li class="has-children">
-							<a href="shop.html">Shop</a>
+							<a href="shop.html">주류</a>
 							<ul class="dropdown">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Underware</a></li>
-								<li><a href="#">Clothing</a></li>
-								<li><a href="#">Watches</a></li>
-								<li><a href="#">Shoes</a></li>
+								<li><a href="#">와인</a></li>
+								<li><a href="#">위스키</a></li>
+								<li><a href="#">브랜디/꼬냑</a></li>
 							</ul>
 						</li>
-						<li class="has-children">
-							<a href="#">Pages</a>
-							<ul class="dropdown">
-								<li><a href="elements.html">Elements</a></li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="../cart/cart.do">Cart</a></li>
-								<li><a href="checkout.html">Checkout</a></li>
-								
-								<li class="has-children">
-									<a href="#">Menu Two</a>
-									<ul class="dropdown">
-										<li><a href="#">T-Shirt</a></li>
-										<li><a href="#">Underware</a></li>
-										<li><a href="#">Clothing</a></li>
-										<li><a href="#">Watches</a></li>
-										<li><a href="#">Shoes</a></li>
+						 -->
 
+						<li><a href="shop.html">와인</a></li>
+						<li><a href="shop.html">위스키</a></li>
+						<li><a href="shop.html">브랜디/꼬냑</a></li>
+						<li class="has-children">
+							<a href="#">커뮤니티</a>
+							<ul class="dropdown">
+								<li><a href="elements.html">개인거래</a></li>
+								
+								<li class="has-children"><a href="about.html">모임</a>
+									<ul class="dropdown">
+										<li><a href="#">정기모임</a></li>
+										<li><a href="#">번개모임</a></li>
+										<li><a href="#">채팅</a></li>
 									</ul>
 								</li>
-								<li><a href="#">Menu Three</a></li>
 							</ul>
 						</li>
-
-						<li><a href="shop.html">Men</a></li>
-						<li><a href="shop.html">Women</a></li>
+						<li><a href="shop.html">고객센터</a></li>
 						
 					</ul>
 
