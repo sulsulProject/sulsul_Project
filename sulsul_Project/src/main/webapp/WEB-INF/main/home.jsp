@@ -24,7 +24,7 @@
 <body>
 	<div class="owl-carousel owl-single home-slider">
 		<div class="item">
-			<div class="untree_co-hero" style="background-image: url('images/hero-slider-1-min.jpg');">
+			<div class="untree_co-hero" style="background-image: url('../images/hero-slider-1-min.jpg');">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
@@ -43,7 +43,7 @@
 
 
 		<div class="item">
-			<div class="untree_co-hero" style="background-image: url('images/hero-slider-2-min.jpg');">
+			<div class="untree_co-hero" style="background-image: url('../images/hero-slider-2-min.jpg');">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
@@ -70,13 +70,13 @@
 		<div class="container" style="margin-bottom: 40px;">
 
 
-			<div class="col deal-hero overlay" style="background-image: url('images/hero-slider-4-min.jpg')"> 
+			<div class="col deal-hero overlay" style="background-image: url('../images/hero-slider-4-min.jpg')"> 
 				<div class="deal-contents">
 					<h2 class="title mb-4"><a href="#">Community</a></h2>
 					<a href="#" class="btn btn-sm btn-black">Move Now</a>
 				</div>
 			</div> <!-- /.deal-hero -->
-			<div class="col deal-hero overlay" style="background-image: url('images/hero-slider-4-min.jpg')"> 
+			<div class="col deal-hero overlay" style="background-image: url('../images/hero-slider-4-min.jpg')"> 
 				<div class="deal-contents">
 					<h2 class="title mb-4"><a href="#">Marcket</a></h2>
 					<a href="#" class="btn btn-sm btn-black">Move Now</a>
@@ -295,7 +295,7 @@
 	<div class="container">
 
 
-		<div class="deal-hero overlay col-lg-6" style="background-image: url('images/hero-slider-3-min.jpg')"> 
+		<div class="deal-hero overlay col-lg-6" style="background-image: url('../images/hero-slider-3-min.jpg')"> 
 			<div class="deal-contents">
 				<span class="subtitle">Limited Offers 20% OFF</span>
 				<h2 class="title mb-4"><a href="#">Summer Promo</a></h2>
