@@ -27,7 +27,7 @@
 						</li>
 						 -->
 
-						<li><a href="shop.html">와인</a></li>
+						<li><a href="../wine/list.do">와인</a></li>
 						<li><a href="shop.html">위스키</a></li>
 						<li><a href="shop.html">브랜디/꼬냑</a></li>
 						<li class="has-children">

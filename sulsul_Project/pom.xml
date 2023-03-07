@@ -21,7 +21,6 @@
 		</repository>
 	</repositories>
 	<dependencies>
-	   
 	    <dependency>
 		    <groupId>org.lazyluke</groupId>
 		    <artifactId>log4jdbc-remix</artifactId>
@@ -114,37 +113,6 @@
          <artifactId>spring-expression</artifactId>
          <version>5.1.5.RELEASE</version>
       </dependency> -->
-      <dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-beans</artifactId>
-		    <version>5.1.5.RELEASE</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-aop</artifactId>
-		    <version>5.1.5.RELEASE</version>
-		</dependency>
-       <!-- security -->
-	    <dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-core</artifactId>
-		    <version>5.1.5.RELEASE</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-web</artifactId>
-		    <version>5.1.5.RELEASE</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-config</artifactId>
-		    <version>5.1.5.RELEASE</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-taglibs</artifactId>
-		    <version>5.1.5.RELEASE</version>
-		</dependency>
       <dependency>
          <groupId>org.springframework</groupId>
          <artifactId>spring-jdbc</artifactId>
@@ -511,7 +479,34 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>  
+		<!-- security -->
+	    <dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>5.1.5.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>5.1.5.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>5.1.5.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-taglibs</artifactId>
+		    <version>5.1.5.RELEASE</version>
+		</dependency>    
+		<dependency>
+		    <groupId>javax.websocket</groupId>
+		    <artifactId>javax.websocket-api</artifactId>
+		    <version>1.1</version>
+		    <scope>provided</scope>
+		</dependency>  
 	</dependencies>
 
     <build>
