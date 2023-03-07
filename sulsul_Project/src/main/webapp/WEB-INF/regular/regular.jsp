@@ -8,6 +8,7 @@
 </head>
 <body>
 안녕
-consol.log("hi")
+낭연
+console.log("hi")
 </body>
 </html>
