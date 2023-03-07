@@ -10,6 +10,7 @@
 안녕
 낭연
 야 호
+충돌이 안나요
 console.log("hi")
 </body>
 </html>
