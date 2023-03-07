@@ -7,4 +7,4 @@
 🍹[김유진](https://github.com/yujinn001)
 🍺[손다애](https://github.com/daaeson)
 🥂[송혜린](https://github.com/HiHyerin)
-🥃[채솔하](https://github.com/shyoshyo123)
+🌺[채솔하](https://github.com/shyoshyo123)
