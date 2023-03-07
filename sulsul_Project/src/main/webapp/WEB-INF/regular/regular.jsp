@@ -9,7 +9,7 @@
 <body>
 안녕
 낭연
-야호
+야 호
 console.log("hi")
 </body>
 </html>
