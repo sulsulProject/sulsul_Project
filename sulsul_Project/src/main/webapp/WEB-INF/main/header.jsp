@@ -12,10 +12,10 @@
 
 			<div class="container position-relative">
 				<div class="site-navigation text-center dark">
-					<a href="#" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
+					<a href="../main/main.do" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
 
 					<ul class="js-clone-nav pl-0 d-none d-lg-inline-block site-menu">
-						<li class="active"><a href="#">홈</a></li>
+						<li class="active"><a href="../main/main.do">홈</a></li>
 						<!-- 
 						<li class="has-children">
 							<a href="shop.html">주류</a>
@@ -27,7 +27,7 @@
 						</li>
 						 -->
 
-						<li><a href="shop.html">와인</a></li>
+						<li><a href="../wine/list.do">와인</a></li>
 						<li><a href="shop.html">위스키</a></li>
 						<li><a href="shop.html">브랜디/꼬냑</a></li>
 						<li class="has-children">
@@ -44,8 +44,13 @@
 								</li>
 							</ul>
 						</li>
+						<li><a href="../customer/faq.do">고객센터</a></li>
+
+						<li><a href="../customerservice/cs.do">고객센터</a></li>
+
 						<li><a href="shop.html">고객센터</a></li>
 						<li><a href="../notice/list.do">공지사항</a></li>
+
 						
 					</ul>
 

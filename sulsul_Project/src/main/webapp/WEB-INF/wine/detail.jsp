@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <div class="untree_co-section">
-    <div class="container">
-      <h1>중고거래12312</h1>
-      
-    </div>
-  </div>  
+<div class="untree_co-hero">
+ <div class="container">
+  <div class="row">
+  	hey
+  </div>
+ </div>
+</div>
 </body>
 </html>
