@@ -33,11 +33,11 @@
 						<li class="has-children">
 							<a href="#">커뮤니티</a>
 							<ul class="dropdown">
-								<li><a href="elements.html">개인거래</a></li>
+								<li><a href="../trade/list.do">개인거래</a></li>
 								
 								<li class="has-children"><a href="about.html">모임</a>
 									<ul class="dropdown">
-										<li><a href="#">정기모임</a></li>
+										<li><a href="../regular/regular.do">정기모임</a></li>
 										<li><a href="#">번개모임</a></li>
 										<li><a href="#">채팅</a></li>
 									</ul>
