@@ -44,8 +44,12 @@
 								</li>
 							</ul>
 						</li>
+
+						<li><a href="../customerservice/cs.do">고객센터</a></li>
+
 						<li><a href="shop.html">고객센터</a></li>
 						<li><a href="../notice/list.do">공지사항</a></li>
+
 						
 					</ul>
 
