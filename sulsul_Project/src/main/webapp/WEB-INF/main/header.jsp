@@ -27,13 +27,13 @@
 						</li>
 						 -->
 
-						<li><a href="shop.html">와인</a></li>
+						<li><a href="../wine/list.do">와인</a></li>
 						<li><a href="shop.html">위스키</a></li>
 						<li><a href="shop.html">브랜디/꼬냑</a></li>
 						<li class="has-children">
 							<a href="#">커뮤니티</a>
 							<ul class="dropdown">
-								<li><a href="elements.html">개인거래</a></li>
+								<li><a href="../trade/list.do">개인거래</a></li>
 								
 								<li class="has-children"><a href="about.html">모임</a>
 									<ul class="dropdown">
@@ -44,7 +44,12 @@
 								</li>
 							</ul>
 						</li>
+
 						<li><a href="../customerservice/cs.do">고객센터</a></li>
+
+						<li><a href="shop.html">고객센터</a></li>
+						<li><a href="../notice/list.do">공지사항</a></li>
+
 						
 					</ul>
 
