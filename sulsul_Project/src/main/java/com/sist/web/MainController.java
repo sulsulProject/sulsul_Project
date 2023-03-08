@@ -22,7 +22,7 @@ public class MainController {
 	@GetMapping("main/main.do")
 	public String main_page(Model model)
 	{
-		List<WineVO> list=dao.wineListData();
+		List<WineVO> list=dao.mainWineListData();
 		model.addAttribute("list",list);
 		return "main";
 	}

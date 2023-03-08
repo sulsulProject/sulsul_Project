@@ -13,20 +13,31 @@ public class WineRestController {
 	@Autowired
 	private WineDAO dao;
 	
-//	@GetMapping(value="wine/wine_main_vue.do", produces = "text/plain;charset=UTF-8")
-//	public String wine_main_vue()
-//	{
-//		List<WineVO> list=dao.wineListData();
-//		JSONArray arr=new JSONArray();
-//		for(WineVO vo:list)
-//		{
-//			JSONObject obj=new JSONObject();
-//			obj.put("name", vo.getName());
-//			obj.put("poster", vo.getPoster());
-//			obj.put("price", vo.getPrice());
-//			arr.add(obj);
-//		}
-//		
-//		return arr.toJSONString();
-//	}
+	@GetMapping(value="wine/wine_list_vue.do",produces = "text/plain;charset=UTF-8")
+	public String wine_list(int page)
+	{
+		Map map=new HashMap();
+		map.put("start", (page*5)-4);
+		map.put("end", page*5);
+		List<WineVO> list=dao.wineListData(map);
+		int totalpage=dao.wineTotalPage();
+		JSONArray arr=new JSONArray();
+		int i=0;
+		for(WineVO vo:list)
+		{
+			JSONObject obj=new JSONObject();
+			obj.put("name", vo.getName());
+			obj.put("poster", vo.getPoster());
+			obj.put("price", vo.getPrice());
+			if(i==0)
+			{
+				obj.put("curpage", page);
+				obj.put("totalpage", totalpage);
+			}
+			arr.add(obj);
+			i++;
+		}
+		return arr.toJSONString();
+	}
+
 }
