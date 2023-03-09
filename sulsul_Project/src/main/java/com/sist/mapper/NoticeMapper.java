@@ -8,9 +8,9 @@ import org.apache.ibatis.annotations.Select;
 import com.sist.vo.NoticeVO;
 
 public interface NoticeMapper {
- @Select("SELECT no,name,subject,content,hit,TO_CHAR(regdate,'YYYY-MM-dd')as as dbday,num "
+ @Select("SELECT no,name,subject,content,hit,TO_CHAR(regdate,'YYYY-MM-dd') as dbday,num "
 		+ "FROM (SELECT no,name,subject,content,hit,regdate,rownum as num "
-		+ "FROM (SELECT /*+ INDEX_DESC(sul_notice_2_2 suln_no_pk)*/no,name,subject,content,hit "
+		+ "FROM (SELECT /*+ INDEX_DESC(sul_notice_2_2 suln_no_pk)*/no,name,subject,content,hit,regdate "
 		+ "FROM sul_notice_2_2)) "
 		+ "WHERE num BETWEEN #{start} AND #{end}")
  public List<NoticeVO> noticeListData(Map map);

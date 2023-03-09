@@ -9,7 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style type="text/css">
-th{font-family: "Playfair Display", serif;}
+th,h1{font-family: "Playfair Display", serif;}
 </style>
 </head>
 <body>
