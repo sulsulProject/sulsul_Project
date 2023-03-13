@@ -1,7 +1,7 @@
 package com.sist.web;
-import java.util.*;
-import com.sist.dao.*;
-import com.sist.vo.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -9,21 +9,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sist.dao.InformationDAO;
+import com.sist.vo.InformationUseVO;
+
 @RestController
 public class CustomerRestController {
 	@Autowired
 	private InformationDAO idao;
-	
+
 	@GetMapping(value = "infomation/list_vue.do",produces = "text/plain;charset=UTF-8")
 	public String board_list(int page)
 	{
 		Map map=new HashMap();
 		map.put("start",(page*10)-9);
 		map.put("end",page*10);
-		
+
 		List<InformationUseVO> list=idao.informationListData(map);
 		int totalpage=idao.informationTotalPage();
-		
+
 		// JSON 변환
 		JSONArray arr=new JSONArray();
 		int i=0;

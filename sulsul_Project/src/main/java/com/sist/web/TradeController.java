@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class TradeController {
 	@GetMapping("trade/list.do")
 	public String trade_list() {
-		
+
 		return "trade/list";
 	}
 }

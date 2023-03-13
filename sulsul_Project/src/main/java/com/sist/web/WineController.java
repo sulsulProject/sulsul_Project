@@ -10,8 +10,8 @@ import com.sist.dao.WineDAO;
 public class WineController {
 	@Autowired
 	private WineDAO dao;
-	
-	
+
+
 	@GetMapping("wine/list.do")
 	public String wine_list()
 	{

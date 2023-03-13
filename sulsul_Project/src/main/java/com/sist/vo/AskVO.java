@@ -1,20 +1,21 @@
 package com.sist.vo;
-import java.util.*;
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 /*
- *  ANO        NOT NULL NUMBER         
-	SUBJECT    NOT NULL VARCHAR2(1000) 
-	CONTENT    NOT NULL CLOB           
-	PWD        NOT NULL VARCHAR2(20)   
-	REGDATE             DATE           
-	ASK_STATE           VARCHAR2(20)   
-	HIT                 NUMBER         
-	GROUP_ID            NUMBER         
-	GROUP_STEP          NUMBER         
-	GROUP_TAB           NUMBER         
-	MSG                 CLOB           
-	ID                  VARCHAR2(20)   
+ *  ANO        NOT NULL NUMBER
+	SUBJECT    NOT NULL VARCHAR2(1000)
+	CONTENT    NOT NULL CLOB
+	PWD        NOT NULL VARCHAR2(20)
+	REGDATE             DATE
+	ASK_STATE           VARCHAR2(20)
+	HIT                 NUMBER
+	GROUP_ID            NUMBER
+	GROUP_STEP          NUMBER
+	GROUP_TAB           NUMBER
+	MSG                 CLOB
+	ID                  VARCHAR2(20)
  */
 
 @Getter
