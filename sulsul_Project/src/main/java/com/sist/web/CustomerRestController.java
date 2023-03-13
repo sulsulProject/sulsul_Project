@@ -14,6 +14,7 @@ import com.sist.vo.InformationUseVO;
 
 @RestController
 public class CustomerRestController {
+<<<<<<< HEAD
 	@Autowired
 	private InformationDAO idao;
 
@@ -28,25 +29,37 @@ public class CustomerRestController {
 		int totalpage=idao.informationTotalPage();
 
 		// JSON 변환
+=======
+	
+	@Autowired
+	private AskDAO adao;
+	
+	@GetMapping(value="customer/ask_list_vue.do",produces = "text/plain;charset=UTF-8")
+	public String ask_list(String id)
+	{
+		AskVO avo=new AskVO();
+		List<AskVO> list=adao.askListData(avo.getId());
+		//JSON 변환
+>>>>>>> upstream/develop
 		JSONArray arr=new JSONArray();
-		int i=0;
-		for(InformationUseVO vo: list)
+		//int i=0;
+		for(AskVO vo:list)
 		{
 			JSONObject obj=new JSONObject();
-			obj.put("iuno", vo.getIuno());
+			obj.put("ano", vo.getAno());
 			obj.put("subject", vo.getSubject());
-			obj.put("image", vo.getImage());
+			obj.put("content", vo.getContent());
 			obj.put("dbday", vo.getDbday());
-			obj.put("hit", vo.getHit());
-			if(i==0) // 배열의 맨처음에만 curpage, totalpage를 추가
-			{
-				obj.put("curpage", page);
-				obj.put("totalpage", totalpage);
-			}
+					
 			arr.add(obj);
-			i++;
 		}
-
 		return arr.toJSONString();
 	}
+	@GetMapping("customer/ask_insert_vue.do")
+	public String ask_insert(AskVO vo)
+	{
+		adao.askInsert(vo);
+		return "";
+	}
+	 
 }

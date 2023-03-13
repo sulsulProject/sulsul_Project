@@ -22,7 +22,11 @@ public class MainController {
 	public String main_page(Model model)
 	{
 		List<WineVO> list=dao.mainWineListData();
+		List<WineVO> wlist=dao.mainWhiskeyListData();
+		List<WineVO> clist=dao.mainCognacListData();
 		model.addAttribute("list",list);
+		model.addAttribute("wlist",wlist);
+		model.addAttribute("clist",clist);
 		return "main";
 	}
 }

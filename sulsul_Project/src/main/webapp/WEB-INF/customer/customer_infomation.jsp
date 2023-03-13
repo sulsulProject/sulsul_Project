@@ -6,13 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style>
-.untree_co-section{
+/* .untree_co-section{
 	border : 1px solid black;
 }
 .container{
     border : 1px solid red;
-}
+} */
+/* TO_DO : 링크 색상 제거 하기*/
 .table {
   text-decoration: none; /* 링크의 밑줄 제거 */
   color: inherit; /* 링크의 색상 제거 */ 
@@ -25,16 +27,17 @@
 </style>
 </head>
 <body>
-<div class="untree_co-section"> <!-- untree_co-section -->
+<div style="height: 20px"></div>
+<div class="untree_co-section"> 
   <div class="container" style="max-width: 1100px;">
    <div class="row">
-   <!-- style="text-decoration:none;color: #212121" 알아내기 -->
+   <!-- 사이드 메뉴 시작 -->
     <div id="aside"class="col-lg-3">   
-      <table id="side" class="table" style="background-color: yellow">
+      <table id="side" class="table">
       <tr >
         <th><h5>고객센터</h5></th>
        </tr>
-       <tr >
+       <tr>
         <th><a href="../customer/faq.do">FAQ</a></th>
        </tr>
        <tr>
@@ -45,24 +48,25 @@
        </tr>
       </table>
     </div>
+  <!-- 사이드 메뉴 끝 -->
   
-  <!-- aside를 눌렀을 때 content 내용 바뀌기 -->
-  <div id ="content" class="col-lg-9" style="background-color: pink">
-    <div class="container" background-color: black"> <!-- controller div태그 줄지 고민중 -->
-      <div class="row-lg-1" style="background-color: white">
-       <h4 style="padding: 0.75rem;"><b>이용안내</b></h4>
-       <!-- <img src="https://post.malltail.com/img/page/new_faqs_main_01.gif"> -->
+  <!-- content 시작 -->
+  <div id ="content" class="col-lg-9">
+    <div class="container" > 
+      <div class="row-lg-1">
+       <b style="font-size: 23px">이용안내</b>
       </div>
       <div style="height: 10px;"></div>
       <div class="row-lg-3" style="background-color: white">
-       <!-- 우리 이름으로 수정해서 넣기 -->
-       <img src="https://post.malltail.com/img/banner/banner_malltail_howto.jpg" style="width: 750px">
+       <!-- TO_DO : 포스터 내용 우리 이름으로 수정해서 넣기 -->
+       <img src="https://post.malltail.com/img/banner/banner_malltail_howto.jpg" style="width: 760px">
       </div>
       <div style="height: 15px;"></div>
-      <div class="row-lg-3 rows" style="background-color: green">
+      <div class="row-lg-3 rows">
+      
          <!-- 이용 안내 테이블 -->
         <table class="table">
-          <thead>
+          <thead style="background-color: #D0F1FB">
            <tr>
             <th width="10%" class="text-center">번호</th>
             <th width="50%" class="text-center">제목</th>
@@ -74,60 +78,26 @@
           <c:forEach var="vo" items="${list }">
            <tr> 
             <td width="10%" class="text-center">${vo.iuno }</td>
-            <td width="50%" class="text-center">${vo.subject }</td>
+            <td width="50%"><a href="../customer/iuDetail.do?iuno=${vo.iuno}">${vo.subject }</a></td>
             <td width="20%" class="text-center">${vo.dbday }</td>
             <td width="10%" class="text-center">${vo.hit }</td>
           </tr>
           </c:forEach>
-          <tr> <!-- 수정  -->
+          <tr> 
            <td colspan="5" class="text-center">
-          <input type="button" value="이전"class="btn btn-sm btn-danger" >
-          <input type="button" value="다음"class="btn btn-sm btn-warning" >
-        </td>
+             <a href="../customer/iu.do?page=${curpage>1? curpage-1:curpage }" class="btn btn-sm" style="background-color:#D0F1FB "">이전</a>
+          	  ${curpage  } / ${totalpage }
+            <a href="../customer/iu.do?page=${curpage<totalpage? curpage+1:curpage }" class="btn btn-sm" style="background-color:#D0F1FB "">다음</a>
+          </td>
           </tr>
          </tbody>
         </table>
       </div> <!-- row-lg-3 끝 -->
     </div> <!-- container 끝 -->
-  </div> <!-- id 값 content 끝 -->
+  </div> 
+  <!--  content 끝 -->
   </div> <!-- row 끝 -->
   </div> <!-- 첫번째 container 끝 -->
 </div>
-<!-- <script>
-new Vue({
-		el:'.rows',
-		data:{
-			information_list:[],
-			curepage:1,
-			totalpage:0
-		},
-		mounted:function(){
-			this.send()
-		},
-		methods:{
-			send:function(){
-				let _this=this
-				axios.get("http://localhost/web/infomation/list_vue.do",{
-					params:{
-						page:this.curpage
-					}
-				}).then(function(response){
-					console.log(response.data)
-					_this.information_list=response.data
-					_this.curpage=response.data[0].curpage
-		            _this.totalpage=response.data[0].totalpage
-				})
-			},
-			prev:function(){
-				this.curpage=this.curpage>1?this.curpage-1:this.curpage;
-				this.send()
-			},
-			next:function(){
-				this.curpage=this.curpage<this.totalpage?this.curpage+1:this.curpage;
-				this.send()
-			}
-		}
-	})
-</script> -->
 </body>
 </html>

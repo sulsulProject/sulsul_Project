@@ -2,6 +2,11 @@ package com.sist.dao;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
+=======
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+>>>>>>> upstream/develop
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -28,4 +33,38 @@ public class InformationDAO {
 	{
 		return mapper.informationTotalPage();
 	}
+	
+	// 이용안내 게시물 클릭시 조회수 증가
+	//@Update("update sul_information_use_2_2 set "
+	//		  + "hit=hit+1 "
+	//		  + "where iuno =#{iuno}")
+	//public void informationHitIncrement(int iuno)
+	// 이용안내 상세페이지
+	//@Select("select * from sul_information_use_2_2 "
+	//		  + "where iuno=#{iuno}")
+	public InformationUseVO informationDetailData(int iuno)
+	{
+		mapper.informationHitIncrement(iuno);
+		return mapper.informationDetailData(iuno);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
