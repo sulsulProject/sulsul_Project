@@ -3,8 +3,8 @@ package com.sist.vo;
 import lombok.Getter;
 import lombok.Setter;
 
-/* FCNO NOT NULL NUMBER
-	CATE NOT NULL VARCHAR2(34)
+/* FCNO NOT NULL NUMBER       
+	CATE NOT NULL VARCHAR2(34)  
  */
 @Getter
 @Setter

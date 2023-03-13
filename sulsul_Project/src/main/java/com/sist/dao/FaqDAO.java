@@ -1,21 +1,15 @@
 package com.sist.dao;
+import java.util.*;
+
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sist.mapper.FaqMapper;
-import com.sist.vo.FaqCategoryVO;
+import com.sist.vo.*;
 
 import lombok.Getter;
 import lombok.Setter;
 
-<<<<<<< HEAD
-@Getter
-@Setter
-public class FaqDAO {
-	@Autowired
-	private FaqMapper mapper;
-
-=======
 import com.sist.mapper.*;
 
 @Repository
@@ -31,7 +25,6 @@ public class FaqDAO {
 		return mapper.nationListData();
 	}
 	
->>>>>>> upstream/develop
 	//@Select("select fcno,cate from sul_faq_category_2_2")
 	public List<FaqCategoryVO> FaqCategoryList()
 	{
