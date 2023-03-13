@@ -1,17 +1,16 @@
 package com.sist.mapper;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-/*	IUNO    NOT NULL NUMBER
-SUBJECT NOT NULL VARCHAR2(1000)
-IMAGE            VARCHAR2(600)
-REGDATE          DATE
-HIT              NUMBER
+import com.sist.vo.*;
+/*	IUNO    NOT NULL NUMBER         
+SUBJECT NOT NULL VARCHAR2(1000) 
+IMAGE            VARCHAR2(600)  
+REGDATE          DATE           
+HIT              NUMBER       
 */
-import com.sist.vo.InformationUseVO;
 
 public interface InformationMapper {
 	@Select("select iuno,subject,image,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit,num "
@@ -20,7 +19,7 @@ public interface InformationMapper {
 		  + "from sul_information_use_2_2)) "
 		  + "where num between #{start} and #{end}")
 	public List<InformationUseVO> informationListData(Map map);
-
+	
 	@Select("select ceil(count(*)/10.0) from sul_information_use_2_2")
 	public int informationTotalPage();
 	

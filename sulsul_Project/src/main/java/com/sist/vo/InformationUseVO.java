@@ -1,13 +1,13 @@
 package com.sist.vo;
-import java.util.Date;
+import java.util.*;
 
 import lombok.Getter;
 import lombok.Setter;
-/*	IUNO    NOT NULL NUMBER
-	SUBJECT NOT NULL VARCHAR2(1000)
-	IMAGE            VARCHAR2(600)
-	REGDATE          DATE
-	HIT              NUMBER
+/*	IUNO    NOT NULL NUMBER         
+	SUBJECT NOT NULL VARCHAR2(1000) 
+	IMAGE            VARCHAR2(600)  
+	REGDATE          DATE           
+	HIT              NUMBER       
  */
 @Getter
 @Setter
