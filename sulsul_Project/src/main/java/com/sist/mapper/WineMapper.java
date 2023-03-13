@@ -1,10 +1,18 @@
 package com.sist.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Select;
+<<<<<<< HEAD
+
+import com.sist.vo.WineVO;
+=======
 import org.apache.ibatis.annotations.Update;
 
 import com.sist.vo.*;
 import java.util.*;
+>>>>>>> upstream/develop
 public interface WineMapper {
 	//메인페이지 와인 슬라이드(선우)
 	@Select("select name,poster,price "
@@ -12,6 +20,19 @@ public interface WineMapper {
 		  + "from sul_item_2_2 order by hit desc) "
 		  + "where icno=1 and rownum <=12")
 	public List<WineVO> mainWineListData();
+<<<<<<< HEAD
+
+	@Select("SELECT ino,poster,name,price,icno,num "
+			+ "FROM (SELECT ino,poster,name,price,icno,rownum as num "
+			+ "FROM (SELECT /*+ INDEX_DESC(sul_item_2_2 si_ino_pk)*/ino,poster,name,price,icno "
+			+ "FROM sul_item_2_2)) "
+			+ "WHERE icno=1 "
+			+ "AND num BETWEEN #{start} AND #{end}")
+	public List<WineVO> wineListData(Map map);
+
+	  @Select("SELECT CEIL(COUNT(*)/5.0) FROM sul_item_2_2 WHERE icno=1")
+	  public int wineTotalPage();
+=======
 	//메인페이지 위스키 슬라이드(선우)
 	@Select("select name,poster,price "
 			  + "from (SELECT name,poster,price,icno "
@@ -116,4 +137,5 @@ public interface WineMapper {
 				@Select("SELECT COUNT(*) FROM sul_item_2_2 where icno=1")
 				public int wineCount();
 
+>>>>>>> upstream/develop
 }

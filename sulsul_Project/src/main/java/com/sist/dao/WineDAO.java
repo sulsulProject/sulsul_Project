@@ -1,15 +1,21 @@
 package com.sist.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import java.util.*;
-import com.sist.vo.*;
-import com.sist.mapper.*;
+
+import com.sist.mapper.WineMapper;
+import com.sist.vo.WineVO;
 
 @Repository
 public class WineDAO {
 	@Autowired
 	private WineMapper mapper;
+<<<<<<< HEAD
+
+=======
 	
 	@Autowired
 	private sulMapper smapper;
@@ -17,10 +23,22 @@ public class WineDAO {
 //	@Autowired
 //	private LikeMapper lmapper;
 	//메인페이지 와인슬라이드(선우)
+>>>>>>> upstream/develop
 	public List<WineVO> mainWineListData()
 	{
 		return mapper.mainWineListData();
 	}
+<<<<<<< HEAD
+
+	public List<WineVO> wineListData(Map map)
+	{
+		return mapper.wineListData(map);
+	}
+	public int wineTotalPage()
+	{
+		return mapper.wineTotalPage();
+	}
+=======
 	//메인페이지 위스키 슬라이드(선우)
 	public List<WineVO> mainWhiskeyListData()
 	{
@@ -138,4 +156,5 @@ public class WineDAO {
 
 	
 
+>>>>>>> upstream/develop
 }

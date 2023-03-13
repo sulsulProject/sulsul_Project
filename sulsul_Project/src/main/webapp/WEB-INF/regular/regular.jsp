@@ -1,43 +1,85 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+<style type="text/css">
+.r1{
+	width: 30%
+} 
+</style>
 </head>
 <body>
 
-<div class="untree_co-section">
-  <div class="container"><!-- ------------------깃푸시----------------- -->
+<div class="untree_co-section regulars">
+	<div class="container">
+		<table class="table">
+	      <tr>
+	        <td class="text-right">
+	          <a href="../regular/insert.do" class="btn btn-sm btn-primary">모임생성</a>
+	        </td>
+	      </tr>
+	    </table>
+	</div>
 	
-	
+  <div class="container">
 	<div class="owl-carousel owl-single home-slider">
-			<div class="item">
-				<div class="untree_co-hero" style="background-image: url('webapp/images/hero-slider-1-min.jpg');">
+			<div class="row">
+				<div class="col-lg-3 r1" style="background-image: url('https://cfile1.onoffmix.com/images/event/269465/s');">
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col-lg-6">
-	
-								<h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">Sell products the easy way with UntreeStore by <a href="https://untree.co">Untree.co</a></h1>
-								<div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">
-								</div>
-	
-								<p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">Explore now</a></p>
-	
+								<h4 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">나를 알아가는 힐링컬러</h4>
+								<p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">둘러보기</a></p>
+							</div>
+								
 							</div>
 						</div>
 					</div>
-				</div> <!-- /.untree_co-hero -->
-			</div>
-	
-	
-			<div class="item">
-				<div class="untree_co-hero" style="background-image: url('webapp/images/hero-slider-2-min.jpg');">
+				<div class="col-lg-3 r1" style="background-image: url('https://cfile1.onoffmix.com/images/event/270852/s');">
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col-lg-6">
+								<h4 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">3월 명언집 나눔/자존감 상승 프로젝트 & 일반인 명언집 제작 프로젝트/스토리텔링</h4>
+								<p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">둘러보기</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 r1" style="background-image: url('https://cfile1.onoffmix.com/images/event/251607/s');">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-lg-6">
+								<h4 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">3월 명언집 나눔/자존감 상승 프로젝트 & 일반인 명언집 제작 프로젝트/스토리텔링</h4>
+								<p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">둘러보기</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 r1" style="background-image: url('https://cfile1.onoffmix.com/images/event/271538/s');">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-lg-6">
+								<h4 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">3월 명언집 나눔/자존감 상승 프로젝트 & 일반인 명언집 제작 프로젝트/스토리텔링</h4>
+								<p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">둘러보기</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div> <!-- /.untree_co-hero -->
+			
+	
+	
+			<!-- <div class="item">
+				<div class="untree_co-hero" style="background-image: url('webapp/images/hero-slider-2-min.jpg');">
+					<div class="container">
+						<div class="row align-items-center">
+							<div class="col-lg-3">
 	
 								<h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">The New Way To Sell Your Products by <a href="#">Untree.co</a></h1>
 								<div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">
@@ -48,50 +90,58 @@
 							</div>
 						</div>
 					</div>
-				</div> <!-- /.untree_co-hero -->
+				</div> /.untree_co-hero
+			</div> -->
 			</div>
-			
 		</div>
   </div><!-- ----------------------------------- -->
+   <div style="height: 40px"></div>
   <!-- ================================================================== -->
-  <div class="container">
+  <div class="container changes">
   	<div class="row">
-  		<h3>주제별 밴드를 찾아보세요</h3>
+  		<h3>주제별 밴드를 찾아보세요---------------------</h3>
   	</div>
 	<div class="row">
-		<div class="col">
-		  <h3>취미</h3>
-		 </div>
-		  
-		  <div class="col">
-		  <h3>방송/연예</h3>
-		 </div>
-		  
-		  <div class="col">
-		  <h3>게임</h3>
-		 </div>
-		  
-		  <div class="col">
-		 <h3>맛집/요리</h3>
-		 </div>
-		  <div class="col">
-		 <h3>문화/예술</h3>
-		 </div>
-		  <div class="col">
-		  <h3>교육/공부</h3>
-		 </div>
-		  <div class="col">
-		  <h3>친목/모임</h3>
-		 </div>
+		<button class="btn btn-xs" style="background-color: salmon" v-on:click="change(1)">취미</button>
+	     <button class="btn btn-xs btn-success" v-on:click="change(2)">방송/연예</button>
+	     <button class="btn btn-xs btn-info" v-on:click="change(3)">게임</button>
+	     <button class="btn btn-xs btn-warning" v-on:click="change(4)">맛집</button>
+	     <button class="btn btn-xs btn-warning" v-on:click="change(6)">문화/예술</button>
+	     <button class="btn btn-xs btn-warning" v-on:click="change(7)">교육/공부</button>
+	     <button class="btn btn-xs btn-warning" v-on:click="change(8)">친목/모임</button>
+	     <button class="btn btn-xs btn-warning" v-on:click="change(9)">전체</button>
+		
 	</div>
    </div>
      <!-- ================================================================== -->
   <div style="height: 40px"></div>
   
+  <!-- 정기모임리스트 ================================================================== -->
+  <div class="container" style="background-color: orange">
+    <h2>모임리스트-------------------------------------</h2>
+  	<div class="row">
+  	  <c:forEach var="vo" items="${rList }">
+  	  	<!-- <div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4"> -->
+	    <div class="col-md-3">
+		    <div class="thumbnail">
+		      <a href="../regular/detail.do?no=${vo.no }">
+		        <img src="${vo.poster }" alt="Lights" style="width:250px; height: 250px">
+		        <div class="caption">
+		          <p style="color: red">${vo.name}</p>
+		        </div>
+		      </a>
+		    </div>
+	    </div>
+  	  </c:forEach>
+  	  
+	</div>
+  </div>
+  <!-- ================================================================== -->
+   <div style="height: 40px"></div>
   <div class="container"><!-- ----------------------------------- -->
   	<div class="row">
   		<div class="col-md-6">
-		  <h2 class="h3">이런 모임은 어때요</h2>        
+		  <h2 class="h3">이런 모임은 어때요-----------------------</h2>        
 		</div>
 	</div>
 	<div class="row">
@@ -112,79 +162,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
-              <div class="product-item">
-                <a href="shop-single.html" class="product-img">
-                  <div class="label new top-right">
-                    <div class="content">New</div>
-                  </div>
-
-                  <div class="label sale top-right second">
-                    <div class="content">Sale</div>
-                  </div>
-                  <img src="images/products/bottoms-1-min.jpg" alt="Image" class="img-fluid">
-                </a>
-                <h3 class="title"><a href="#">Chino Bottoms</a></h3>
-                <div class="price">
-                  <del>£99.00</del> — <span>£69.00</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
-              <div class="product-item">
-                <a href="shop-single.html" class="product-img">
-                  <img src="images/products/shoe-1-min.jpg" alt="Image" class="img-fluid">
-                </a>
-                <h3 class="title"><a href="#">Brown Shoe</a></h3>
-                <div class="price">
-                  <span>£29.00</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
-              <div class="product-item">
-                <a href="shop-single.html" class="product-img">
-                  <img src="images/products/sock-1-min.jpg" alt="Image" class="img-fluid">
-                </a>
-                <h3 class="title"><a href="#">The Modern Sock</a></h3>
-                <div class="price">
-                  <span>£29.00</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
-              <div class="product-item">
-                <a href="shop-single.html" class="product-img">
-                  <div class="label sale top-right">
-                    <div class="content">Sale</div>
-                  </div>
-                  <img src="images/products/sweater-2-min.jpg" alt="Image" class="img-fluid">
-                </a>
-                <h3 class="title"><a href="#">Double Knit Sweater</a></h3>
-                <div class="price">
-                  <del>£99.00</del> — <span>£69.00</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-6 col-sm-6 col-md-6 mb-4 col-lg-4">
-              <div class="product-item">
-                <a href="shop-single.html" class="product-img">
-                  <div class="label sale top-right">
-                    <div class="content">Sale</div>
-                  </div>
-                  <img src="images/products/watch-1-min.jpg" alt="Image" class="img-fluid">
-                </a>
-                <h3 class="title"><a href="#">The Murray</a></h3>
-                <div class="price">
-                  <del>£99.00</del> — <span>£69.00</span>
-                </div>
-              </div>
-            </div>
           </div>
   </div><!-- ----------------------------------- -->
   
@@ -195,7 +172,7 @@
 		<div class="container">
 			<div class="row mb-5 align-items-center">
 				<div class="col-md-6">
-					<h2 class="h3">인기 모임</h2>        
+					<h2 class="h3">인기 모임--------------</h2>        
 				</div>
 				<div class="col-sm-6 carousel-nav text-sm-right">
 					<a href="#" class="prev js-custom-prev-v2">
@@ -286,6 +263,49 @@
 	</div> <!-- /.untree_co-section -->  
   </div><!-- ----------------------------------- -->
 </div>
+
+<script>
+	new Vue({
+		el:'.changes',
+		data:{
+			category_list:[]
+		},
+		methods:{
+			change:function(no){
+				let _this = this;
+				axios.get("http://localhost/web/regular/list_change.do",{
+					params:{
+						no:no,
+						rcate:crate
+					}
+				})
+			}
+		}
+	})
+</script>
+
+
+<!-- <script>
+	new Vue({
+		el:'.regulars',
+		data:{
+			regular_list:[]
+		},
+		mounted:function(){
+			this.regu();
+		},
+		methods:{
+			regu:function(){
+				let _this=this
+				axios.get("http://localhost/web/regular/list_vue.do").then(function(response){
+					console.log(response.data)
+					_this.regular_list = response.data
+				})	
+			}
+			
+		}
+	})
+</script> -->
 
 </body>
 </html>

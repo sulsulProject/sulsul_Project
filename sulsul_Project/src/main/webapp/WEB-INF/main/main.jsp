@@ -34,7 +34,6 @@
 	<link rel="stylesheet" href="../css/aos.css">
 	<link rel="stylesheet" href="../css/style.css">
 
-
 	<link rel="stylesheet" href="https://kit.fontawesome.com/2fd2b83183.css" crossorigin="anonymous">
 	<title>UntreeStore Free HTML Template by Untree.co</title>
 </head>

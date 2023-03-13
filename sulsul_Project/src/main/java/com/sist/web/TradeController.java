@@ -9,6 +9,10 @@ public class TradeController {
 	
 	@GetMapping("trade/trade_list.do")
 	public String trade_list() {
+<<<<<<< HEAD
+
+		return "trade/list";
+=======
 		
 		return "trade/trade_list";
 	}
@@ -17,5 +21,6 @@ public class TradeController {
 	public String trade_detail(int tdno, Model model) {
 		model.addAttribute("tdno", tdno);
 		return "trade/trade_detail";
+>>>>>>> upstream/develop
 	}
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class NoticeController {
 	@GetMapping("notice/list.do")
 	public String notice_list() {
-		
+
 		return "notice/list";
 	}
 }
