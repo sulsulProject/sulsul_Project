@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +29,19 @@
 						 -->
 
 						<li><a href="../wine/list.do">와인</a></li>
-						<li><a href="shop.html">위스키</a></li>
-						<li><a href="shop.html">브랜디/꼬냑</a></li>
+						<li><a href="../wine/whiskey_list.do">위스키</a></li>
+						<li><a href="../wine/cognac_list.do">브랜디/꼬냑</a></li>
+						<li><a href="../wine/recent.do">최근 본 상품</a></li>
 						<li class="has-children">
 							<a href="#">커뮤니티</a>
 							<ul class="dropdown">
-								<li><a href="../trade/list.do">개인거래</a></li>
+								<li class="has-children"><a href="#">마켓</a>
+									<ul class="dropdown">
+										<li><a href="../trade/trade_list.do">중고거래</a></li>
+										<li><a href="../board/freeboard_list.do">자유게시판</a></li>
+										<li><a href="../board/eventboard_list.do">이벤트게시판</a></li>
+									</ul>
+								</li>
 								
 								<li class="has-children"><a href="about.html">모임</a>
 									<ul class="dropdown">
@@ -45,10 +53,6 @@
 							</ul>
 						</li>
 						<li><a href="../customer/faq.do">고객센터</a></li>
-
-						<li><a href="../customerservice/cs.do">고객센터</a></li>
-
-						<li><a href="shop.html">고객센터</a></li>
 						<li><a href="../notice/list.do">공지사항</a></li>
 
 						
@@ -78,6 +82,14 @@
 								<path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
 							</svg>
 						</a>
+						
+						<c:if test="${sessionScope.id==null}">
+						  <a href="../member/login.do" id="btn-login">로그인</a>
+						  <a href="../member/signup.do" class="btn-signup">회원가입</a>
+						</c:if>
+						<c:if test="${sessionScope.id!=null}">
+						  <a href="../member/logout.do" id="btn-logout">로그아웃</a>
+						</c:if>
 
 					</div>
 

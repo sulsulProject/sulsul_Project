@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WineVO {
-	private int ino,icno;
-	private String poster,name,price,type,kind,nation,alcohol,capacity,company,vintage,tasting_note,food;
+	private int ino,icno,hit;
+	private String poster,name,name_sub,price,first_price,discount,nation,alcohol,capacity,vintage,place,winery;
 }

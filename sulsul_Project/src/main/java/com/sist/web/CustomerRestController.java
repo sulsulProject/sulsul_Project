@@ -11,39 +11,35 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CustomerRestController {
-	@Autowired
-	private InformationDAO idao;
 	
-	@GetMapping(value = "infomation/list_vue.do",produces = "text/plain;charset=UTF-8")
-	public String board_list(int page)
+	@Autowired
+	private AskDAO adao;
+	
+	@GetMapping(value="customer/ask_list_vue.do",produces = "text/plain;charset=UTF-8")
+	public String ask_list(String id)
 	{
-		Map map=new HashMap();
-		map.put("start",(page*10)-9);
-		map.put("end",page*10);
-		
-		List<InformationUseVO> list=idao.informationListData(map);
-		int totalpage=idao.informationTotalPage();
-		
-		// JSON 변환
+		AskVO avo=new AskVO();
+		List<AskVO> list=adao.askListData(avo.getId());
+		//JSON 변환
 		JSONArray arr=new JSONArray();
-		int i=0;
-		for(InformationUseVO vo: list)
+		//int i=0;
+		for(AskVO vo:list)
 		{
 			JSONObject obj=new JSONObject();
-			obj.put("iuno", vo.getIuno());
+			obj.put("ano", vo.getAno());
 			obj.put("subject", vo.getSubject());
-			obj.put("image", vo.getImage());
+			obj.put("content", vo.getContent());
 			obj.put("dbday", vo.getDbday());
-			obj.put("hit", vo.getHit());
-			if(i==0) // 배열의 맨처음에만 curpage, totalpage를 추가
-			{
-				obj.put("curpage", page);
-				obj.put("totalpage", totalpage);
-			}
+					
 			arr.add(obj);
-			i++;
 		}
-
 		return arr.toJSONString();
 	}
+	@GetMapping("customer/ask_insert_vue.do")
+	public String ask_insert(AskVO vo)
+	{
+		adao.askInsert(vo);
+		return "";
+	}
+	 
 }
