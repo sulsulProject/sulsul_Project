@@ -41,17 +41,4 @@ public interface MemberMapper {
     		+ "FROM sul_member_2_2 "
     		+ "WHERE name=#{name} AND email=#{email}")
     public String memberIdEmail_ID(String name, String email);
-    
- // (마이페이지) 비밀번호 변경
-    @Update("UPDATE sul_member_2_2 SET password=#{password}"
-    		+ "WHERE id=#{id}")
-    public int memberPwdUpdate(@Param("password") String password, @Param("id") String id);
-    
-    //(마이페이지) 전화번호 중복 확인, 변경
-    @Select("SELECT COUNT(*) FROM sul_member_2_2 WHERE tel=#{tel}")
-    public int memberTelCheck(String tel);
-    
-    @Update("UPDATE sul_member_2_2 SET tel=#{tel}"
-    		+ "WHERE id=#{id}")
-    public int memberTelUpdate(@Param("tel") String password, @Param("id") String id);
 }

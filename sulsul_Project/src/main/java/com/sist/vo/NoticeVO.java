@@ -8,6 +8,6 @@ import lombok.Setter;
 @Getter
 public class NoticeVO {
 private int no,hit;
-private String name,subject,content,dbday,pwd;
+private String name,subject,content,dbday;
 private Date regdate;
 }

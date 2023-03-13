@@ -1,7 +1,6 @@
 package com.sist.dao;
 
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -48,25 +47,7 @@ public class MemberDAO {
 		return vo;
 	}
 	
-	//(마이페이지)비밀번호 변경 
-	 public int memberPwdUpdate(String password, String id)
-	 {
-		 System.out.println("2222222222");
-		 return mapper.memberPwdUpdate(password, id);
-	 }
-	 //(마이페이지) 전화번호 확인 , 변경
-	    public boolean memberTelCheck(String tel)
-	    {
-	    	boolean flag = true;
-			int result = mapper.memberTelCheck(tel);
-			if(result==0) flag=false;
-			return flag;
-	    }
-	    
-	    public int memberTelUpdate(@Param("tel") String password, @Param("id") String id)
-	    {
-	    	return mapper.memberTelUpdate(password, id);
-	    }
+	
 	
 	/*
 	// 아이디 찾기 => 전화번호로 찾기

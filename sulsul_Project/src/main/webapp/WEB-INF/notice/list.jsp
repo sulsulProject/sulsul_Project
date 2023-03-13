@@ -10,28 +10,19 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style type="text/css">
 th,h1{font-family: "Playfair Display", serif;}
-.contents {
-    clear: both;
-    position: relative;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-}
 </style>
 </head>
 <body>
 <div class="untree_co-section rows">
     <div class="container">
      <div style="height: 30px"></div>
-      <h1 style="margin-bottom: 20px">Notice</h1>
-     <!--   관리자 권한-->
-      <div style="float: right;">
-          <a href="../notice/insert.do" class="btn btn-xs btn-dark">new</a>
-       </div> 
-      <table class="table contents">
+      <h1 style="margin-bottom: 20px">공지사항</h1>
+      <table class="table">
        <thead>
         <tr>
           <th width=10% class="text-center">No.</th>
           <th width=45% class="text-center">제목</th>
+          <th width=15% class="text-center">이름</th>
           <th width=20% class="text-center">작성일</th>
           <th width=10% class="text-center">조회수</th>
         </tr>
@@ -40,6 +31,7 @@ th,h1{font-family: "Playfair Display", serif;}
        <tr v-for="vo in notice_list">
         <td width=10% class="text-center">{{vo.no}}</td>
         <td width=45%><a :href="'../notice/detail.do?no='+vo.no">{{vo.subject}}</a></td>
+        <td width=15% class="text-center">{{vo.name}}</td>
         <td width=20% class="text-center">{{vo.dbday}}</td>
         <td width=10% class="text-center">{{vo.hit}}</td>
       </tr>
@@ -68,7 +60,7 @@ th,h1{font-family: "Playfair Display", serif;}
 	  methods:{
 		  send:function(){
 			  let _this=this
-			  axios.get("http://localhost/web/notice/list_vue.do",{
+			  axios.get("http://localhost:8080/web/notice/list_vue.do",{
 				  params:{
 					  page:this.curpage
 				  }
