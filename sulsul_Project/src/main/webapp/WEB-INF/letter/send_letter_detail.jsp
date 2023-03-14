@@ -26,8 +26,8 @@
 		  <main class="container clear">
 		    <table class="table">
 		      <tr>
-		        <th width=20% class="text-center">보낸사람</th>
-		        <td width=30%>{{recv_letter_detail.send_id}}</td>
+		        <th width=20% class="text-center">받는사람</th>
+		        <td width=30%>{{recv_letter_detail.recv_id}}</td>
 		        <th width=20% class="text-center">받은날짜</th>
 		        <td width=30%>{{recv_letter_detail.dbday}}</td>
 		      </tr>
@@ -44,7 +44,7 @@
 		      <tr>
 		        <td colspan="4" class="text-right">
 		          <a href="../letter/recv_letter_list.do" class="btn btn-xs btn-danger">확인</a>
-		          <a :href="'../letter/letter_insert.do?recv_id='+recv_letter_detail.send_id" class="btn btn-xs btn-info">답장</a>
+		          <a :href="'../letter/letter_insert.do?recv_id='+recv_letter_detail.recv_id" class="btn btn-xs btn-info">답장</a>
 		        </td>
 		      </tr>
 		    </table>
@@ -62,7 +62,7 @@
 	  },
 	  mounted:function(){
 		  let _this=this
-		  axios.get("http://localhost/web/letter/recv_letter_detail_vue.do",{
+		  axios.get("http://localhost/web/letter/send_letter_detail_vue.do",{
 			  params:{
 				  lno:this.lno
 			  }

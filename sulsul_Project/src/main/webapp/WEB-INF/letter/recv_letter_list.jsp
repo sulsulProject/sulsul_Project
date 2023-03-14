@@ -9,13 +9,20 @@
 <link rel="stylesheet" href="../css/pagination.css?after">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<style type="text/css">
+.postBox:hover {
+	cursor:pointer;
+	background-color: #b84592;
+	color: white;
+}
+</style>
 </head>
 <body>
   <div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
     <div class="container">
       <div class="row align-items-center text-center">
         <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
-          <h1>쪽지함</h1>
+          <h1>${sessionScope.id }님의 쪽지함</h1>
           <p class="mb-4"><a href="index.html">Sul</a> / <strong>Letter</strong></p>        
         </div>
       </div>
@@ -26,10 +33,10 @@
     <div class="container">
         <table class="table">
                <tr>
-                 <th colspan="3" width="50%" class="text-center" style="border-right: 0.5px solid lightgray; border-bottom: 0.5px solid lightgray">
+                 <th colspan="3" width="50%" class="text-center postBox" style="border-right: 0.5px solid lightgray; border-bottom: 0.5px solid lightgray" v-on:click="change(1)">
                  받은쪽지함
                  </th>
-                 <th colspan="3" class="text-center" style="border-bottom: 0.5px solid lightgray">
+                 <th colspan="3" class="text-center postBox" style="border-bottom: 0.5px solid lightgray" v-on:click="change(2)">
                  보낸쪽지함
                  </th>
                </tr>
@@ -39,9 +46,11 @@
         	   <thead>
                <tr>
                  <th class="text-center" style="border-right: 0.5px solid lightgray">번호</th>
-                 <th class="text-center" style="border-right: 0.5px solid lightgray">보낸사람</th>
+                 <th class="text-center" style="border-right: 0.5px solid lightgray" v-if = "no == 1">보낸사람</th>
+                 <th class="text-center" style="border-right: 0.5px solid lightgray" v-if = "no == 2">받는사람</th>
                  <th class="text-center" style="border-right: 0.5px solid lightgray">제목</th>
-                 <th class="text-center" style="border-right: 0.5px solid lightgray">받은시간</th>
+                 <th class="text-center" style="border-right: 0.5px solid lightgray" v-if = "no == 1">받은시간</th>
+                 <th class="text-center" style="border-right: 0.5px solid lightgray" v-if = "no == 2">보낸시간</th>
                  <th class="text-center" style="border-right: 0.5px solid lightgray">읽음여부</th>
                  <th class="text-center" style="border-right: 0.5px solid lightgray">삭제여부</th>
                </tr>
@@ -49,9 +58,15 @@
                <tbody v-for="vo in recvletter_list">
                <tr style="border-bottom: 0.5px solid lightgray">
                  <td width="15%" class="text-center" style="border-right: 0.5px solid lightgray">{{vo.lno}}</td>
-                 <td width="15%" class="text-center" style="border-right: 0.5px solid lightgray">{{vo.send_id}}</td>
-                 <td width="35%" class="text-center" style="border-right: 0.5px solid lightgray">
+                 <td width="15%" class="text-center" style="border-right: 0.5px solid lightgray" v-if = "no == 1">{{vo.send_id}}</td>
+                 <td width="15%" class="text-center" style="border-right: 0.5px solid lightgray" v-if = "no == 2">{{vo.recv_id}}</td>
+                 <td width="35%" class="text-center" style="border-right: 0.5px solid lightgray" v-if = "no == 1">
                  <a :href="'../letter/recv_letter_detail.do?lno='+vo.lno">
+                 {{vo.title}}
+                 </a>
+                 </td>
+                 <td width="35%" class="text-center" style="border-right: 0.5px solid lightgray" v-if = "no == 2">
+                 <a :href="'../letter/send_letter_detail.do?lno='+vo.lno">
                  {{vo.title}}
                  </a>
                  </td>
@@ -59,7 +74,7 @@
                  <td width="10%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="vo.read_chk == 0">안읽음</td>
                  <td width="10%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="vo.read_chk == 1">읽음</td>
                  <td width="10%" class="text-center" style="border-right: 0.5px solid lightgray">
-                 <a :href="'letter/recv_letter_delete.do?lno='+vo.lno+'&?id='+vo.recv_id">
+                 <a :href="'../letter/recv_letter_delete.do?lno='+vo.lno+'&recv_id='+vo.recv_id">
                  삭제
                  </a>
                  </td>
@@ -83,7 +98,8 @@
 		  curpage:1,
 		  startPage:0,
 		  endPage:0,
-		  totalpage:0
+		  totalpage:0,
+		  no:1
 	  },
 	  mounted:function() {
 		  this.send()
@@ -93,10 +109,11 @@
 			  let _this=this
 			  axios.get("http://localhost/web/letter/recv_letter_list_vue.do",{
 				  params:{
-					  page:this.curpage
+					  page:this.curpage,
+	                  no:this.no
 				  }
 			  }).then(function(response) {
-				   console.log(response.data)
+				   console.log(response)
 				  _this.recvletter_list = response.data
 				  _this.curpage = response.data[0].curpage
 				  _this.totalpage = response.data[0].totalpage
@@ -128,7 +145,26 @@
 		  prev:function() {
 			  this.curpage=this.startPage-1;
 			  this.send();
-		  }
+		  },
+		  change:function(no,page){
+	            this.curpage=page
+	            this.no=no
+	             let _this=this;
+	             axios.get("http://localhost/web/letter/letter_change_vue.do",{
+	                params:{
+	                   no:no,
+	                   page:this.curpage
+	                }
+	             }).then(function(response){
+	                console.log(response.data)
+	                _this.recvletter_list=response.data
+	                _this.curpage=response.data[0].curpage
+	                _this.totalpage=response.data[0].totalpage
+	                _this.startPage=response.data[0].startPage
+	                _this.endPage=response.data[0].endPage
+	             })
+	           }
+
 	  }
   })
 </script>

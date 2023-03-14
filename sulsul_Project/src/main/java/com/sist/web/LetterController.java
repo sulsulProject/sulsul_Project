@@ -35,6 +35,12 @@ public class LetterController {
 		return "letter/recv_letter_detail";
 	}
 	
+	@GetMapping("letter/send_letter_detail.do")
+	public String send_letter_detail(int lno, Model model) {
+		model.addAttribute("lno", lno);
+		return "letter/send_letter_detail";
+	}
+	
 	@GetMapping("letter/letter_insert.do")
 	public String letter_insert(String recv_id, HttpServletRequest request, Model model) {
 		HttpSession session=request.getSession();
@@ -50,11 +56,16 @@ public class LetterController {
 		return "redirect:../letter/recv_letter_list.do";
 	}
 	
+	// 쪽지 삭제
 	@GetMapping("letter/recv_letter_delete.do")
 	public String recv_letter_delete(HttpServletRequest request) {
 		int lno = Integer.parseInt(request.getParameter("lno"));
 		String recv_id = request.getParameter("recv_id");
-		dao.recv_letter_Delete(lno, recv_id);
+		
+		Map map = new HashMap();
+		map.put("lno", lno);
+		map.put("recv_id", recv_id);
+		dao.recv_letter_Delete(map);
 		return "redirect:../letter/recv_letter_list.do";
 	}
 }

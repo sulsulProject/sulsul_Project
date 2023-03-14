@@ -64,7 +64,7 @@
 					<div class="menu-icons">
 
 						<a href="../letter/recv_letter_list.do" class="user-profile" >
-							<img src="../images/trade/email_on.png" style="width: 1em; height: 1em">
+							<img src="../images/trade/letter-y.png" style="width: 1em; height: 1em">
 						</a>
 
 						<a href="../mypage/mypage_main.do" class="user-profile">

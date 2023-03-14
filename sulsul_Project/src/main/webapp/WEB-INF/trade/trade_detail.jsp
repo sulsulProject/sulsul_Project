@@ -64,7 +64,7 @@
    	      </tr>
    	      <tr>
    	        <th width="20%">판매자</th>
-   	        <td width="30%" style="text-align: left">{{trade_detail.seller}}&nbsp;&nbsp;<a :href="'../letter/letter_insert.do?recv_id='+trade_detail.seller"><img src="../images/trade/email.png" style="width: 20px; height: 20px"></a></td>
+   	        <td width="30%" style="text-align: left">{{trade_detail.seller}}&nbsp;&nbsp;<a :href="'../letter/letter_insert.do?recv_id='+trade_detail.seller"><img src="../images/trade/letter-n.png" style="width: 20px; height: 20px"></a></td>
    	        <th width="20%">조회수</th>
    	        <td width="30%" style="text-align: left">{{trade_detail.hit}}</td>
    	      </tr>
