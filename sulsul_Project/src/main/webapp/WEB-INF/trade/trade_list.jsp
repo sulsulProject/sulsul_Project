@@ -15,11 +15,11 @@
 </style>
 </head>
 <body>
-  <div class="page-heading bg-light" style="height: 250px">
+  <div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
     <div class="container">
       <div class="row align-items-center text-center">
-        <div class="col-lg-7 mx-auto">
-          <h1>중고거래</h1>  
+        <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
+          <h1>중고거래</h1>
           <p class="mb-4"><a href="index.html">Sul</a> / <strong>Trade</strong></p>        
         </div>
       </div>

@@ -42,11 +42,11 @@
 </style>
 </head>
 <body>
-  <div class="page-heading bg-light" style="height: 250px">
+  <div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
     <div class="container">
       <div class="row align-items-center text-center">
-        <div class="col-lg-7 mx-auto">
-          <h1>판매제품</h1>  
+        <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
+          <h1>판매제품</h1>
           <p class="mb-4"><a href="index.html">Sul</a> / <strong>Trade</strong></p>        
         </div>
       </div>
@@ -64,7 +64,7 @@
    	      </tr>
    	      <tr>
    	        <th width="20%">판매자</th>
-   	        <td width="30%" style="text-align: left">{{trade_detail.seller}}&nbsp;&nbsp;<img src="../images/trade/email.png" style="width: 20px; height: 20px"></td>
+   	        <td width="30%" style="text-align: left">{{trade_detail.seller}}&nbsp;&nbsp;<a :href="'../letter/letter_insert.do?recv_id='+trade_detail.seller"><img src="../images/trade/email.png" style="width: 20px; height: 20px"></a></td>
    	        <th width="20%">조회수</th>
    	        <td width="30%" style="text-align: left">{{trade_detail.hit}}</td>
    	      </tr>
