@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style>
 /* .untree_co-section{
 	border : 1px solid black;
@@ -35,10 +37,10 @@
     <div id="aside"class="col-lg-3">   
       <table id="side" class="table">
       <tr >
-        <th><h5>고객센터</h5></th>
+        <th><h5><b>고객센터</b></h5></th>
        </tr>
        <tr>
-        <th><a href="../customer/faq.do">FAQ</a></th>
+        <th><a href="../customer/faq.do" >FAQ</a></th>
        </tr>
        <tr>
         <th><a href="../customer/iu.do">이용안내</a></th>
@@ -62,10 +64,10 @@
        <img src="https://post.malltail.com/img/banner/banner_malltail_howto.jpg" style="width: 760px">
       </div>
       <div style="height: 15px;"></div>
-      <div class="row-lg-3 rows">
+      <div class="row-lg-3 rows text-center">
       
          <!-- 이용 안내 테이블 -->
-        <table class="table">
+        <table class="table table-hover" style="width:750px">
           <thead style="background-color: #D0F1FB">
            <tr>
             <th width="10%" class="text-center">번호</th>
@@ -78,7 +80,9 @@
           <c:forEach var="vo" items="${list }">
            <tr> 
             <td width="10%" class="text-center">${vo.iuno }</td>
-            <td width="50%"><a href="../customer/iuDetail.do?iuno=${vo.iuno}">${vo.subject }</a></td>
+            <td width="50%" class="text-left">
+              <a href="../customer/iuDetail.do?iuno=${vo.iuno}" style="color: black">${vo.subject }</a>
+            </td>
             <td width="20%" class="text-center">${vo.dbday }</td>
             <td width="10%" class="text-center">${vo.hit }</td>
           </tr>
@@ -86,7 +90,7 @@
           <tr> 
            <td colspan="5" class="text-center">
              <a href="../customer/iu.do?page=${curpage>1? curpage-1:curpage }" class="btn btn-sm" style="background-color:#D0F1FB "">이전</a>
-          	  ${curpage  } / ${totalpage }
+          	 <b> ${curpage  } / ${totalpage }</b>
             <a href="../customer/iu.do?page=${curpage<totalpage? curpage+1:curpage }" class="btn btn-sm" style="background-color:#D0F1FB "">다음</a>
           </td>
           </tr>

@@ -3,6 +3,9 @@ import com.sist.vo.*;
 import com.sist.dao.*;
 import java.util.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,8 @@ public class CustomerController {
 	private InformationDAO idao;
 	@Autowired
 	private FaqDAO fdao;
+	@Autowired
+	private AskDAO adao;
 	
 	//faq관련 내용
 	@GetMapping("customer/faq.do")
@@ -32,12 +37,7 @@ public class CustomerController {
 		
 		return "customer/customer_faq";
 	}
-	
-	
-	
-	
-	
-	
+
 	
 	//////////////////////////////////////////////////////////
 	
@@ -97,16 +97,49 @@ public class CustomerController {
 	/////////////////////////////////////////////////////////////
 	//1:1 문의관련 내용
 	@GetMapping("customer/ask.do")
-	public String customerservice_ask()
+	public String customerservice_ask(HttpSession session,Model model)
 	{
-		
+		String id=(String)session.getAttribute("id");
+		System.out.println("컨트롤러 아이디"+id);
+		int count=0;
+		if(id==null)
+		{
+			count=adao.asknotTotalData();
+		}
+		else
+		{
+		    count =adao.askTotalData(id);
+		}
+		model.addAttribute("count",count);
+		System.out.println("모델"+count);
 		return "customer/customer_ask";
 	}
 	
 	@GetMapping("customer/ask_insert.do")
-	public String board_insert()
+	public String ask_insert()
 	{
 		return "customer/ask_insert";
+	}
+	
+	@GetMapping("customer/ask_detail.do")
+	public String ask_detail(int ano,Model model)
+	{
+		model.addAttribute("ano",ano);
+		return "customer/ask_detail";
+	}
+	
+	@GetMapping("customer/ask_update.do")
+	public String ask_update(int ano,Model model)
+	{
+		model.addAttribute("ano",ano);
+		return "customer/ask_update";
+	}
+	
+	@GetMapping("customer/ask_delete.do")
+	public String ask_delete(int ano,Model model)
+	{
+		model.addAttribute("ano",ano);
+		return "customer/ask_delete";
 	}
 	
 	
