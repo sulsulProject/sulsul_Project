@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +82,16 @@ public class BoardController {
 		
 		return "board/eventboard_list";
 	}
+	
+	@GetMapping("board/eventboard_before_detail.do")
+   public String food_before_detail(int ebno,HttpServletResponse response,RedirectAttributes ra) {
+	   Cookie cookie=new Cookie("eventboard"+ebno, String.valueOf(ebno));
+	   cookie.setPath("/");
+	   cookie.setMaxAge(60*60*24);
+	   response.addCookie(cookie);
+	   ra.addAttribute("ebno", ebno);
+	   return "redirect:../board/eventboard_detail.do";
+   }
 	
 	// 이벤트게시판
 	@GetMapping("board/eventboard_detail.do")

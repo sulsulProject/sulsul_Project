@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -240,4 +241,34 @@ public class BoardRestController {
 			  }
 			   return arr.toJSONString();
 		}
+	
+	// Cookie전송
+	@GetMapping(value="board/event_cookie_data_vue.do", produces = "text/plain;charset=UTF-8")
+	public String event_cookie_data(HttpServletRequest request) {
+		Cookie[] cookies = request.getCookies();
+		List<EventBoardVO> list = new ArrayList<EventBoardVO>();
+		if(cookies != null) {
+			for(int i=cookies.length-1; i>=0; i--) {
+				if(cookies[i].getName().startsWith("eventboard")) {
+					String ebno = cookies[i].getValue();
+					EventBoardVO vo = dao.eventboardDetailData(Integer.parseInt(ebno));
+					list.add(vo);
+				}
+			}
+		}
+		// JSON 변환
+				JSONArray arr = new JSONArray();
+				int i = 0;
+				for(EventBoardVO vo : list) {
+					if(i>9) break;
+					JSONObject obj = new JSONObject();
+					obj.put("ebno", vo.getEbno());
+					obj.put("title", vo.getTitle());
+					obj.put("image", vo.getImage());
+					arr.add(obj);
+					i++;
+				}
+				return arr.toJSONString();
+			}
+
 }

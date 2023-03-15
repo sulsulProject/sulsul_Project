@@ -62,9 +62,10 @@
 
 
 					<div class="menu-icons">
-
 						<a href="../letter/recv_letter_list.do" class="user-profile" >
+						<c:if test="${sessionScope.id!=null}">
 							<img src="../images/trade/letter-y.png" style="width: 1em; height: 1em">
+						</c:if>
 						</a>
 
 						<a href="../mypage/mypage_main.do" class="user-profile">

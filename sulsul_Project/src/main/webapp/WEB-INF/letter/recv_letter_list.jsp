@@ -15,6 +15,8 @@
 	background-color: #b84592;
 	color: white;
 }
+
+
 </style>
 </head>
 <body>
@@ -131,20 +133,29 @@
 			  return array;
 		  },
 		  pageChage:function(page){
-			  this.curpage = page;
-			  this.send();
+			  this.curpage=page
+              if(this.no==1)
+                  this.send()
+                else
+                   this.change(this.no,page)
 		  },
 		  find:function() {
 			  this.curpage=1;
 			  this.send();
 		  },
 		  next:function() {
-			  this.curpage=this.endPage+1;
-			  this.send();
+			  this.curpage=this.endPage+1
+	             if(this.no==1)
+	                 this.send()
+	               else
+	                this.change(this.no,this.curpage)
 		  },
 		  prev:function() {
-			  this.curpage=this.startPage-1;
-			  this.send();
+			  this.curpage=this.startPage-1
+	             if(this.no==1)
+	               this.send()
+	             else
+	                this.change(this.no,this.curpage)
 		  },
 		  change:function(no,page){
 	            this.curpage=page

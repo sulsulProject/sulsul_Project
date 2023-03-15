@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,8 +78,10 @@
 		   </div>
 	    </div>
 	    <div class="text-right" style="height: 30px;">
+	    <c:if test="${sessionScope.id!=null}">
 	      <a href="../board/freeboard_insert.do" class="boradBtn" v-on:click="move1()">글쓰기</a>
 	      <a class="boradBtn">내글보기</a>
+	    </c:if>
 	    </div>
 	       		<ul id="page_ul" style="padding-left: 0px;">
 			    <li class="page_li" v-if="startPage>1"><span class="mypost_page_pre page_a" v-on:click="prev()">◀</span></li>

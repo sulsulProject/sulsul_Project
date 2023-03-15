@@ -176,7 +176,7 @@ body {
 	<div class="list con">
 	    <ul class="row">
 	        <li class="cell" v-for = "vo in eventboard_list">
-	            <div class="img-box"><a :href="'../board/eventboard_detail.do?ebno='+vo.ebno"><img :src="vo.image"></a></div>
+	            <div class="img-box"><a :href="'../board/eventboard_before_detail.do?ebno='+vo.ebno"><img :src="vo.image"></a></div>
 	            <div class="event-name" style="border-top: 0.5px solid lightgrey; padding-top: 10px">{{vo.title}}</div>
 	            <div class="event-period">[{{vo.loc}}]</div>
 	            <div class="event-period">{{vo.rdate}}</div>
@@ -192,9 +192,18 @@ body {
 			    <li class="page_li" v-if="totalpage>endPage"><span class="mypost_page_next page_a" v-on:click="next()">▶</span></li>
 			    </ul>
     
+    <div style="height: 15px"></div>
+    <h4 class="text-center">최근 본 이벤트</h4>
+	          <div v-for ="vo1 in cookie_list" style="display: inline-block; margin-top:15px; margin-right: 10px">
+				<a :href="'../board/eventboard_detail.do?ebno='+vo1.ebno">
+				<img :src="vo1.image" style="height:100px; width:100px;">
+				</a>
+			  </div>
 	</div>
   </div>
 <script>
+	
+	
   new Vue({
 	  el:'.rows',
 	  data:{
@@ -203,11 +212,15 @@ body {
 		  startPage:0,
 		  endPage:0,
 		  totalpage:0,
-		  no:0
-
+		  no:0,
+		  cookie_list:[]
 	  },
 	  mounted:function() {
-		  this.send()
+		  let _this=this;
+		  _this.send()
+		  axios.get("http://localhost/web/board/event_cookie_data_vue.do").then(function(response){
+			  _this.cookie_list=response.data
+		  })
 	  },
 	  methods:{
 		  send:function(){
@@ -283,6 +296,7 @@ body {
 	           }
 	  }
   })
+  
 </script>
 </body>
 </html>
