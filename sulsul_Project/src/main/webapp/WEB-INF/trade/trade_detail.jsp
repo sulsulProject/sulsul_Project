@@ -99,7 +99,7 @@
    	      </tr>
    	      <tr>
    	      	<th colspan="4" class="text-center">
-   	          <a href="" class="tradeBtn"><span style="color: white;">채팅하기</span></a>
+   	          <a href="../chat/chat.do" class="tradeBtn"><span style="color: white;">채팅하기</span></a>
    	          <a href="../trade/trade_list.do" class="tradeBtn" style="background-color: #777777"><span style="color: white;">목&nbsp;&nbsp;록</span></a>
    	      	</th>
    	      </tr>

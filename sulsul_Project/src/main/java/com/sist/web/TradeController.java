@@ -18,4 +18,10 @@ public class TradeController {
 		model.addAttribute("tdno", tdno);
 		return "trade/trade_detail";
 	}
+	
+	@GetMapping("chat/chat.do")
+	public String chat_chat() {
+		
+		return "sul/chat/chat";
+	}
 }
