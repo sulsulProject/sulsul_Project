@@ -9,10 +9,10 @@
 <link rel="stylesheet" href="../css/freeboard.css?after">
 </head>
 <body>
-  <div class="page-heading bg-light" style="height: 250px">
+  <div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
     <div class="container">
       <div class="row align-items-center text-center">
-        <div class="col-lg-7 mx-auto">
+        <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
           <h1>글 목록</h1>
           <p class="mb-4"><a href="index.html">Sul</a> / <strong>FreeBoard</strong></p>        
         </div>

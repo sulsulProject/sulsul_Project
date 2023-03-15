@@ -13,8 +13,8 @@
     <div class="container">
       <div class="row align-items-center text-center">
         <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
-          <h1>글 상세</h1>
-          <p class="mb-4"><a href="index.html">Sul</a> / <strong>FreeBoard</strong></p>        
+          <h1>쪽지 상세</h1>
+          <p class="mb-4"><a href="index.html">Sul</a> / <strong>Letter</strong></p>        
         </div>
       </div>
     </div>
@@ -26,32 +26,25 @@
 		  <main class="container clear">
 		    <table class="table">
 		      <tr>
-		        <th width=20% class="text-center">번호</th>
-		        <td width=30%>{{board_detail.fbno}}</td>
-		        <th width=20% class="text-center">작성일</th>
-		        <td width=30%>{{board_detail.dbday}}</td>
-		      </tr>
-		      <tr>
-		        <th width=20% class="text-center">이름</th>
-		        <td width=30%>{{board_detail.name}}</td>
-		        <th width=20% class="text-center">조회수</th>
-		        <td width=30%>{{board_detail.hit}}</td>
+		        <th width=20% class="text-center">보낸사람</th>
+		        <td width=30%>{{recv_letter_detail.send_id}}</td>
+		        <th width=20% class="text-center">받은날짜</th>
+		        <td width=30%>{{recv_letter_detail.dbday}}</td>
 		      </tr>
 		      <tr>
 		        <th width=20% class="text-center">제목</th>
-		        <td colspan="3">{{board_detail.subject}}</td>
+		        <td colspan="3">{{recv_letter_detail.title}}</td>
 		      </tr>
 		      <tr>
 		        <th width=20% class="text-center" style="padding-top: 20px;">내용</th>
 		        <td colspan="3" valign="top" height="200" style="padding-top: 20px;">
-		        <pre style="white-space: pre-wrap;background-color: white;border: none">{{board_detail.content}}</pre>
+		        <pre style="white-space: pre-wrap;background-color: white;border: none">{{recv_letter_detail.content}}</pre>
 		        </td>
 		      </tr>
 		      <tr>
 		        <td colspan="4" class="text-right">
-		          <a :href="'../board/freeboard_update.do?fbno='+board_detail.fbno" class="btn btn-xs btn-danger">수정</a>
-		          <a :href="'../board/freeboard_delete.do?fbno='+board_detail.fbno" class="btn btn-xs btn-success">삭제</a>
-		          <a href="../board/freeboard_list.do" class="btn btn-xs btn-info">목록</a>
+		          <a href="../letter/recv_letter_list.do" class="btn btn-xs btn-danger">확인</a>
+		          <a :href="'../letter/letter_insert.do?recv_id='+recv_letter_detail.send_id" class="btn btn-xs btn-info">답장</a>
 		        </td>
 		      </tr>
 		    </table>
@@ -64,17 +57,17 @@
   new Vue({
 	  el:'.rows',
 	  data:{
-		  fbno:${fbno},
-		  board_detail:{}
+		  lno:${lno},
+		  recv_letter_detail:{}
 	  },
 	  mounted:function(){
 		  let _this=this
-		  axios.get("http://localhost/web/board/freeboard_detail_vue.do",{
+		  axios.get("http://localhost/web/letter/recv_letter_detail_vue.do",{
 			  params:{
-				  fbno:this.fbno
+				  lno:this.lno
 			  }
 		  }).then(function(response){
-			  _this.board_detail=response.data
+			  _this.recv_letter_detail=response.data
 		  })
 	  }
   })
