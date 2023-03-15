@@ -109,10 +109,10 @@ $(function(){
       <h1 class="text-center">WebSocket 채팅</h1>
       <table class="table">
        <tr>
-        <td>
+        <td class="text-right">
          <input type=button id="startBtn" value="입장" class="btn btn-sm btn-danger" data-name=${sessionScope.name }>
          <input type=button id="endBtn" value="퇴장" class="btn btn-sm btn-primary">
-         <a href="../main/main.do" class="btn btn-sm btn-warning">메인</a>
+         <a href="../main/main.do" class="btn btn-sm btn-warning">홈</a>
         </td>
        </tr>
        <tr>
@@ -124,7 +124,7 @@ $(function(){
        </tr>
        <tr>
          <td>
-           <input type="text" id="sendMsg" size=80 class="input-sm">
+           <input type="text" id="sendMsg" size=114 class="input-sm">
            <input type=button id="sendBtn" value="전송" class="btn btn-sm btn-success">
          </td>
        </tr>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,12 @@
 <title>Insert title here</title>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<style type="text/css">
+div.pic_detail_reply {
+    width: 100%;
+    padding-top: 15px;
+}
+</style>
 </head>
 <body>
   <div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
@@ -24,7 +31,7 @@
     <div class="container">
 		<div class="wrapper row3 rows">
 		  <main class="container clear">
-		    <table class="table">
+		    <table class="table" id="freeaboard_detail">
 		      <tr>
 		        <th width=20% class="text-center">번호</th>
 		        <td width=30%>{{board_detail.fbno}}</td>
@@ -55,13 +62,14 @@
 		        </td>
 		      </tr>
 		    </table>
+		    <div style="height: 20px"></div>
 		  </main>
 		</div>
 	</div>
 </div>
 
 <script>
-  new Vue({
+   new Vue({
 	  el:'.rows',
 	  data:{
 		  fbno:${fbno},
@@ -77,7 +85,9 @@
 			  _this.board_detail=response.data
 		  })
 	  }
-  })
+  }) 
+  
+ 
 </script>
  
 </body>

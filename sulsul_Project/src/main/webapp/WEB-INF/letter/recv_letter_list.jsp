@@ -81,7 +81,7 @@
                </tr>
                </tbody>
         </table>
-        
+        		
 		        <ul id="page_ul" style="padding-left: 0px;">
 			    <li class="page_li" v-if="startPage>1"><span class="mypost_page_pre page_a" v-on:click="prev()">◀</span></li>
 			    <li class="page_li" v-for="i in range(startPage, endPage)" v-if="i===curpage"><span class="mypost_page page_a li_active" v-on:click="pageChage(i)">{{i}}</span></li>
@@ -113,7 +113,7 @@
 	                  no:this.no
 				  }
 			  }).then(function(response) {
-				   console.log(response)
+				   console.log(response.data)
 				  _this.recvletter_list = response.data
 				  _this.curpage = response.data[0].curpage
 				  _this.totalpage = response.data[0].totalpage

@@ -12,14 +12,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sist.dao.BoardDAO;
+import com.sist.dao.ReplyDAO;
+import com.sist.vo.AllReplyVO;
 import com.sist.vo.FreeBoardVO;
 
 @Controller
 public class BoardController {
+	private String[] url = {"", "../board/freeboard_detail.do", ""};
+	
 	@Autowired
 	private BoardDAO dao;
+	@Autowired
+	private ReplyDAO rdao;
 	
 	@GetMapping("board/freeboard_list.do")
 	public String freeboard_list() {
