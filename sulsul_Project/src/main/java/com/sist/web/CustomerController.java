@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CustomerController {
@@ -21,23 +23,47 @@ public class CustomerController {
 	private AskDAO adao;
 	
 	//faq관련 내용
-	@GetMapping("customer/faq.do")
-	public String customerservice_faq(FaqCategoryVO vo,Model model)
+	@RequestMapping("customer/faq.do")
+	public String customerservice_faq(String subject,Model model)
 	{
+		int count=0;
+		List<FaqVO> sList=new ArrayList<FaqVO>();
+		
+		if(subject==null) {
+			subject="ALL";
+			count=78;
+			sList=fdao.faqSearchFindData1();
+		}
+		else if(subject.equals("")) {
+			subject="ALL";
+			count=78;
+			sList=fdao.faqSearchFindData1();
+		}
+		else { // null이 아닌 경우
+			count=fdao.askFindCount2(subject);
+			if(count>0) {
+				sList=fdao.faqSearchFindData2(subject);
+			}
+		}
 		// 나라별 센터 소개
 		List<NationIntroduceVO> nList=fdao.nationListData();
-		// faq 카테고리
-		List<FaqCategoryVO> fList=fdao.FaqCategoryList();
-		// faq 리스트 출력
-		List<FaqVO> faqList=fdao.FaqListData(vo.getFcno());
 		
-		model.addAttribute("faqList",faqList);
+		model.addAttribute("subject",subject);
+		model.addAttribute("sList",sList);
+		model.addAttribute("count",sList.size());
 		model.addAttribute("nList",nList);
-		model.addAttribute("fList",fList);
 		
 		return "customer/customer_faq";
 	}
 
+	//faq_detail
+	@GetMapping("customer/faq_detail.do")
+	public String customerservice_faq_detail(int fno, Model model)
+	{
+		model.addAttribute("fno",fno);
+		return "customer/faq_detail";
+	}
+	
 	
 	//////////////////////////////////////////////////////////
 	

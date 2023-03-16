@@ -14,13 +14,13 @@
   <main>
   <div class="container">
    <div class="row">
-     <div class="col-lg-2"></div>
+      <div class="col-lg-1"></div> 
      
      <!-- detail 상세 내용 -->
-     <div class="col-lg-8">
+     <div class="col-lg-10">
      <div style="height: 80px"></div>
-      <div class="text-center">
-        <b style="font-size: 40px">1:1 문의 내용</b>
+      <div class="text-center" style="background-color: #D0F1FB; height:120px;padding-top:30px">
+        <b style="font-size: 40px">1:1 문의내용</b>
           <p class="mb-4">
           <a href="../main/main.do">Sul</a> / <strong>고객센터</strong></p>        
       </div> 
@@ -56,9 +56,7 @@
 	    </tr>
 	   </table> 
      </div>
-     
-  
-     <div class="col-lg-2"></div>
+     <div class="col-lg-1"></div> 
     </div> <!-- row -->
    </div> <!--container  -->
    </main>

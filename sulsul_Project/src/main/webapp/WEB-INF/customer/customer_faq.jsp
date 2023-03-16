@@ -6,16 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/pagination.css?after">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style>
-.untree_co-section{
+/* .untree_co-section{
 	border : 1px solid black;
 }
 .container{
     border : 1px solid red;
 } 
-
+ */
 #side { //사이드바 같이 이동 시키려고
     position: sticky;
     top: 100px;
@@ -23,7 +24,6 @@
 }
 
 .button1{
-	padding-left:500px;
 	height: 40px;
 	width: 400px;
 	border :1px solid #D0F1FB;
@@ -46,11 +46,16 @@ button{
 	float:right;
 	color:black;
 }
-a.test:hover {
-   text-decoration: underline; // 언더라인(아래줄) 스타일 부여
+button:hover{
+	cursor:pointer;
+	background-color: #DCDCDC;
 }
 /*/////////////////////////////////////////////*/
-
+.postBox:hover {
+	cursor:pointer;
+	background-color: #D0F1FB;
+	color: black;
+}
 </style>
 </head>
 <body>
@@ -92,7 +97,7 @@ a.test:hover {
 	        <div class="owl-4-slider owl-carousel">
 			 <c:forEach var="vo" items="${nList }" begin="0" end="21">
 				<div class="item" >
-					<div class="product-item" style="background-color: #D0F1FB;border-radius: 1em;">
+					<div class="product-item" style="background-color: #D0F1FB;border-radius: 1em;"">
 							<sub style="color: gray">${vo.nation }</sub><br>
 							<b>${vo.title }</b>
 							<div style="padding-left:70px;">
@@ -100,9 +105,10 @@ a.test:hover {
 					     </div>
 					     
 					     <!--  TO_DO : 나라별 현재 시간 추가 / 업무 상태 추가 -->
-						<div><b>시간추가</b></div>
-						<div><b>업무중 추가</b></div>
-						
+					     
+						<!-- <div><b>시간추가</b></div>-->
+						<div><b>업무중</b></div>
+						<div style="height: 10px"></div>
 					</div>
 				</div> <!-- /.item -->
 				</c:forEach>
@@ -111,47 +117,285 @@ a.test:hover {
      </div>
      <!-- 나라별 고객센터 소개 끝 -->
      
-     <!-- 크기 맞추려고 -->
-     <div class="col-lg-3"></div>
-     
-	 <div class="col-lg-9">
-	   <!-- 나라별 고객센터 소개 dot 때문에 높이 조정 -->
+    
        <div style="height: 50px"></div>
        <!-- 검색창  start -->
-         <!-- 검색 창 수정할지 말지 고민중 -->
-       <!-- <div class="button1">
-         <input type="text" placeholder="검색어를 입력하세요">
-         <button>검색</button>
-       </div> -->
-       <div class="container">
-	       <div class="text-center" style="border-color: black">
-			<!--  <label for="search" class="blind">공지사항 내용 검색</label> -->
-			   <input id="search" type="search" name="ss" placeholder="검색어를 입력해주세요." value="">
-			   <button type="submit" class="btn btn-sm" style="background-color: #D0F1FB">검색</button>
-		   </div>
-       </div>
-       <!-- Faq (탭스 사용) 시작 -->
-       <div style="height: 50px"></div>
-       <div >
-          <button class="btn btn-xs" style="width: 120px;height:30px;background-color: #D0F1FB;" v-on:click="change(1)">전체</button>
-          <button class="btn btn-xs" style="width: 120px;height:30px;background-color: #D0F1FB;" v-on:click="change(2)">배송신청서& 회원관련</button>
-          <button class="btn btn-xs" style="width: 120px;height:30px;background-color: #D0F1FB;" v-on:click="change(3)">입고관련</button>
-          <button class="btn btn-xs" style="width: 120px;height:30px;background-color: #D0F1FB;" v-on:click="change(4)">배송관련</button>
-          <button class="btn btn-xs" style="width: 120px;height:30px;background-color: #D0F1FB;" v-on:click="change(5)">결제관련</button>
-          <button class="btn btn-xs" style="width: 120px;height:30px;background-color: #D0F1FB;" v-on:click="change(6)">반송관련</button>
-          <button class="btn btn-xs" style="width: 120px;height:30px;background-color: #D0F1FB;" v-on:click="change(7)">다해줌</button>
-          <button class="btn btn-xs" style="width: 120px;height:30px;background-color: #D0F1FB;" v-on:click="change(8)">기타</button>
-        </div>
-       
-
-      <!-- Faq (탭스 사용) 끝 -->
-  
-   
-
-    </div><!-- .col-lg-9 끝 -->
+       <div style="padding-left: 190px">
+        <form method="post" action="../customer/faq.do" >
+	      <div class="button1 "  >
+            <input type="text" placeholder="검색어를 입력하세요" name="subject">
+             <button> <b>검색</b></button>
+          </div>
+        </form>
+        </div> 
+      <div style="height: 5px"></div>
+      
+      <!-- 검색 결과 받는 부분 -->
+       <c:if test="${count==0 }">
+        <div class="text-center">
+      	  <span style="color:red;font-size:30px">검색한 결과가 없습니다</span>
+      	</div>
+      </c:if>
+      
+      <!-- 검색결과가 있는 경우 -->
+      <c:if test="${count>0 && count<78 }">
+      <div style="height: 20px"></div>
+            <table class="table table-hover">
+              <thead>
+               <tr>
+                 <th width="20%" class="text-center" style="border-right: 0.5px solid lightgray">타입</th>
+                 <th width="80%" class="text-center" style="border-right: 0.5px solid lightgray" >제목</th>
+               </tr>
+              </thead>
+              <c:forEach var="vo" items="${sList}">
+             <tr>
+              <td width="20%" class="text-center" style="border-right: 0.5px solid lightgray"><b>${vo.type}</b></td>
+              <td width="80%" class="text-left" style="border-right: 0.5px solid lightgray">
+                  <a href="../customer/faq_detail.do?fno=${vo.fno}" style="color: black">${vo.subject}</a>
+               </td>
+             </tr>
+             </c:forEach>
+           </table>
+     </c:if> 
+      
+     <!-- Faq 테이블 기본 값 -->
+      <c:if test="${subject=='ALL'}">
+        <div class="rows">
+          <div>
+            <table class="table">
+              <tr>
+               <th  class="text-center postBox" style="border-right: 0.5px solid lightgray; border-bottom: 0.5px solid lightgray" v-on:click="change(1)">
+                 전체
+                 </th>
+                 <th  class="text-center postBox" style="border-right: 0.5px solid lightgray;border-bottom: 0.5px solid lightgray" v-on:click="change(2)">
+                 배송신청서&회원관련
+                </th>
+                <th  class="text-center postBox" style="border-right: 0.5px solid lightgray;border-bottom: 0.5px solid lightgray" v-on:click="change(3)">
+                 입고관련
+                </th>
+                <th  class="text-center postBox" style="border-right: 0.5px solid lightgray;border-bottom: 0.5px solid lightgray" v-on:click="change(4)">
+                 배송관련
+                </th>
+                <th  class="text-center postBox" style="border-right: 0.5px solid lightgray;border-bottom: 0.5px solid lightgray" v-on:click="change(5)">
+                 결제관련
+                </th>
+                <th  class="text-center postBox" style="border-right: 0.5px solid lightgray;border-bottom: 0.5px solid lightgray" v-on:click="change(6)">
+                 반송관련
+                </th>
+                <th  class="text-center postBox" style="border-right: 0.5px solid lightgray;border-bottom: 0.5px solid lightgray" v-on:click="change(7)">
+                 다해줌
+                </th>
+                <th  class="text-center postBox" style="border-bottom: 0.5px solid lightgray" v-on:click="change(8)">
+                 기타
+                </th>
+              </tr>
+            </table>
+            <div style="height: 20px"></div>
+            <table class="table table-hover">
+              <thead>
+               <tr>
+                 <th width="20%" class="text-center" style="border-right: 0.5px solid lightgray">타입</th>
+                 <th width="80%" class="text-center" style="border-right: 0.5px solid lightgray" >제목</th>
+               </tr>
+              </thead>
+              <tbody v-for="vo in faq_list">
+                <tr>
+                 <td width="20%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="no==1"><b>{{vo.type}}</b></td>
+                 <td width="80%" class="text-left" style="border-right: 0.5px solid lightgray" v-if="no==1">
+                  <a :href="'../customer/faq_detail.do?fno='+vo.fno" style="color: black">{{vo.subject}}</a>
+                 </td>
+                 
+                 <td width="20%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="no==2"><b>{{vo.type}}</b></td>
+                 <td width="80%" class="text-left" style="border-right: 0.5px solid lightgray" v-if="no==2">
+                  <a :href="'../customer/faq_detail.do?fno='+vo.fno" style="color: black">{{vo.subject}}</a>
+                 </td>
+                 
+                 <td width="20%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="no==3"><b>{{vo.type}}</b></td>
+                 <td width="80%" class="text-left" style="border-right: 0.5px solid lightgray" v-if="no==3">
+                  <a :href="'../customer/faq_detail.do?fno='+vo.fno" style="color: black">{{vo.subject}}</a>
+                 </td>
+                 
+                 <td width="20%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="no==4"><b>{{vo.type}}</b></td>
+                 <td width="80%" class="text-left" style="border-right: 0.5px solid lightgray" v-if="no==4">
+                  <a :href="'../customer/faq_detail.do?fno='+vo.fno" style="color: black">{{vo.subject}}</a>
+                 </td>
+                 
+                 <td width="20%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="no==5"><b>{{vo.type}}</b></td>
+                 <td width="80%" class="text-left" style="border-right: 0.5px solid lightgray" v-if="no==5">
+                  <a :href="'../customer/faq_detail.do?fno='+vo.fno" style="color: black">{{vo.subject}}</a>
+                 </td>
+                 
+                 <td width="20%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="no==6"><b>{{vo.type}}</b></td>
+                 <td width="80%" class="text-left" style="border-right: 0.5px solid lightgray" v-if="no==6">
+                  <a :href="'../customer/faq_detail.do?fno='+vo.fno" style="color: black">{{vo.subject}}</a>
+                 </td>
+                 
+                 <td width="20%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="no==7"><b>{{vo.type}}</b></td>
+                 <td width="80%" class="text-left" style="border-right: 0.5px solid lightgray" v-if="no==7">
+                  <a :href="'../customer/faq_detail.do?fno='+vo.fno" style="color: black">{{vo.subject}}</a>
+                 </td>
+                 
+                 <td width="20%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="no==8"><b>{{vo.type}}</b></td>
+                 <td width="80%" class="text-left" style="border-right: 0.5px solid lightgray" v-if="no==8">
+                  <a :href="'../customer/faq_detail.do?fno='+vo.fno" style="color: black">{{vo.subject}}</a>
+                 </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- 페이지 기능 -->
+            <ul id="page_ul" style="padding-left: 0px;">
+			    <li class="page_li" v-if="startPage>1">
+			    	<span class="mypost_page_pre page_a" v-on:click="prev()">
+			           ◀
+			        </span>
+			    </li>
+			    
+			    <li class="page_li" v-for="i in range(startPage, endPage)" v-if="i===curpage">
+			         <span class="mypost_page page_a li_active" v-on:click="pageChage(i)">
+			         {{i}}
+			       </span>
+			    </li>
+			    
+			    <li class="page_li" v-else>
+			       <span class="mypost_page page_a" v-on:click="pageChange(i)">
+			       {{i}}
+			       </span>
+			    </li>
+			    
+			    <li class="page_li" v-if="totalpage>endPage">
+			       <span class="mypost_page_next page_a" v-on:click="next()">
+			       ▶
+			       </span>
+			    </li>
+			 </ul> 
+          </div> 
+         </div>
+     </c:if>
    </div> <!-- #content 끝 -->
   </div>
   </div>
 </div>
+<script>
+	new Vue({
+		el:'.rows',
+		data:{
+			faq_list:[],
+			curpage:1,
+			startPage:0,
+			endPage:0,
+			totalpage:0,
+			no:1,
+			ss:'',
+			search_list:[]
+		},
+		mounted:function(){
+			let _this=this
+			axios.get('http://localhost/web/customer/faq_list_vue.do',{
+				params:{
+					  page:this.curpage,
+	                  no:this.no
+				  }
+			}).then(function(response) {
+				   console.log(response.data)
+				  _this.faq_list = response.data
+				  _this.curpage = response.data[0].curpage
+				  _this.totalpage = response.data[0].totalpage
+				  _this.startPage = response.data[0].startPage
+				  _this.endPage = response.data[0].endPage
+			})
+		},
+		methods:{
+			send:function(){
+				let _this=this
+				axios.get('http://localhost/web/customer/faq_list_vue.do',{
+					params:{
+						  page:this.curpage,
+		                  no:this.no
+					  }
+				}).then(function(response) {
+					   console.log(response.data)
+					  _this.faq_list = response.data
+					  _this.curpage = response.data[0].curpage
+					  _this.totalpage = response.data[0].totalpage
+					  _this.startPage = response.data[0].startPage
+					  _this.endPage = response.data[0].endPage
+				})
+			}, //send
+			getData:function(){
+				let _this=this;
+				axios.get("http://localhost/web/customer/faq_find_vue.do",{
+					params:{
+						subject:this.ss
+					}
+				}).then(function(response){
+					console.log(resposne.data)
+					_this.search_list=response.data;
+		            _this.curpage=response.data[0].curpage
+		            _this.totalpage=response.data[0].totalpage
+		            _this.startPage=response.data[0].startPage
+		            _this.endPage=response.data[0].endPage
+				})
+			},
+			find:function(){
+				//this.curpage=1;
+				this.getData();
+			},
+			// 범위
+			range:function(min,max){
+	               let array=[],
+	               j=0
+	               for(let i=min; i<=max; i++){
+	                  array[j] =i
+	                  j++
+	               }
+	               return array
+	            },
+	       pageChange:function(page){
+	           this.curpage=page
+	           if(this.no==0)
+	                this.send()
+	           else
+	                this.change(this.no,page)
+	        },
+			find:function() {
+				this.curpage=1;
+				this.send();
+			},
+			prev:function(){
+	             this.curpage=this.startPage-1
+	             if(this.no==0)
+	               this.send()
+	             else
+	                this.change(this.no,this.curpage)
+	          },
+	       next:function(){
+	             this.curpage=this.endPage+1
+	             if(this.no==0)
+	                 this.send()
+	               else
+	                this.change(this.no,this.curpage)
+	        },
+			change:function(no,page){
+				this.curpage=page;
+				this.no=no
+				let _this=this;
+				axios.get("http://localhost/web/customer/faq_change_vue.do",{
+	                params:{
+		                   no:no,
+		                   page:this.curpage
+		                }
+		        }).then(function(response){
+		            console.log(response.data)
+		            _this.faq_list=response.data
+		            _this.curpage=response.data[0].curpage
+	                _this.totalpage=response.data[0].totalpage
+	                _this.startPage=response.data[0].startPage
+	                _this.endPage=response.data[0].endPage
+		    })
+		}
+	} //methods
+}) //전체
+
+</script>
 </body>
 </html>
