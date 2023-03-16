@@ -235,18 +235,18 @@ public class CustomerRestController {
 		return "";
 	}
 	
-	@GetMapping(value = "customer/ask_detail_vue.do",produces = "text/plain;charset=UTF-8")
-	public String  ask_detail(int ano)
-	{
-		AskVO vo = adao.askDetailData(ano);
-		JSONObject obj=new JSONObject();
-		obj.put("ano", vo.getAno());
-		obj.put("subject", vo.getSubject());
-		obj.put("id", vo.getId());
-		obj.put("dbday", vo.getDbday());
-		obj.put("content", vo.getContent());
-		return obj.toJSONString();
-	}
+//	@GetMapping(value = "customer/ask_detail_vue.do",produces = "text/plain;charset=UTF-8")
+//	public String  ask_detail(int ano)
+//	{
+//		AskVO vo = adao.askDetailData(ano);
+//		JSONObject obj=new JSONObject();
+//		obj.put("ano", vo.getAno());
+//		obj.put("subject", vo.getSubject());
+//		obj.put("id", vo.getId());
+//		obj.put("dbday", vo.getDbday());
+//		obj.put("content", vo.getContent());
+//		return obj.toJSONString();
+//	}
 	
 	// 수정하기
 	@GetMapping(value = "customer/ask_update_vue.do",produces = "text/plain;charset=UTF-8")

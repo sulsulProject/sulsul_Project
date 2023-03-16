@@ -21,7 +21,8 @@ public class CustomerController {
 	private FaqDAO fdao;
 	@Autowired
 	private AskDAO adao;
-	
+	@Autowired
+	private ReplyDAO rdao;
 	//faq관련 내용
 	@RequestMapping("customer/faq.do")
 	public String customerservice_faq(String subject,Model model)
@@ -148,9 +149,17 @@ public class CustomerController {
 	}
 	
 	@GetMapping("customer/ask_detail.do")
-	public String ask_detail(int ano,Model model)
+	public String ask_detail(HttpServletRequest request,String cate_no,Model model)
 	{
-		model.addAttribute("ano",ano);
+		AskVO vo=adao.askDetailData(Integer.parseInt(request.getParameter("ano")));
+		model.addAttribute("vo", vo);
+		model.addAttribute("ano", Integer.parseInt(request.getParameter("ano")));
+		model.addAttribute("cate_no", Integer.parseInt(request.getParameter("cate_no")));
+		
+		
+		List<AllReplyVO> rList = rdao.sul_replyList(Integer.parseInt(request.getParameter("ano")), Integer.parseInt(request.getParameter("cate_no")));
+		
+		model.addAttribute("rList", rList);
 		return "customer/ask_detail";
 	}
 	
