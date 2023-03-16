@@ -41,7 +41,7 @@ public class AllReplyController {
 		   return "redirect:"+url[vo.getCate_no()];
 	   }
 	   
-   @PostMapping("reply/freeborad_update.do")
+   @PostMapping("reply/freeboard_update.do")
    public String reply_update(AllReplyVO vo, RedirectAttributes ra) {
 	   
 	   dao.sul_replyUpdate(vo.getNo(), vo.getMsg());
