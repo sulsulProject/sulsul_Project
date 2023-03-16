@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SUL</title>
 <link rel="stylesheet" href="https://kit.fontawesome.com/2fd2b83183.css" crossorigin="anonymous">
 <style type="text/css">
 .img-fluid-1{
@@ -61,81 +61,45 @@
 				</div>
 			</div> <!-- /.untree_co-hero -->
 		</div>
-		
 	</div>
-
+	<hr>
 	<!--  -->
-	
-		<div class="untree_co-section">
-		<div class="container">
-						<div class="col-md-6">
-					<h2 class="h3">모임</h2>        
-				</div>
-			<div class="row align-items-stretch">
-				<div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
-					<img src="../images/meeting-1.jpg" style="width: 100px;">
-				</div>
-				<div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
-					<div class="feature h-100">
-						<div class="icon mb-4">
-							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-shield-lock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
-								<path d="M9.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-								<path d="M7.411 8.034a.5.5 0 0 1 .493-.417h.156a.5.5 0 0 1 .492.414l.347 2a.5.5 0 0 1-.493.585h-.835a.5.5 0 0 1-.493-.582l.333-2z"/>
-							</svg>
-						</div>
-						<h3>Secure Payments</h3>
-						<p>Far far away, behind the word mountains, far from the countries.</p>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
-					<div class="feature h-100">
-						<div class="icon mb-4">
-							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-counterclockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" d="M12.83 6.706a5 5 0 0 0-7.103-3.16.5.5 0 1 1-.454-.892A6 6 0 1 1 2.545 5.5a.5.5 0 1 1 .91.417 5 5 0 1 0 9.375.789z"/>
-								<path fill-rule="evenodd" d="M7.854.146a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 1 0 .708-.708L5.707 3 7.854.854a.5.5 0 0 0 0-.708z"/>
-							</svg>
-						</div>
-						<h3>Simple Returns</h3>
-						<p>Far far away, behind the word mountains, far from the countries.</p>
-					</div>
-				</div>
+	<div class="untree_co-section" style="padding-bottom: 20px">
+		<div class="container" style="margin-bottom: 40px; text-align: center;">
+			<b style="font-size: 30px; margin-bottom: 20px ">Event</b>
+			<div style="display: flex; justify-content: space-between; margin-top: 20px">
+				<img src="https://wine21.speedgabia.com/EVENT_MST/froala/202302/20230224183352102544.jpg" style="width:49%;">
+				<img src="https://wine21.speedgabia.com/EVENT_MST/froala/202303/20230309180207166331.png" style="width:49%;">
 			</div>
 		</div>
-	</div> <!-- /.untree_co-section -->
+	</div>					
+	<hr>	
+	
+	<div class="untree_co-section" style="padding-bottom: 20px">
+		<div class="container" style="margin-bottom: 40px; text-align: center;">
+			<b style="font-size: 30px; margin-bottom: 20px ">Community</b>
+			<div style="display: flex; justify-content: space-between; margin-top: 20px">
+				<div class="col deal-hero overlay" style="background-image: url('../images/trade.jpg'); width:49%;"> 
+				<div class="deal-contents">
+					<h2 class="title mb-4"><a href="../trade/trade_list.do">중고거래</a></h2>
+					<a href="../trade/trade_list.do" class="btn btn-sm btn-black">Move Now</a>
+				</div>
+			</div> <!-- /.deal-hero -->
+			<div class="col deal-hero overlay" style="background-image: url('../images/regular.jpg'); width:49%;"> 
+				<div class="deal-contents">
+					<h2 class="title mb-4"><a href="../regular/regular.do">정기모임</a></h2>
+					<a href="../regular/regular.do" class="btn btn-sm btn-black">Move Now</a>
+				</div>
+			</div> <!-- /.deal-hero -->
+			</div>
+		</div>
+	</div>					
+	<hr>	
 	
 	
 	<!--  -->
 
-
-	<div class="untree_co-section">
-		<div class="container" style="margin-bottom: 40px;">
-
-
-			<div class="col deal-hero overlay" style="background-image: url('../images/hero-slider-4-min.jpg')"> 
-				<div class="deal-contents">
-					<h2 class="title mb-4"><a href="#">Community</a></h2>
-					<a href="#" class="btn btn-sm btn-black">Move Now</a>
-				</div>
-			</div> <!-- /.deal-hero -->
-			<div class="col deal-hero overlay" style="background-image: url('../images/hero-slider-4-min.jpg')"> 
-				<div class="deal-contents">
-					<h2 class="title mb-4"><a href="#">Marcket</a></h2>
-					<a href="#" class="btn btn-sm btn-black">Move Now</a>
-				</div>
-			</div> <!-- /.deal-hero -->
-
-		</div>
-	</div>
-
-	<div style="height: 200px;"></div>
-
-
-
 	<!-- 상품 리스트 start -->
-	
-
-
 	
 	<div class="untree_co-section">
 		<div class="container">
@@ -145,18 +109,8 @@
 				</div>
 				<div class="col-sm-6 carousel-nav text-sm-right">
 					<a href="#" class="prev js-custom-prev-v2">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
-							<path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
-						</svg>
 					</a>
 					<a href="#" class="next js-custom-next-v2">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path fill-rule="evenodd" d="M7.646 11.354a.5.5 0 0 1 0-.708L10.293 8 7.646 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
-							<path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
-						</svg>
 					</a>
 				</div>
 			</div> <!-- /.heading -->
@@ -180,7 +134,7 @@
 			</div>
 		</div> <!-- /.container -->
 	</div> <!-- /.untree_co-section -->  
-	
+	<hr>
 	<div class="untree_co-section">
 		<div class="container">
 			<div class="row mb-5 align-items-center">
@@ -189,18 +143,8 @@
 				</div>
 				<div class="col-sm-6 carousel-nav text-sm-right">
 					<a href="#" class="prev js-custom-prev-v2">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
-							<path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
-						</svg>
 					</a>
 					<a href="#" class="next js-custom-next-v2">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path fill-rule="evenodd" d="M7.646 11.354a.5.5 0 0 1 0-.708L10.293 8 7.646 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
-							<path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
-						</svg>
 					</a>
 				</div>
 			</div> <!-- /.heading -->
@@ -224,7 +168,7 @@
 			</div>
 		</div> <!-- /.container -->
 	</div> <!-- /.untree_co-section -->  
-	
+	<hr>
 	
 		<div class="untree_co-section">
 		<div class="container">
@@ -234,18 +178,10 @@
 				</div>
 				<div class="col-sm-6 carousel-nav text-sm-right">
 					<a href="#" class="prev js-custom-prev-v2">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
-							<path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
-						</svg>
+						
 					</a>
 					<a href="#" class="next js-custom-next-v2">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path fill-rule="evenodd" d="M7.646 11.354a.5.5 0 0 1 0-.708L10.293 8 7.646 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
-							<path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
-						</svg>
+						
 					</a>
 				</div>
 			</div> <!-- /.heading -->
@@ -269,7 +205,7 @@
 			</div>
 		</div> <!-- /.container -->
 	</div> <!-- /.untree_co-section -->  
-	
+	<hr>
 	
 	
 

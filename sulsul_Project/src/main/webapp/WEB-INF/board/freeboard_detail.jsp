@@ -105,8 +105,8 @@ input[type=button]:hover {
                  <td class="text-left">◑${rvo.name }(${rvo.dbday })</td>
                  <td class="text-right">
                    <c:if test="${sessionScope.id == rvo.id }">
-                     <span class="btn btn-xs btn-success ups" data-no="${rvo.no }">수정</span>
-                     <a href="../reply/freeboard_delete.do?no=${rvo.no }&rno=${vo.fbno}&cate_no=1" class="btn btn-xs btn-info">삭제</a>
+                     <span class="btn btn-xs btn-info ups" data-no="${rvo.no }">수정</span>
+                     <a href="../reply/freeboard_delete.do?no=${rvo.no }&rno=${vo.fbno}&cate_no=1" class=""><img src="../images/delete.png" style="width:25px; height: 25px"></a>
                    </c:if>
                  </td>
                 </tr>
@@ -121,8 +121,8 @@ input[type=button]:hover {
 	                <input type="hidden" name=no value="${rvo.no }">
 	                <input type=hidden name=rno value="${vo.fbno }">
 	                <input type=hidden name=cate_no value="1">
-	                <textarea rows="3" cols="120" name="msg" style="float: left">${rvo.msg }</textarea>
-	                <input type=submit value="댓글수정" style="float: left;height: 82px; margin-left: 10px" class="btn btn-sm btn-primary">
+	                <textarea rows="3" cols="115" name="msg" style="float: left">${rvo.msg }</textarea>
+	                <input type=submit value="댓글수정" style="float: left;height: 82px; margin-left: 10px; background-color: lightgary" class="btn btn-sm">
 	              </form>
 	             </td>
 	            </tr>
@@ -139,7 +139,7 @@ input[type=button]:hover {
               <form method="post" action="../reply/freeboard_insert.do">
                 <input type=hidden name=rno value="${vo.fbno }">
                 <input type=hidden name=cate_no value="1">
-                <textarea rows="3" cols="126" name="msg" style="float: left"></textarea>
+                <textarea rows="3" cols="115" name="msg" style="float: left"></textarea>
                 <input type=submit value="댓글쓰기" style="float: left;height: 82px; margin-left: 10px" class="btn btn-sm btn-primary">
               </form>
              </td>

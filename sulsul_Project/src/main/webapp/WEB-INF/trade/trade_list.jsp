@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/pagination.css?after">
 <link rel="stylesheet" href="../css/trade.css">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -63,38 +64,15 @@
 	
 	
 	<div class="clear" style="height:30px"></div>
-		<div class="pagecontainer">
-          <ul id="pagination">
-		    <li v-if="startPage>1"><a style="padding:0px 0px 5px 0px;" v-on:click="prev()">◀</a></li>
-		    <li class="current" v-for="i in range(startPage, endPage)" v-if="i===curpage"><a style="padding: 5px; color:#B84592" v-on:click="pageChage(i)"><b>{{i}}</b></a></li>
-		    <li v-else><a style="padding: 5px" v-on:click="pageChage(i)">{{i}}</a></li>
-		    <li v-if="totalpage>endPage"><a style="padding:0px 0px 5px 0px;" v-on:click="next()">▶</a></li>
-		  </ul>
-        </div>
+				<ul id="page_ul" style="padding-left: 0px;">
+			    <li class="page_li" v-if="startPage>1"><span class="mypost_page_pre page_a" v-on:click="prev()">◀</span></li>
+			    <li class="page_li" v-for="i in range(startPage, endPage)" v-if="i===curpage"><span class="mypost_page page_a li_active" v-on:click="pageChage(i)">{{i}}</span></li>
+			    <li class="page_li" v-else><span class="mypost_page page_a" v-on:click="pageChage(i)">{{i}}</span></li>
+			    <li class="page_li" v-if="totalpage>endPage"><span class="mypost_page_next page_a" v-on:click="next()">▶</span></li>
+			    </ul>
   </section>
 
-	<div class="box" style="border-top: solid 1px #cccccc; margin-top: 70px">
-		<ul id="footer_menu">
-		<li>회사 약관</li>
-		<li> | </li>
-		<li>회사 약관</li>
-		<li> | </li>
-		<li>회사 약관</li>
-		<li> | </li>
-		<li>회사 약관</li>
-		<li> | </li>
-		<li>회사 약관</li>
-		<li> | </li>
-		<li>회사 약관</li>
-		<li> | </li>
-		<li>회사 약관</li>
-		<li> | </li>
-		<li>회사 약관</li>
-		<li> | </li>
-		<li>회사 약관</li>
-		<li> | </li>
-		<li>회사 약관</li>
-		</ul>
+	<div class="box">
 	</div>
   </div>
 <script>

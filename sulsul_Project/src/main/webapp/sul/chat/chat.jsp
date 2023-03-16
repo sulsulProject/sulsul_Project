@@ -69,7 +69,7 @@ function send()
 		return;
 	}
 	
-	websocket.send("msg:["+name+"]"+msg); // onMessage
+	websocket.send("msg:["+name+"] : "+msg); // onMessage
 	$('#sendMsg').val("");
 	$('#sendMsg').focus();
 }
@@ -106,7 +106,7 @@ $(function(){
 <body>
   <div class="container">
     <div class="row row1">
-      <h1 class="text-center">WebSocket 채팅</h1>
+      <h1 class="text-center">중고거래 채팅</h1>
       <table class="table">
        <tr>
         <td class="text-right">

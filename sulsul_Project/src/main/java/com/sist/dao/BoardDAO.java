@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import com.sist.mapper.BoardMapper;
@@ -16,6 +17,9 @@ import com.sist.vo.FreeBoardVO;
 public class BoardDAO {
 	@Autowired
 	private BoardMapper mapper;
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+	
 	
 	// 자유게시판 목록
 	/*
@@ -91,7 +95,7 @@ public class BoardDAO {
 	public String freeboardDelete(int fbno, String pwd) {
 		String res = "no";
 		String db_pwd = mapper.freeboardGetPassword(fbno);
-		if(db_pwd.equals(pwd)) {
+		if(encoder.matches(pwd, db_pwd)) {
 			mapper.freeboardDelete(fbno);
 			res = "yes";
 		}
