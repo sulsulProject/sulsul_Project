@@ -14,6 +14,10 @@ import com.sist.vo.LetterVO;
 
 public interface LetterMapper {
 	
+	// 받은쪽지 갯수
+	@Select("SELECT COUNT(*) FROM sul_letter_2_2 WHERE recv_id = #{id} AND read_chk = 0")
+	public int recv_letter_count(String id);
+	
 	// 받은쪽지 리스트
 	@Select("SELECT lno, TO_CHAR(recv_time, 'YYYY-MM-DD') as dbday, title, type, read_chk, send_id, recv_id, num "
 		  + "FROM (SELECT lno, recv_time, title, type, read_chk, send_id, recv_id, rownum as num "

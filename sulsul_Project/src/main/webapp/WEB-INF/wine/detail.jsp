@@ -31,27 +31,22 @@ $(function(){
 		});
 })
 
-function like_func(){
-     var frm_read = $('#frm_read');
-     var wineino = $('#wineino', frm_read).val();
-     //var mno = $('#mno', frm_read).val();
-     //console.log("boardno, mno : " + boardno +","+ mno);
-     
-     $.ajax({
-       url: "../wine/like_insert.do",
-       type: "GET",
-       cache: false,
-       dataType: "json",
-       data: 'wineino=' +wineino,
-       success: function(data) {
-         var msg = '';
-         var like_img = '';
-         msg += data.msg;
-    
-       }
-     });
-   }
-
+$(function(){
+	$('#account_select').change(function(){
+		let price=$(this).attr("data-price");
+		let temp=price.replace("원","");
+		temp=temp.replace(",","")
+		console.log(temp)
+		let count=$(this).val();
+		let total=Number(count)*Number(temp);
+		console.log("가격:"+price);
+		console.log("수량:"+count)
+		$('#total_price').text(total);
+		$('#goods_account').val(count)
+		$("#goods_total").val(total)
+		
+	})
+})
 
 
 </script>
@@ -166,15 +161,15 @@ function like_func(){
     display: inline-block;
     position: relative;
 }
-.bot .last {
+.last {
     width: 100%;
     height: 36px;
     overflow: hidden;
 }
-.bot .last .amount span.minus {
+.amount span.minus {
     border-right: 1px solid #e0e0e0;
 }
-.bot .last .amount {
+.amount {
     width: 135px;
     height: 34px;
     border: 1px solid #e0e0e0;
@@ -182,7 +177,7 @@ function like_func(){
     overflow: hidden;
     float: left;
 }
-.bot .last .amount span {
+.amount span {
     width: 33px;
     height: 100%;
     text-align: center;
@@ -190,10 +185,10 @@ function like_func(){
     cursor: pointer;
     float: left;
 }
-.bot .last .amount span.minus img {
+.amount span.minus img {
     margin-top: 15px;
 }
-.sub_wrap .content .detail_wrap .detail_top .rt .bot .last .amount input {
+.amount input {
     width: 67px;
     height: 100%;
     display: inline-block;
@@ -203,10 +198,10 @@ function like_func(){
     font-size: 16px;
     float: left;
 }
-.bot .last .amount span.plus {
+.amount span.plus {
     border-left: 1px solid #e0e0e0;
 }
-.bot .last .amount span {
+.amount span {
     width: 33px;
     height: 100%;
     text-align: center;
@@ -214,7 +209,7 @@ function like_func(){
     cursor: pointer;
     float: left;
 }
-.bot .last .amount span.plus img {
+.amount span.plus img {
     margin-top: 9px;
 }
 .bot .last .total_price {
@@ -376,6 +371,56 @@ function like_func(){
     display: inline-block;
     cursor: pointer;
 }
+.btn01{
+	width: 214px;
+	height: 74px;
+	line-height: 74px;
+	color: #000;
+	background-color: #fff;
+	border: 1px solid #000;
+	float: left;
+	display: inline-block;
+	font-size: 22px;
+	text-align: center;
+	font-weight: bold;
+}
+.input-sm{
+    width: 100%; /* 가로 사이즈 */
+    padding: 10px; /* 내부여백 */
+    padding-left: 12px;
+    border: 1px solid #ddd;
+    background: url(./arrow_down_18dp.png) no-repeat right 50%; /* 화살표 위치 */
+    background-size: 30px; /* 화살표 크기 */
+    border-radius: 4px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 12px;
+    color: #000;
+    outline:none;
+    text-align: center;
+    font-size: 20px;
+}
+.option-text{
+	text-align: center;
+}
+
+.input-sm:hover {border: 1px solid #aaa;} /* 마우스오버 */
+.img-fluid-1{
+   width: 50%;
+   height: 270px;
+   padding: 15px;
+}
+.title{
+	color: black;
+}
+a:visited {
+	black;
+}
+.total_price{
+	margin-top: 20px;
+}
 
 
 </style>
@@ -385,8 +430,8 @@ function like_func(){
     <div class="container">
       <div class="row align-items-end text-center">
         <div class="col-lg-7 mx-auto">
-          <h1>Wine</h1>  
-          <p class="mb-4"><a href="../main/main.do">Home</a> / <strong>Wine</strong></p>        
+          <h1>Product</h1>  
+          <p class="mb-4"><a href="../main/main.do"><span style="color: #c71585">Home</span></a> /<a href="javascript:history.back();"><strong>목록</strong></a></p>        
         </div>
       </div>
     </div>
@@ -416,21 +461,12 @@ function like_func(){
 			 <p class="good_tit1">{{wine_detail.name_sub}}</p>
 			 </div>
 			 <div style="display: inline-flex; float: right;">
-<!--  			   <button class="btn-secondary like-review">
-   				 <i class="fa fa-heart" aria-hidden="true"></i> 찜하기
- 			   </button>  -->
- 			   
- 			    <c:if test="${like_count==0 }">
-            <a href="../wine/like_insert.do?ino=${vo.ino }" class="btn btn-xs" style="background-color: #F55066; color: #fff; border-radius: 5px;">공감  ${like_total }</a>
-         </c:if>
-         <c:if test="${like_count!=0 }">
-            <a href="../wine/like_insert.do?ino=${vo.ino }" class="btn btn-xs" style="background-color: gray; color: #fff; border-radius: 5px;">공감완료  ${like_total }</a>
-         </c:if>
- 			   
- 			 <button class="like__btn animated">
+
+<%--   			 <button class="like__btn animated">
 			    <i class="like__icon fa fa-heart"></i>
-			    <span class="like__number">99</span>
-  			</button> 
+			    <span class="like__number">${like_total }</span>
+  			</button>  --%>
+
  			   </div>
 		</div>
 		<div class="goods_option">
@@ -455,16 +491,16 @@ function like_func(){
 		  <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-bottom:1px solid #c2c2c2">
 						<tbody><tr>
 				<td class="goods_price_name" width="130">소비자가격</td>
-				<td colspan="3"><span><strike>{{wine_detail.first_price}}</strike></span></td>
+				<td colspan="3"><span style="font-size: 17px;"><strike>{{wine_detail.first_price}}</strike></span></td>
 			</tr>	
 						<!-- 고객할인가만 있는 경우 -->
 			<tr>
 			  <td class="goods_price_name">할인율</td>
-			  <td colspan="3"><span><strong><font color="#d7263d;">{{wine_detail.discount}}</font></strong></span></td>
+			  <td colspan="3"><span><strong style="color: #c71585; font-size: 19px;">{{wine_detail.discount}}</strong></span></td>
 			</tr>
 			<tr>
 			  <td class="goods_price_name">고객할인가</td>
-			 <td width="125">
+			 <td width="125" style="font-size: 17px;">
 				{{wine_detail.price}}
 			</td>
 			  </tr>
@@ -473,84 +509,41 @@ function like_func(){
 				  <tbody><tr>
 				  
 				  <td>
+				  
 				  <div class="bot">
 							<p class="delivery_charge" style="margin-top: 20px;"> 배송비 <strong>무료</strong></p>
-                        <div class="last">
-                            <div class="amount">
-                                <span class="minus" data-flag="minus"><img src="https://wine.malltail.com/images/orders/btn_minus.png" alt=""></span>
-                                <input type="text" data-flag="direct" class="goods_qty" value="1" data-ori_qty="" onblur="javascript:change_quantity(this);">
-                                <span class="plus" data-flag="plus"><img src="https://wine.malltail.com/images/orders/btn_plus.png" alt=""></span>
-                            </div>
-                            <div class="total_price">합계 <strong class="currency"></strong><strong class="dh_total_price">{{wine_detail.price}}</strong></div>
+							<p class="delivery_charge" style="margin: 0">출고정보&nbsp; <strong>결제일 3일 이내 출고</strong></p>	
+							<p class="delivery_charge"> 배송정보&nbsp; <strong>국내 배송 / 입점사 배송 / CJ대한통운</strong></p>									
+                        <div class="last" style="height: 100%">
+                        
+			         <!-- Select Box(수량) -->
+                    	 옵션선택&nbsp;
+			       	 <select name="account" class="input-sm" data-price="${vo.price }" id="account_select">
+			           <c:forEach var="i" begin="1" end="${vo.account }">
+			             <option class="option-text" value="${i }">${i }개</option> 
+			           </c:forEach>
+			         </select> 
+			         <!-- Select Box(수량) -->
+                    
+					 <div class="total_price">합계<strong class="dh_total_price" id="total_price">{{wine_detail.price}}</strong>원</div>
                         </div>
 
                         <div class="btns" style="margin-bottom: 50px;height: 100%;">
-                            <a href="../wine/cart.do" title="장바구니" class="btn01 purchase_proxy" data-gb="">장바구니</a>
+                         <form method="post" action="../wine/cart_insert.do">
+                        <input type="hidden" name=ino id="wine_ino" value="${vo.ino }">
+                        <input type="hidden" name=account id="goods_account">
+                        <input type="hidden" name=total id="goods_total"> 
+                            <input type=submit value="장바구니" class="btn01 purchase_proxy" data-gb="">
+                             </form> 
                             <a href="#" title="바로구매" class="btn02 purchase_proxy" data-gb="direct">바로구매</a>
                         </div>
                     </div>
 				  	</td>
-				  
-				  
-<!-- 				<td align="left">수량</td>
-				<td width="" align="left">
-						   							선택된 옵션 시작 {
-							<section id="sit_sel_option">
-							<div style="height: 20px;">
-																<ul id="sit_opt_added">
-									<li class="sit_opt_list">
-										<input type="hidden" name="io_type[1439102323][]" value="0">
-										<input type="hidden" name="io_id[1439102323][]" value="">
-										<input type="hidden" name="io_value[1439102323][]" value="몽 발렌티노 까베르네쇼비뇽">
-										<input type="hidden" class="io_price" value="0">
-										<input type="hidden" class="io_stock" value="883">
-										<div class="qty_box">
-											<label for="ct_qty_25" class="sound_only">수량</label>
-											<input type="text" name="ct_qty[1439102323][]" value="1" id="ct_qty_25" class="ct_qty" size="5" style="text-align:right;">
-											<button type="button" class="sit_qty_plus btn_frmline">증가</button>
-											<button type="button" class="sit_qty_minus btn_frmline">감소</button>
-										</div>
-									</li>
-								</ul>
-															</section>
-							} 선택된 옵션 끝
-				</td> -->
 				 </tr>
 			</tbody></table>
 		</div>
 		
-<!-- 		<table cellpadding="0" cellspacing="0" border="0" width="350" style="margin-top:30px;">
-			<tbody><tr>
-			  <td width=""><font size="4"><strong>금액</strong></font></td>
-			    			  <td width="125">
-				<font size="5" color="red">{{wine_detail.price}}<strong></strong></font>
-			   </td>	
-							</tr>
-			<tr colspan="2" height="20"></tr>
-			</tbody></table>
-		   <table cellpadding="0" cellspacing="0" border="0" width="100%" class="mt15 " height="38">
-			<tbody><tr>
-			<td style="text-align:center">
-			구매 버튼
-			
-	<div class="btn_area"> 
-	<button type="button" class="btn_txt wish_btn">찜하기</button>
-	<button type="button" class="btn_txt cart_btn buy_process_btn">장바구니</button>
-	<button type="button" class="btn_txt buy_btn btn_black buy_process_btn">바로구매</button>
-	</div>
-			
-				<input type="image" src="http://www.kajawine.kr/shop/img/common/btn_buy_new.png" onclick="document.pressed=this.value;" value="장바구니">
-			구매 버튼
-			</td>
-			</tr>
-		</tbody></table> -->
-		
-
-		
-		
 	</section>
-
-    
 </div>
 
     <!-- detail 끝 -->
@@ -564,13 +557,15 @@ function like_func(){
 		<div class="row">
 		<div class="tab">
             <ul>
-              <li class="on tab_prd_detail" onclick="fn_move('prd_detail')"><span>상품설명</span></li>
-              <li class="tab_prd_review" onclick="fn_move('prd_review')"><span>구매후기</span></li>
-              <li class="tab_prd_relate" onclick="fn_move('prd_relate')"><span>연관상품</span></li>
+              <li class="on tab_prd_detail" onclick="location.href='#info_1'"><span>상품설명</span></li>
+              <li class="tab_prd_review" onclick="location.href='#info_2'"><span>구매후기</span></li>
+              <li class="tab_prd_relate" onclick="location.href='#info_3'"><span>연관상품</span></li>
             </ul>
                 </div>
         
-		<p class="good_tit1" style="margin-bottom: 30px;">제품 상세정보</p>
+        
+        
+		<p class="good_tit1" style="margin-bottom: 30px;" id="info_1">제품 상세정보</p>
 		<div class="prd_table">
 		<c:forEach var="vo" items="${list }">
 		<ul>
@@ -607,9 +602,6 @@ function like_func(){
 		</div>
 	
 	
-	
-	
-	
 		<!-- 후기 영역 -->
 		<div class="untree_co-section">
 		<div class="container">
@@ -618,7 +610,7 @@ function like_func(){
 
 			<div class="row mb-5 align-items-center">
 				<div class="col-md-6">
-					<p class="good_tit1" style="font-size: 20px;">제품 구매후기</p>        
+					<p class="good_tit1" style="font-size: 20px;"id="info_2">제품 구매후기</p>        
 				</div>
 				<div class="col-sm-6 carousel-nav text-sm-right">
 					<a href="#" class="prev js-custom-prev-v2">
@@ -716,37 +708,21 @@ function like_func(){
 		<div class="untree_co-section">
 		<div class="container">
 		<div class="row">
-			<div class="row mb-5 align-items-center">
+			<div class="row mb-5 align-items-center" id="info_3">
 				<div class="col-md-6">
 					<p class="good_tit1" style="font-size: 20px;">이 상품과 연관된 상품</p>        
 				</div>
-<!-- 				<div class="col-sm-6 carousel-nav text-sm-right">
-					<a href="#" class="prev js-custom-prev-v2">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
-							<path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
-						</svg>
-					</a>
-					<a href="#" class="next js-custom-next-v2">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-							<path fill-rule="evenodd" d="M7.646 11.354a.5.5 0 0 1 0-.708L10.293 8 7.646 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
-							<path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
-						</svg>
-					</a>
-				</div> -->
 			</div> <!-- /.heading -->
 			<div class="owl-4-slider owl-carousel">
 			<c:forEach var="vo" items="${alist }" begin="1" end="6" step="2">
 				<div class="item">
               <div class="product-item">
-                <a href="'../wine/detail.do?ino='+vo.ino" class="product-img">
+                <a href="../wine/before_detail.do?ino=${vo.ino }" class="product-img">
                   <img src="${vo.poster }" alt="Image" class="img-fluid-1">
                 </a>
-                <h3 class="title"><a href="#">${vo.name }</a></h3>
+                <h5 class="title"><a href="../wine/before_detail.do?ino=${vo.ino }">${vo.name }</a></h5>
                 <div class="price">
-                  <span>${vo.price }</span>
+                  <span>${vo.price }원</span>
                 </div>
               </div>
 				</div> <!-- /.item -->
@@ -771,7 +747,7 @@ function like_func(){
 		  let _this=this
 		  axios.get("http://localhost/web/wine/detail_vue.do",{
 			  params:{
-				  ino:_this.ino
+				  ino:this.ino
 			  }
 		  }).then(function(response){
 			  console.log(response.data)

@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/pagination.css?after">
 <link rel="stylesheet" href="../css/freeboard.css?after">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -63,7 +66,7 @@
 		                <tr>
 		                    <td>{{vo.fbno}}</td>
 		                    <th>
-		                      <a :href="'../board/freeboard_detail.do?fbno='+vo.fbno">{{vo.subject}}</a>
+		                      <a :href="'../board/freeboard_detail.do?fbno='+vo.fbno+'&cate_no=1'">{{vo.subject}}</a>
 		                    </th>
 		                    <td>{{vo.name}}</td>
 		                    <td>{{vo.dbday}}</td>
@@ -75,17 +78,17 @@
 		   </div>
 	    </div>
 	    <div class="text-right" style="height: 30px;">
+	    <c:if test="${sessionScope.id!=null}">
 	      <a href="../board/freeboard_insert.do" class="boradBtn" v-on:click="move1()">글쓰기</a>
 	      <a class="boradBtn">내글보기</a>
+	    </c:if>
 	    </div>
-	        <div class="pagecontainer">
-	          <ul id="pagination">
-			    <li v-if="startPage>1"><a style="padding:0px 0px 5px 0px;" v-on:click="prev()">◀</a></li>
-			    <li class="current" v-for="i in range(startPage, endPage)" v-if="i===curpage"><a style="padding: 5px; color:#B84592" v-on:click="pageChage(i)"><b>{{i}}</b></a></li>
-			    <li v-else><a style="padding: 5px" v-on:click="pageChage(i)">{{i}}</a></li>
-			    <li v-if="totalpage>endPage"><a style="padding:0px 0px 5px 0px;" v-on:click="next()">▶</a></li>
-			  </ul>
-	        </div>
+	       		<ul id="page_ul" style="padding-left: 0px;">
+			    <li class="page_li" v-if="startPage>1"><span class="mypost_page_pre page_a" v-on:click="prev()">◀</span></li>
+			    <li class="page_li" v-for="i in range(startPage, endPage)" v-if="i===curpage"><span class="mypost_page page_a li_active" v-on:click="pageChage(i)">{{i}}</span></li>
+			    <li class="page_li" v-else><span class="mypost_page page_a" v-on:click="pageChage(i)">{{i}}</span></li>
+			    <li class="page_li" v-if="totalpage>endPage"><span class="mypost_page_next page_a" v-on:click="next()">▶</span></li>
+			    </ul>
      </section>
   </div>
 </div>

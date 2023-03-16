@@ -97,7 +97,64 @@ public interface BoardMapper {
 	public EventBoardVO eventboardDetailData(int ebno);
 	
 	
+	// 이벤트게시판 판매행사 목록
+	@Select("SELECT ebno, title, image, rdate, loc, kind, hit, num "
+		  + "FROM (SELECT ebno, title, image, rdate, loc, kind, hit, rownum as num "
+		  + "FROM (SELECT /*+INDEX_ASC(sul_eventboard_2_2 seb_ebno_pk)*/ebno, title, image, rdate, loc, kind, hit "
+		  + "FROM sul_eventboard_2_2 WHERE kind = '판매행사')) "
+		  + "WHERE num BETWEEN #{start} AND #{end}")
+	public List<EventBoardVO> eventboard_sell_ListData(Map map);
+	// 이벤트게시판 총 페이지
+	@Select("SELECT CEIL(COUNT(*)/20.0) FROM sul_eventboard_2_2 WHERE kind = '판매행사'")
+	public int eventboard_sell_TotalPage(); 
 	
+	// 이벤트게시판 디너 목록
+	@Select("SELECT ebno, title, image, rdate, loc, kind, hit, num "
+			+ "FROM (SELECT ebno, title, image, rdate, loc, kind, hit, rownum as num "
+			+ "FROM (SELECT /*+INDEX_ASC(sul_eventboard_2_2 seb_ebno_pk)*/ebno, title, image, rdate, loc, kind, hit "
+			+ "FROM sul_eventboard_2_2 WHERE kind = '디너')) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<EventBoardVO> eventboard_dinner_ListData(Map map);
+	
+	// 이벤트게시판 디너 총 페이지
+	@Select("SELECT CEIL(COUNT(*)/20.0) FROM sul_eventboard_2_2 WHERE kind = '디너'")
+	public int eventboard_dinner_TotalPage(); 
+	
+	// 이벤트게시판 판매행사 목록
+	@Select("SELECT ebno, title, image, rdate, loc, kind, hit, num "
+			+ "FROM (SELECT ebno, title, image, rdate, loc, kind, hit, rownum as num "
+			+ "FROM (SELECT /*+INDEX_ASC(sul_eventboard_2_2 seb_ebno_pk)*/ebno, title, image, rdate, loc, kind, hit "
+			+ "FROM sul_eventboard_2_2 WHERE kind = '교육')) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<EventBoardVO> eventboard_edu_ListData(Map map);
+	
+	// 이벤트게시판 총 페이지
+	@Select("SELECT CEIL(COUNT(*)/20.0) FROM sul_eventboard_2_2 WHERE kind = '교육'")
+	public int eventboard_edu_TotalPage(); 
+	
+	// 이벤트게시판 시음회 목록
+	@Select("SELECT ebno, title, image, rdate, loc, kind, hit, num "
+			+ "FROM (SELECT ebno, title, image, rdate, loc, kind, hit, rownum as num "
+			+ "FROM (SELECT /*+INDEX_ASC(sul_eventboard_2_2 seb_ebno_pk)*/ebno, title, image, rdate, loc, kind, hit "
+			+ "FROM sul_eventboard_2_2 WHERE kind = '시음회')) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<EventBoardVO> eventboard_si_ListData(Map map);
+	
+	// 이벤트게시판 총 페이지
+	@Select("SELECT CEIL(COUNT(*)/20.0) FROM sul_eventboard_2_2 WHERE kind = '시음회'")
+	public int eventboard_si_TotalPage(); 
+	
+	// 이벤트게시판 판매행사 목록
+	@Select("SELECT ebno, title, image, rdate, loc, kind, hit, num "
+			+ "FROM (SELECT ebno, title, image, rdate, loc, kind, hit, rownum as num "
+			+ "FROM (SELECT /*+INDEX_ASC(sul_eventboard_2_2 seb_ebno_pk)*/ebno, title, image, rdate, loc, kind, hit "
+			+ "FROM sul_eventboard_2_2 WHERE kind = '기타')) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<EventBoardVO> eventboard_other_ListData(Map map);
+	
+	// 이벤트게시판 총 페이지
+	@Select("SELECT CEIL(COUNT(*)/20.0) FROM sul_eventboard_2_2 WHERE kind = '기타'")
+	public int eventboard_other_TotalPage(); 
 	
 	
 	/*

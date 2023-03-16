@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/trade.css">
+<link rel="stylesheet" href="../css/pagination.css?after">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style type="text/css">
@@ -133,18 +135,11 @@ body {
     }
 }
 
-#pagination {
-	text-align: center;
-}
-#pagination li {
-	display: inline-block;
+.elist:hover {
+	cursor: pointer;
+	color: #b84592;
 }
 
-#pagination li:hover {
-	cursor: pointer;
-	font-weight: bold;
-	color: #B84592;
-}
 </style>
 </head>
 <body>
@@ -167,10 +162,21 @@ body {
 	        <a><img src="https://wine21.speedgabia.com/BANNER_MST/W0000586.gif" alt=""></a>
 	    </div>
 	</div>
+	<p style="padding-left: 55px">
+	<b>
+	<span class="elist" v-on:click="change(0)">전체보기</span> | 
+	<span class="elist" v-on:click="change(1)">판매행사</span> | 
+	<span class="elist" v-on:click="change(2)">디너</span> | 
+	<span class="elist" v-on:click="change(3)">교육</span> | 
+	<span class="elist" v-on:click="change(4)">시음회</span> | 
+	<span class="elist" v-on:click="change(5)">기타</span>
+	</b>
+	</p>
+	<hr>
 	<div class="list con">
 	    <ul class="row">
 	        <li class="cell" v-for = "vo in eventboard_list">
-	            <div class="img-box"><a :href="'../board/eventboard_detail.do?ebno='+vo.ebno"><img :src="vo.image"></a></div>
+	            <div class="img-box"><a :href="'../board/eventboard_before_detail.do?ebno='+vo.ebno"><img :src="vo.image"></a></div>
 	            <div class="event-name" style="border-top: 0.5px solid lightgrey; padding-top: 10px">{{vo.title}}</div>
 	            <div class="event-period">[{{vo.loc}}]</div>
 	            <div class="event-period">{{vo.rdate}}</div>
@@ -179,18 +185,25 @@ body {
 	    </ul>
 	</div>
 	
-	<div class="pagecontainer">
-         <ul id="pagination">
-	    <li v-if="startPage>1"><a style="padding:0px 0px 5px 0px;" v-on:click="prev()">◀</a></li>
-	    <li class="current" v-for="i in range(startPage, endPage)" v-if="i===curpage"><a style="padding: 5px; color:#B84592" v-on:click="pageChage(i)"><b>{{i}}</b></a></li>
-	    <li v-else><a style="padding: 5px" v-on:click="pageChage(i)">{{i}}</a></li>
-	    <li v-if="totalpage>endPage"><a style="padding:0px 0px 5px 0px;" v-on:click="next()">▶</a></li>
-	  </ul>
-    </div>
+				<ul id="page_ul" style="padding-left: 0px;">
+			    <li class="page_li" v-if="startPage>1"><span class="mypost_page_pre page_a" v-on:click="prev()">◀</span></li>
+			    <li class="page_li" v-for="i in range(startPage, endPage)" v-if="i===curpage"><span class="mypost_page page_a li_active" v-on:click="pageChage(i)">{{i}}</span></li>
+			    <li class="page_li" v-else><span class="mypost_page page_a" v-on:click="pageChage(i)">{{i}}</span></li>
+			    <li class="page_li" v-if="totalpage>endPage"><span class="mypost_page_next page_a" v-on:click="next()">▶</span></li>
+			    </ul>
     
+    <div style="height: 15px"></div>
+    <h4 class="text-center">최근 본 이벤트</h4>
+	          <div v-for ="vo1 in cookie_list" style="display: inline-block; margin-top:15px; margin-right: 10px">
+				<a :href="'../board/eventboard_detail.do?ebno='+vo1.ebno">
+				<img :src="vo1.image" style="height:100px; width:100px;">
+				</a>
+			  </div>
 	</div>
   </div>
 <script>
+	
+	
   new Vue({
 	  el:'.rows',
 	  data:{
@@ -198,17 +211,24 @@ body {
 		  curpage:1,
 		  startPage:0,
 		  endPage:0,
-		  totalpage:0
+		  totalpage:0,
+		  no:0,
+		  cookie_list:[]
 	  },
 	  mounted:function() {
-		  this.send()
+		  let _this=this;
+		  _this.send()
+		  axios.get("http://localhost/web/board/event_cookie_data_vue.do").then(function(response){
+			  _this.cookie_list=response.data
+		  })
 	  },
 	  methods:{
 		  send:function(){
 			  let _this=this
 			  axios.get("http://localhost/web/board/eventboard_list_vue.do",{
 				  params:{
-					  page:this.curpage
+					  page:this.curpage,
+	                  no:this.no
 				  }
 			  }).then(function(response) {
 				   console.log(response.data)
@@ -229,23 +249,54 @@ body {
 			  return array;
 		  },
 		  pageChage:function(page){
-			  this.curpage = page;
-			  this.send();
+			  this.curpage=page
+              if(this.no==0)
+                  this.send()
+                else
+                   this.change(this.no,page)
+
 		  },
 		  find:function() {
 			  this.curpage=1;
 			  this.send();
 		  },
 		  next:function() {
-			  this.curpage=this.endPage+1;
-			  this.send();
+			  this.curpage=this.endPage+1
+	             if(this.no==0)
+	                 this.send()
+	               else
+	                this.change(this.no,this.curpage)
+
 		  },
 		  prev:function() {
-			  this.curpage=this.startPage-1;
-			  this.send();
-		  }
+			  this.curpage=this.startPage-1
+	             if(this.no==0)
+	               this.send()
+	             else
+	                this.change(this.no,this.curpage)
+
+		  },
+		  change:function(no,page){
+	            this.curpage=page
+	            this.no=no
+	             let _this=this;
+	             axios.get("http://localhost/web/board/event_change_vue.do",{
+	                params:{
+	                   no:no,
+	                   page:this.curpage
+	                }
+	             }).then(function(response){
+	                console.log(response.data)
+	                _this.eventboard_list=response.data
+	                _this.curpage=response.data[0].curpage
+	                _this.totalpage=response.data[0].totalpage
+	                _this.startPage=response.data[0].startPage
+	                _this.endPage=response.data[0].endPage
+	             })
+	           }
 	  }
   })
+  
 </script>
 </body>
 </html>

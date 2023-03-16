@@ -47,6 +47,7 @@ dl {
     box-sizing: border-box;
     border-left: 2px solid #eee;
     position: relative;
+    height: 1000px;
 }
 .recent_cnt .item_box dl dt {
     width: 100%;
@@ -129,7 +130,7 @@ img {
 
             <div class="item_box">
             <dl>
-                    <dt><span></span><i>23-03-12(일)</i></dt>
+                    <dt><span></span><i>오늘 본 상품</i></dt>
                  <dd class="content_dd " v-for="vo in cookie_list">
                             <!--$tmp_arr['url']--><a :href="'../wine/detail.do?ino='+vo.ino" title="이동">
                             <figure style="height: 100%;width: 100%"><img :src="vo.poster">

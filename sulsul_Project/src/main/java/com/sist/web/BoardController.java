@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +14,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sist.dao.BoardDAO;
+import com.sist.dao.ReplyDAO;
+import com.sist.vo.AllReplyVO;
 import com.sist.vo.FreeBoardVO;
 
 @Controller
 public class BoardController {
 	@Autowired
 	private BoardDAO dao;
+	@Autowired
+	private ReplyDAO rdao;
 	
 	@GetMapping("board/freeboard_list.do")
 	public String freeboard_list() {
@@ -36,8 +43,22 @@ public class BoardController {
 	}
 	
 	@GetMapping("board/freeboard_detail.do")
-	public String freeboard_detail(int fbno, Model model) {
-		model.addAttribute("fbno", fbno);
+	public String freeboard_detail(HttpServletRequest request, String cate_no, Model model) {
+		
+		//System.out.println(request.getParameter("fbno"));
+		//System.out.println(request.getParameter("cate_no"));
+		
+		FreeBoardVO vo=dao.freeboardDetailData(Integer.parseInt(request.getParameter("fbno")));
+		model.addAttribute("vo", vo);
+		model.addAttribute("fbno", Integer.parseInt(request.getParameter("fbno")));
+		model.addAttribute("cate_no", Integer.parseInt(request.getParameter("cate_no")));
+		System.out.println(cate_no);
+		
+		
+		List<AllReplyVO> rList = rdao.sul_replyList(Integer.parseInt(request.getParameter("fbno")), Integer.parseInt(request.getParameter("cate_no")));
+		model.addAttribute("rList", rList);
+		System.out.println(rList.toString());
+		
 		return "board/freeboard_detail";
 	}
 	
@@ -73,6 +94,16 @@ public class BoardController {
 		
 		return "board/eventboard_list";
 	}
+	
+	@GetMapping("board/eventboard_before_detail.do")
+   public String food_before_detail(int ebno,HttpServletResponse response,RedirectAttributes ra) {
+	   Cookie cookie=new Cookie("eventboard"+ebno, String.valueOf(ebno));
+	   cookie.setPath("/");
+	   cookie.setMaxAge(60*60*24);
+	   response.addCookie(cookie);
+	   ra.addAttribute("ebno", ebno);
+	   return "redirect:../board/eventboard_detail.do";
+   }
 	
 	// 이벤트게시판
 	@GetMapping("board/eventboard_detail.do")

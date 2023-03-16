@@ -13,25 +13,14 @@
 
 			<div class="container position-relative">
 				<div class="site-navigation text-center dark">
-					<a href="../main/main.do" class="logo menu-absolute m-0">UntreeStore<span class="text-primary">.</span></a>
+					<a href="../main/main.do" class="logo menu-absolute m-0">Sul<span class="text-primary">.</span></a>
 
 					<ul class="js-clone-nav pl-0 d-none d-lg-inline-block site-menu">
 						<li class="active"><a href="../main/main.do">홈</a></li>
-						<!-- 
-						<li class="has-children">
-							<a href="shop.html">주류</a>
-							<ul class="dropdown">
-								<li><a href="#">와인</a></li>
-								<li><a href="#">위스키</a></li>
-								<li><a href="#">브랜디/꼬냑</a></li>
-							</ul>
-						</li>
-						 -->
 
 						<li><a href="../wine/list.do">와인</a></li>
 						<li><a href="../wine/whiskey_list.do">위스키</a></li>
 						<li><a href="../wine/cognac_list.do">브랜디/꼬냑</a></li>
-						<li><a href="../wine/recent.do">최근 본 상품</a></li>
 						<li class="has-children">
 							<a href="#">커뮤니티</a>
 							<ul class="dropdown">
@@ -42,7 +31,6 @@
 										<li><a href="../board/eventboard_list.do">이벤트게시판</a></li>
 									</ul>
 								</li>
-								
 								<li class="has-children"><a href="about.html">모임</a>
 									<ul class="dropdown">
 										<li><a href="../regular/regular.do">정기모임</a></li>
@@ -52,7 +40,7 @@
 								</li>
 							</ul>
 						</li>
-						<li><a href="../customer/faq.do">고객센터</a></li>
+
 						<li><a href="../notice/list.do">공지사항</a></li>
 
 						
@@ -63,22 +51,44 @@
 
 					<div class="menu-icons">
 
-						<a href="../letter/recv_letter_list.do" class="user-profile" >
-							<img src="../images/trade/letter-y.png" style="width: 1em; height: 1em">
+						<a href="#" class="btn-custom-search" id="btn-search">
+							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+								<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+							</svg>
 						</a>
 
-						<a href="../mypage/mypage_main.do" class="user-profile">
+						<a href="#" class="user-profile">
 							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
 							</svg>
 						</a>
 
-						<a href="#" class="cart">
-							<span class="item-in-cart">2</span>
+						<a href="../wine/cart_list.do" class="cart" style="margin-right: 20px;">
+							<!-- <span class="item-in-cart">2</span> -->
 							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
 							</svg>
 						</a>
+						<a href="../wine/recent.do" class="cart" style="margin-right: 20px;">
+							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-stickies" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M3.5 2A1.5 1.5 0 0 0 2 3.5v11A1.5 1.5 0 0 0 3.5 16h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 16 9.586V3.5A1.5 1.5 0 0 0 14.5 2h-11zM3 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V9h-4.5A1.5 1.5 0 0 0 9 10.5V15H3.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V10.5a.5.5 0 0 1 .5-.5h4.293L10 14.793z"/>
+							</svg>
+						</a>
+						<a href="../wine/recent.do" class="cart" style="margin-right: 20px;">
+						<span class="item-in-cart" style="left: 14px;">2</span>
+							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi Envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+							</svg>
+						</a>
+						<a href="../wine/recent.do" class="cart" style="margin-right: 20px;">
+							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-paper fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M4 0a2 2 0 0 0-2 2v1.133l-.941.502A2 2 0 0 0 0 5.4V14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5.4a2 2 0 0 0-1.059-1.765L14 3.133V2a2 2 0 0 0-2-2H4Zm10 4.267.47.25A1 1 0 0 1 15 5.4v.817l-1 .6v-2.55Zm-1 3.15-3.75 2.25L8 8.917l-1.25.75L3 7.417V2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v5.417Zm-11-.6-1-.6V5.4a1 1 0 0 1 .53-.882L2 4.267v2.55Zm13 .566v5.734l-4.778-2.867L15 7.383Zm-.035 6.88A1 1 0 0 1 14 15H2a1 1 0 0 1-.965-.738L8 10.083l6.965 4.18ZM1 13.116V7.383l4.778 2.867L1 13.117Z"/>
+							</svg>
+						</a>
+
+
+						
 						
 						<c:if test="${sessionScope.id==null}">
 						  <a href="../member/login.do" id="btn-login">로그인</a>
@@ -87,7 +97,6 @@
 						<c:if test="${sessionScope.id!=null}">
 						  <a href="../member/logout.do" id="btn-logout">로그아웃</a>
 						</c:if>
-
 					</div>
 
 					<a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">

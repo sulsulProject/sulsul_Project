@@ -21,6 +21,12 @@ public class LetterDAO {
 	@Autowired
 	private LetterMapper mapper;
 	
+	// 받은쪽지 갯수
+	@Select("SELECT COUNT(*) FROM sul_letter_2_2 WHERE recv_id = #{id}")
+	public int recv_letter_count(String id) {
+		return mapper.recv_letter_count(id);
+	}
+	
 	// 받은쪽지 리스트
 	/*
 	@Select("SELECT lno, recv_time, title, type, read_chk, send_id, recv_id, num "

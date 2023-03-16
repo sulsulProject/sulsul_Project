@@ -116,7 +116,7 @@ public class LetterRestController {
 			HttpSession session = request.getSession();
 			String id=(String)session.getAttribute("id");
 			if(no==null)
-				no="1";
+				no="0";
 			if(page==null)
 				page="1";
 			
