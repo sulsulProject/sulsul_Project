@@ -113,7 +113,7 @@
 	     <tbody>
 	       <tr v-for="vo in ask_list">
 	        <td width="10%" class="text-center">{{vo.ano}}</td>
-	        <td width="45%"><a :href="'../customer/ask_detail.do?ano='+vo.ano" style="color: black">{{vo.subject}}</a></td>
+	        <td width="45%"><a :href="'../customer/ask_detail.do?ano='+vo.ano+'&cate_no=2'" style="color: black">{{vo.subject}}</a></td>
 	        <td width="15%" class="text-center">{{vo.id}}</td> 
 	        <td width="20%" class="text-center">{{vo.dbday}}</td>
 	      </tr>
