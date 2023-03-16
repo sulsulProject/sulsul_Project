@@ -89,7 +89,7 @@ input[type=button]:hover {
                  <td class="text-right">
                    <c:if test="${sessionScope.id == rvo.id }">
                      <span class="btn btn-xs btn-success ups" data-no="${rvo.no }">수정</span>
-                     <a href="../reply/delete.do?no=${rvo.no }&rno=${vo.fbno}&type=1" class="btn btn-xs btn-info">삭제</a>
+                     <a href="../reply/freeboard_delete.do?no=${rvo.no }&rno=${vo.fbno}&type=1" class="btn btn-xs btn-info">삭제</a>
                    </c:if>
                  </td>
                 </tr>
@@ -100,7 +100,7 @@ input[type=button]:hover {
                 <!-- 수정 -->
                 <tr style="display: none" id="u${rvo.no }" class="updates">
 	             <td colspan="2">
-	              <form method="post" action="../reply/update.do">
+	              <form method="post" action="../reply/freeboard_update.do">
 	                <input type="hidden" name=no value="${rvo.no }">
 	                <input type=hidden name=rno value="${vo.fbno }">
 	                <input type=hidden name=cate_no value="1">
