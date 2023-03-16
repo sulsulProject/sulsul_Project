@@ -79,7 +79,7 @@ public class BoardRestController {
 		
 		
 	}
-	
+	/*
 	@GetMapping(value = "board/freeboard_detail_vue.do",produces = "text/plain;charset=UTF-8" )
 	public String freeboard_detail(int fbno) {
 		FreeBoardVO vo=dao.freeboardDetailData(fbno);
@@ -93,6 +93,7 @@ public class BoardRestController {
 		obj.put("id", vo.getId());
 		return obj.toJSONString();
 	}
+	*/
 	
 	@GetMapping(value = "board/freeboard_update_vue.do", produces = "text/plain;charset=UTF-8")
 	public String freeboard_update(int fbno) {

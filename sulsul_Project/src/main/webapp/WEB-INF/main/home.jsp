@@ -20,21 +20,22 @@
 	float: left;
 	height: 300px;
 }
+
 </style>
 </head>
 <body>
 	<div class="owl-carousel owl-single home-slider">
 		<div class="item">
-			<div class="untree_co-hero" style="background-image: url('../images/hero-slider-1-min.jpg'); margin-top: 70px">
+			<div class="untree_co-hero" style="background-image: url('../images/main-image-2.png'); margin-top: 70px;">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
 
-							<h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">Sell products the easy way with UntreeStore by <a href="https://untree.co">Untree.co</a></h1>
-							<div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">
+<!-- 							<h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">Sell products the easy way with UntreeStore by <a href="https://untree.co">Untree.co</a></h1>
+ -->							<div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">
 							</div>
-
-							<p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">Explore now</a></p>
+<!-- 
+							<p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">Explore now</a></p> -->
 
 						</div>
 					</div>
@@ -44,16 +45,16 @@
 
 
 		<div class="item">
-			<div class="untree_co-hero" style="background-image: url('../images/hero-slider-2-min.jpg'); margin-top: 70px">
+			<div class="untree_co-hero" style="background-image: url('../images/main-image-1.png');margin-top: 70px;">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
-
-							<h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">The New Way To Sell Your Products by <a href="#">Untree.co</a></h1>
+<!-- 
+							<h1 class="mb-4 heading" data-aos="fade-up" data-aos-delay="100">The New Way To Sell Your Products by <a href="#">Untree.co</a></h1> -->
 							<div class="mb-5 text-white desc mx-auto" data-aos="fade-up" data-aos-delay="200">
 							</div>
-
-							<p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">Explore now</a></p>
+<!-- 
+							<p class="mb-0" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-outline-black">Explore now</a></p> -->
 
 						</div>
 					</div>
@@ -63,8 +64,48 @@
 		
 	</div>
 
-
-
+	<!--  -->
+	
+		<div class="untree_co-section">
+		<div class="container">
+						<div class="col-md-6">
+					<h2 class="h3">모임</h2>        
+				</div>
+			<div class="row align-items-stretch">
+				<div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
+					<img src="../images/meeting-1.jpg" style="width: 100px;">
+				</div>
+				<div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
+					<div class="feature h-100">
+						<div class="icon mb-4">
+							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-shield-lock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
+								<path d="M9.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+								<path d="M7.411 8.034a.5.5 0 0 1 .493-.417h.156a.5.5 0 0 1 .492.414l.347 2a.5.5 0 0 1-.493.585h-.835a.5.5 0 0 1-.493-.582l.333-2z"/>
+							</svg>
+						</div>
+						<h3>Secure Payments</h3>
+						<p>Far far away, behind the word mountains, far from the countries.</p>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
+					<div class="feature h-100">
+						<div class="icon mb-4">
+							<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-counterclockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M12.83 6.706a5 5 0 0 0-7.103-3.16.5.5 0 1 1-.454-.892A6 6 0 1 1 2.545 5.5a.5.5 0 1 1 .91.417 5 5 0 1 0 9.375.789z"/>
+								<path fill-rule="evenodd" d="M7.854.146a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 1 0 .708-.708L5.707 3 7.854.854a.5.5 0 0 0 0-.708z"/>
+							</svg>
+						</div>
+						<h3>Simple Returns</h3>
+						<p>Far far away, behind the word mountains, far from the countries.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> <!-- /.untree_co-section -->
+	
+	
+	<!--  -->
 
 
 	<div class="untree_co-section">
@@ -94,19 +135,7 @@
 	<!-- 상품 리스트 start -->
 	
 
-	<div class="container">
 
-
-		<div class="deal-hero overlay col-lg-6" style="background-image: url('../images/hero-slider-3-min.jpg')"> 
-			<div class="deal-contents">
-				<span class="subtitle">Limited Offers 20% OFF</span>
-				<h2 class="title mb-4"><a href="#">Summer Promo</a></h2>
-				<p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos facilis neque nulla earum.</p>
-				<a href="#" class="btn btn-black">Shop Now</a>
-			</div>
-		</div> <!-- /.deal-hero -->
-
-	</div>
 	
 	<div class="untree_co-section">
 		<div class="container">
@@ -241,8 +270,8 @@
 		</div> <!-- /.container -->
 	</div> <!-- /.untree_co-section -->  
 	
-
-
+	
+	
 
 
 

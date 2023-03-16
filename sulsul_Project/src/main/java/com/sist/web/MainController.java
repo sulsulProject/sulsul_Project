@@ -25,24 +25,16 @@ import com.sist.vo.WineVO;
 public class MainController {
 	@Autowired
 	private WineDAO dao;
-	@Autowired
-	private BoardDAO dao2;
-	@Autowired
-	private LetterDAO dao3;
 	
 	@GetMapping("main/main.do")
-	public String main_page(Model model, HttpServletRequest request)
+	public String main_page(Model model)
 	{
-		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
 		
 		List<WineVO> list=dao.mainWineListData();
 		List<WineVO> wlist=dao.mainWhiskeyListData();
 		List<WineVO> clist=dao.mainCognacListData();
-		int count = dao3.recv_letter_count(id);
 		
 		
-		model.addAttribute("count", count);
 		model.addAttribute("list",list);
 		model.addAttribute("wlist",wlist);
 		model.addAttribute("clist",clist);

@@ -23,8 +23,6 @@ import com.sist.vo.FreeBoardVO;
 
 @Controller
 public class BoardController {
-	private String[] url = {"", "../board/freeboard_detail.do", ""};
-	
 	@Autowired
 	private BoardDAO dao;
 	@Autowired
@@ -45,8 +43,22 @@ public class BoardController {
 	}
 	
 	@GetMapping("board/freeboard_detail.do")
-	public String freeboard_detail(int fbno, Model model) {
-		model.addAttribute("fbno", fbno);
+	public String freeboard_detail(HttpServletRequest request, String cate_no, Model model) {
+		
+		//System.out.println(request.getParameter("fbno"));
+		//System.out.println(request.getParameter("cate_no"));
+		
+		FreeBoardVO vo=dao.freeboardDetailData(Integer.parseInt(request.getParameter("fbno")));
+		model.addAttribute("vo", vo);
+		model.addAttribute("fbno", Integer.parseInt(request.getParameter("fbno")));
+		model.addAttribute("cate_no", Integer.parseInt(request.getParameter("cate_no")));
+		System.out.println(cate_no);
+		
+		
+		List<AllReplyVO> rList = rdao.sul_replyList(Integer.parseInt(request.getParameter("fbno")), Integer.parseInt(request.getParameter("cate_no")));
+		model.addAttribute("rList", rList);
+		System.out.println(rList.toString());
+		
 		return "board/freeboard_detail";
 	}
 	

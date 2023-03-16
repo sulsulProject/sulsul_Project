@@ -56,14 +56,14 @@ public class ReplyDAO {
 	    ORDER BY no DESC;
 	END;
 */
-	public List<AllReplyVO> sul_replyList(AllReplyVO vo) {
+	public List<AllReplyVO> sul_replyList(int rno, int cate_no) {
 		List<AllReplyVO> list = new ArrayList<AllReplyVO>();
 		try {
 			getConnection();
 			String sql = "{CALL sul_replyList(?,?,?)}";
 			cs = conn.prepareCall(sql);
-			cs.setInt(1, vo.getCate_no()); // 카테고리 (맛집, 레시피).. 
-			cs.setInt(2, vo.getRno()); // 맛집, 번호(고유번호), 타입
+			cs.setInt(1, rno); // 카테고리 (맛집, 레시피).. 
+			cs.setInt(2, cate_no); // 맛집, 번호(고유번호), 타입
 			cs.registerOutParameter(3, OracleTypes.CURSOR);
 			cs.executeQuery();
 			ResultSet rs = (ResultSet)cs.getObject(3);
@@ -78,6 +78,7 @@ public class ReplyDAO {
 				rvo.setMsg(rs.getString(6));
 				rvo.setRegdate(rs.getDate(7));
 				rvo.setDbday(rs.getString(8));
+				list.add(rvo);
 			}
 			rs.close();
 		} catch (Exception e) {

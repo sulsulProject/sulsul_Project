@@ -66,7 +66,7 @@
 		                <tr>
 		                    <td>{{vo.fbno}}</td>
 		                    <th>
-		                      <a :href="'../board/freeboard_detail.do?fbno='+vo.fbno">{{vo.subject}}</a>
+		                      <a :href="'../board/freeboard_detail.do?fbno='+vo.fbno+'&cate_no=1'">{{vo.subject}}</a>
 		                    </th>
 		                    <td>{{vo.name}}</td>
 		                    <td>{{vo.dbday}}</td>

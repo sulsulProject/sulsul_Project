@@ -6,14 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <style type="text/css">
  a.product-img{
 }
 .img-fluid-1{
-	width: 50%;
-	height: 200px;
+   width: 50%;
+   height: 200px;
 }
 .custom-pagination li.pagess:hover{
    color:#ccc;
@@ -24,12 +28,61 @@
 .ddd:hover{
   cursor: pointer
 }
+.categories:hover{
+  cursor: pointer
+}
+.prd_name{
+	display: block;
+}
+.prd_name a{
+	font-size: 16px;
+	width: 100%;
+	font-weight: 500;
+	color: #111;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.cate_label span{
+	margin-right: 5px;
+	margin-bottom: 0;
+	display: inline-block;
+	width: auto;
+	padding: 2px 8px;
+	border-radius: 20px;
+	font-size: 12px;
+	color: #111;
+	font-weight: inherit;
+}
+.price-font{
+	font-size: 20px;
+	font-weight: 700;
+	color: #000;
+	text-decoration: none;
+}
+.mb-3{
+	font-size: 32px;
+	font-weight: 500;
+	color: #111;
+}
+.count-box{
+	float: right;
+	vertical-align: middle;
+}
+.count-text{
+	font-size: 18px;
+	font-weight: 700;
+	float: right;
+	vertical-align: middle;
+	margin-top: 9px;
+	margin-right: 20px;
+}
 
-
-
-
-
-
+.sort-filter:hover {
+	background-color: white;
+	border-bottom: 1px solid black;
+}
 
 
 
@@ -42,7 +95,7 @@
       <div class="row align-items-end text-center">
         <div class="col-lg-7 mx-auto">
           <h1>Wine</h1>  
-          <p class="mb-4"><a href="../main/main.do">Home</a> / <strong>Wine</strong></p>        
+          <p class="mb-4"><a href="../main/main.do"><span style="color: #c71585">Home</span></a> / <strong>와인</strong></p>        
         </div>
       </div>
     </div>
@@ -53,21 +106,10 @@
 
       <div class="row align-items-center mb-5">
         <div class="col-lg-8">
-          <h2 class="mb-3 mb-lg-0">Products</h2>
+          <p class="mb-3 mb-lg-0"></p>
         </div>
-        <div class="col-lg-4">
-          <div class="d-flex sort align-items-center justify-content-lg-end">
-            <strong class="mr-3">Sort by:</strong>
-            <form action="#">
-              <select class="" required>
-                <option value="">Newest Items</option>
-                <option value="1">Best Selling</option>
-                <option value="2">Price: Ascending</option>
-                <option value="2">Price: Descending</option>
-                <option value="3">Rating(High to Low)</option>
-              </select>
-            </form>
-          </div>
+        <div class="col-lg-4 count-box">
+         <span class="count-text">와인 <strong style="color: #c71585">${count }개</strong>의 상품</span>
         </div>
       </div>
 
@@ -75,13 +117,9 @@
 
         <div class="col-md-3">
           <ul class="list-unstyled categories">
-            <li><a href="#">New <span>2,919</span></a></li>
-            <li><a href="#">Men <span>5,381</span></a></li>
-            <li><a href="#">Women <span>7,119</span></a></li>
-            <li><a href="#">Jewelries <span>1,012</span></a></li>
-            <li><a href="#">Accessories <span>919</span></a></li>
-            <li><a href="#">Shoes <span>4,344</span></a></li>
-            <li><a href="#">Clothing <span>7,919</span></a></li>
+            <li class="sort-filter"><span v-on:click="hit(1)">인기순</span></li>
+            <li class="sort-filter"><span v-on:click="hit(2)">높은 가격순</span></li>
+            <li class="sort-filter"><span v-on:click="hit(3)">낮은 가격 </span></li>
           </ul>
         </div>
         <div class="col-md-9">
@@ -93,13 +131,19 @@
                     <div class='content'>HOT</div>
                   </div>
 
-
                   <img :src="vo.poster" alt="Image" class="img-fluid-1">
                 </a>
-                <h3 class="title"><a href="#">{{vo.name}}</a></h3>
-                <div class="price">
-                  <span>{{vo.price}}</span>
+                <div class="info">
+                <p class="prd_name"><a :href="'../wine/before_detail.do?ino='+vo.ino">{{vo.name}}</a></p>
+                <div class="cate_label">
+                 <span style="background: #E0D8EA">{{vo.nation}}</span>
+                 <span style="background: #E0D8EA">{{vo.vintage}}</span>
+                 <span style="background: #E0D8EA">{{vo.capacity}}</span>
                 </div>
+                <div class="price">
+                  <p class="price-font">{{vo.price}}원</p>
+                </div>
+              </div>
               </div>
             </div>
 
@@ -194,14 +238,16 @@
              totalpage:0,
              startPage:0,
              endPage:0,
-             winecount:0
+             winecount:0,
+             no:0
           },
           mounted:function(){
              let _this=this
              axios.get('http://localhost/web/wine/wine_list_vue.do',{
                 params:{
                    page:this.curpage,
-                   ino:_this.ino
+                   ino:this.ino,
+                   no:this.no
                 }
              }).then(function(response){
                 console.log(response.data)
@@ -218,7 +264,8 @@
              let _this=this
              axios.get('http://localhost/web/wine/wine_list_vue.do',{
                 params:{
-                   page:this.curpage
+                   page:this.curpage,
+                   no:this.no
                 }
              }).then(function(response){
                 console.log(response.data)
@@ -232,11 +279,17 @@
           },
           prev:function(){
              this.curpage=this.startPage-1
+             if(this.no==0)
                this.send()
+             else
+                this.hit(this.no,this.curpage)
           },
           next:function(){
              this.curpage=this.endPage+1
-            this.send()
+             if(this.no==0)
+                 this.send()
+               else
+                this.hit(this.no,this.curpage)
             },
             range:function(min,max){
                let array=[],
@@ -249,8 +302,29 @@
             },
             pageChange:function(page){
                this.curpage=page
-               this.send()
-            },
+               if(this.no==0)
+                   this.send()
+                 else
+                    this.hit(this.no,page)
+              },
+            hit:function(no,page){
+            this.curpage=page
+            this.no=no
+             let _this=this;
+             axios.get("http://localhost/web/wine/wine_hit_vue.do",{
+                params:{
+                   no:no,
+                   page:this.curpage
+                }
+             }).then(function(response){
+                console.log(response.data)
+                _this.wine_list=response.data
+                _this.curpage=response.data[0].curpage
+                _this.totalpage=response.data[0].totalpage
+                _this.startPage=response.data[0].startPage
+                _this.endPage=response.data[0].endPage
+             })
+           }
        }
     })
    </script>
