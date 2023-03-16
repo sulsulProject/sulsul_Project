@@ -1,5 +1,6 @@
 package com.sist.web;
 
+import java.net.http.HttpRequest;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,16 +26,23 @@ import com.sist.vo.WineVO;
 public class MainController {
 	@Autowired
 	private WineDAO dao;
+	//@Autowired
+	//private LetterDAO dao2;
 	
 	@GetMapping("main/main.do")
-	public String main_page(Model model)
+	public String main_page(HttpServletRequest request, Model model)
 	{
+		
+		//HttpSession session=request.getSession();
+		//String id=(String)session.getAttribute("id"); 
 		
 		List<WineVO> list=dao.mainWineListData();
 		List<WineVO> wlist=dao.mainWhiskeyListData();
 		List<WineVO> clist=dao.mainCognacListData();
 		
+		//int count = dao2.recv_letter_count(id);
 		
+		//model.addAttribute("count", count);
 		model.addAttribute("list",list);
 		model.addAttribute("wlist",wlist);
 		model.addAttribute("clist",clist);

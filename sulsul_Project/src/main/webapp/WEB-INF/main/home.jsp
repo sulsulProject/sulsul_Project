@@ -26,7 +26,7 @@
 <body>
 	<div class="owl-carousel owl-single home-slider">
 		<div class="item">
-			<div class="untree_co-hero" style="background-image: url('../images/main-image-2.png'); margin-top: 70px;">
+			<div class="untree_co-hero" style="background-image: url('../images/main-image-2.png'); margin-top: 70px; height: 600px">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6">
@@ -45,7 +45,7 @@
 
 
 		<div class="item">
-			<div class="untree_co-hero" style="background-image: url('../images/main-image-1.png');margin-top: 70px;">
+			<div class="untree_co-hero" style="background-image: url('../images/main-image-1.png');margin-top: 70px; height: 600px">
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-6">

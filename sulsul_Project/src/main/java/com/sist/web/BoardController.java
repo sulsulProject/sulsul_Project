@@ -52,12 +52,10 @@ public class BoardController {
 		model.addAttribute("vo", vo);
 		model.addAttribute("fbno", Integer.parseInt(request.getParameter("fbno")));
 		model.addAttribute("cate_no", Integer.parseInt(request.getParameter("cate_no")));
-		System.out.println(cate_no);
 		
 		
 		List<AllReplyVO> rList = rdao.sul_replyList(Integer.parseInt(request.getParameter("fbno")), Integer.parseInt(request.getParameter("cate_no")));
 		model.addAttribute("rList", rList);
-		System.out.println(rList.toString());
 		
 		return "board/freeboard_detail";
 	}

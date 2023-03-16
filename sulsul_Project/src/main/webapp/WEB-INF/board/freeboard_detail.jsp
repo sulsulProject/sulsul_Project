@@ -6,8 +6,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let i = 0;
+$(function(){
+	$('.ups').click(function(){
+		$('.updates').hide();
+		let no = $(this).attr("data-no");
+		if(i == 0) {
+			$('#u'+no).show("slow");
+			$(this).text("취소");
+			i = 1;
+		} else {
+			$('#u'+no).hide("slow");
+			$(this).text("수정");
+			i = 0;
+		}
+	})
+})
+</script>
 <style type="text/css">
 div.pic_detail_reply {
     width: 100%;
@@ -79,7 +96,7 @@ input[type=button]:hover {
 		    </table>
 		    <div style="height: 20px"></div>
         	
-        	<table class="table">
+        <table class="table">
           <tr>
            <td>
             <c:forEach var="rvo" items="${rList }">
@@ -89,7 +106,7 @@ input[type=button]:hover {
                  <td class="text-right">
                    <c:if test="${sessionScope.id == rvo.id }">
                      <span class="btn btn-xs btn-success ups" data-no="${rvo.no }">수정</span>
-                     <a href="../reply/delete.do?no=${rvo.no }&rno=${vo.fbno}&type=1" class="btn btn-xs btn-info">삭제</a>
+                     <a href="../reply/freeboard_delete.do?no=${rvo.no }&rno=${vo.fbno}&cate_no=1" class="btn btn-xs btn-info">삭제</a>
                    </c:if>
                  </td>
                 </tr>
@@ -100,12 +117,12 @@ input[type=button]:hover {
                 <!-- 수정 -->
                 <tr style="display: none" id="u${rvo.no }" class="updates">
 	             <td colspan="2">
-	              <form method="post" action="../reply/update.do">
+	              <form method="post" action="../reply/freeboard_update.do">
 	                <input type="hidden" name=no value="${rvo.no }">
 	                <input type=hidden name=rno value="${vo.fbno }">
 	                <input type=hidden name=cate_no value="1">
-	                <textarea rows="5" cols="88" name="msg" style="float: left">${rvo.msg }</textarea>
-	                <input type=submit value="댓글수정" style="float: left;height: 104px" class="btn btn-sm btn-primary">
+	                <textarea rows="3" cols="120" name="msg" style="float: left">${rvo.msg }</textarea>
+	                <input type=submit value="댓글수정" style="float: left;height: 82px; margin-left: 10px" class="btn btn-sm btn-primary">
 	              </form>
 	             </td>
 	            </tr>
@@ -122,8 +139,8 @@ input[type=button]:hover {
               <form method="post" action="../reply/freeboard_insert.do">
                 <input type=hidden name=rno value="${vo.fbno }">
                 <input type=hidden name=cate_no value="1">
-                <textarea rows="5" cols="88" name="msg" style="float: left"></textarea>
-                <input type=submit value="댓글쓰기" style="float: left;height: 104px" class="btn btn-sm btn-primary">
+                <textarea rows="3" cols="126" name="msg" style="float: left"></textarea>
+                <input type=submit value="댓글쓰기" style="float: left;height: 82px; margin-left: 10px" class="btn btn-sm btn-primary">
               </form>
              </td>
             </tr>
