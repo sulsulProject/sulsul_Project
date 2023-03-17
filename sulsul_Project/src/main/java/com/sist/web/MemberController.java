@@ -35,12 +35,17 @@ public class MemberController{
 		return "member/signup";
 	}
 
-	@RequestMapping("member/signup_done.do")
+	@GetMapping("member/signup_done.do")
 	public String signup_done(MemberVO vo) {
 		dao.memberInsert(vo);
 		return "redirect:../member/login.do";
 	}
 	// 회원가입 버튼을 누르면 _done.do로 이동하게 vue 사용하고 vo만 넘기기
 	// 위의 매핑은 레스트 컨트롤러에서 작성해보기
+	
+	@GetMapping("member/idfind.do")
+	public String member_idFind() {
+		return "member/idfind";
+	}
 	
 }

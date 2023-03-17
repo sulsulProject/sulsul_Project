@@ -106,7 +106,7 @@ input[type=button]:hover {
                  <td class="text-right">
                    <c:if test="${sessionScope.id == rvo.id }">
                      <span class="btn btn-xs btn-info ups" data-no="${rvo.no }">수정</span>
-                     <a href="../reply/freeboard_delete.do?no=${rvo.no }&rno=${vo.fbno}&cate_no=1" class=""><img src="../images/delete.png" style="width:25px; height: 25px"></a>
+                     <a href="../reply/freeboard_delete.do?no=${rvo.no }&rno=${vo.fbno}&cate_no=1" class="btn btn-xs btn-danger">삭제</a>
                    </c:if>
                  </td>
                 </tr>
