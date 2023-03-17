@@ -11,7 +11,7 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style>
 /* .untree_co-section{
-	border : 1px solid black;
+   border : 1px solid black;
 }
 .container{
     border : 1px solid red;
@@ -24,37 +24,37 @@
 }
 
 .button1{
-	height: 40px;
-	width: 400px;
-	border :1px solid #D0F1FB;
-	background:  #D0F1FB;
+   height: 40px;
+   width: 400px;
+   border :1px solid #D0F1FB;
+   background:  #D0F1FB;
 }
 input{
-	font-size:16px;
-	width:347px;
-	height:100%;
-	border:0px; 
-	outline:none;
-	floate:left;
+   font-size:16px;
+   width:347px;
+   height:100%;
+   border:0px; 
+   outline:none;
+   floate:left;
 }
 button{
-	width:50px;
-	height:100%;
-	border:0px;
-	background: #D0F1FB;
-	outline:none;
-	float:right;
-	color:black;
+   width:50px;
+   height:100%;
+   border:0px;
+   background: #D0F1FB;
+   outline:none;
+   float:right;
+   color:black;
 }
 button:hover{
-	cursor:pointer;
-	background-color: #DCDCDC;
+   cursor:pointer;
+   background-color: #DCDCDC;
 }
 /*/////////////////////////////////////////////*/
 .postBox:hover {
-	cursor:pointer;
-	background-color: #D0F1FB;
-	color: black;
+   cursor:pointer;
+   background-color: #D0F1FB;
+   color: black;
 }
 </style>
 </head>
@@ -69,16 +69,16 @@ button:hover{
            <tr class ="menu" >
             <th><h5><b>고객센터</b></h5></th>
            </tr>
-	       <tr>
-	        <th style="padding: 8px"><a href="../customer/faq.do" style="color:#337AB7;font-size: 14px" class="test">FAQ</a></th>
-	       </tr>
-	       <tr>
-	        <th style="padding: 8px"><a href="../customer/iu.do" style="color:#337AB7;font-size: 14px" class="test">이용안내</a></th>
-	       </tr>
-	       <tr>
-	        <th style="padding: 8px"><a href="../customer/ask.do" style="color:#337AB7;font-size: 14px" class="test">1:1 문의하기</a></th>
-	       </tr>
-	      </table>
+          <tr>
+           <th style="padding: 8px"><a href="../customer/faq.do" style="color:#337AB7;font-size: 14px" class="test">FAQ</a></th>
+          </tr>
+          <tr>
+           <th style="padding: 8px"><a href="../customer/iu.do" style="color:#337AB7;font-size: 14px" class="test">이용안내</a></th>
+          </tr>
+          <tr>
+           <th style="padding: 8px"><a href="../customer/ask.do" style="color:#337AB7;font-size: 14px" class="test">1:1 문의하기</a></th>
+          </tr>
+         </table>
        </div>
   <!-- 사이드 메뉴 끝 -->
 
@@ -93,48 +93,48 @@ button:hover{
        
        <!-- 나라별 고객 센터 소개 시작 -->
        <div class="container">
-			<div class="row">
-	        <div class="owl-4-slider owl-carousel">
-			 <c:forEach var="vo" items="${nList }" begin="0" end="21">
-				<div class="item" >
-					<div class="product-item" style="background-color: #D0F1FB;border-radius: 1em;"">
-							<sub style="color: gray">${vo.nation }</sub><br>
-							<b>${vo.title }</b>
-							<div style="padding-left:70px;">
-							<img src="${vo.image }" style="height:60px;width: 60px;">
-					     </div>
-					     
-					     <!--  TO_DO : 나라별 현재 시간 추가 / 업무 상태 추가 -->
-					     
-						<!-- <div><b>시간추가</b></div>-->
-						<div><b>업무중</b></div>
-						<div style="height: 10px"></div>
-					</div>
-				</div> <!-- /.item -->
-				</c:forEach>
-			</div>
-		</div> <!-- /.container --> 
+         <div class="row">
+           <div class="owl-4-slider owl-carousel">
+          <c:forEach var="vo" items="${nList }" begin="0" end="21">
+            <div class="item" >
+               <div class="product-item" style="background-color: #D0F1FB;border-radius: 1em;"">
+                     <sub style="color: gray">${vo.nation }</sub><br>
+                     <b>${vo.title }</b>
+                     <div style="padding-left:70px;">
+                     <img src="${vo.image }" style="height:60px;width: 60px;">
+                    </div>
+                    
+                    <!--  TO_DO : 나라별 현재 시간 추가 / 업무 상태 추가 -->
+                    
+                  <!-- <div><b>시간추가</b></div>-->
+                  <div><b>${vo.work_state }</b></div>
+                  <div style="height: 10px"></div>
+               </div>
+            </div> <!-- /.item -->
+            </c:forEach>
+         </div>
+      </div> <!-- /.container --> 
      </div>
      <!-- 나라별 고객센터 소개 끝 -->
      
     
-       <div style="height: 50px"></div>
+       <div style="height: 70px"></div>
        <!-- 검색창  start -->
        <div style="padding-left: 190px">
         <form method="post" action="../customer/faq.do" >
-	      <div class="button1 "  >
+         <div class="button1 "  >
             <input type="text" placeholder="검색어를 입력하세요" name="subject">
              <button> <b>검색</b></button>
           </div>
         </form>
         </div> 
-      <div style="height: 5px"></div>
+      <div style="height: 30px"></div>
       
       <!-- 검색 결과 받는 부분 -->
        <c:if test="${count==0 }">
         <div class="text-center">
-      	  <span style="color:red;font-size:30px">검색한 결과가 없습니다</span>
-      	</div>
+           <span style="color:red;font-size:30px">검색한 결과가 없습니다</span>
+         </div>
       </c:if>
       
       <!-- 검색결과가 있는 경우 -->
@@ -244,30 +244,30 @@ button:hover{
             </table>
             <!-- 페이지 기능 -->
             <ul id="page_ul" style="padding-left: 0px;">
-			    <li class="page_li" v-if="startPage>1">
-			    	<span class="mypost_page_pre page_a" v-on:click="prev()">
-			           ◀
-			        </span>
-			    </li>
-			    
-			    <li class="page_li" v-for="i in range(startPage, endPage)" v-if="i===curpage">
-			         <span class="mypost_page page_a li_active" v-on:click="pageChage(i)">
-			         {{i}}
-			       </span>
-			    </li>
-			    
-			    <li class="page_li" v-else>
-			       <span class="mypost_page page_a" v-on:click="pageChange(i)">
-			       {{i}}
-			       </span>
-			    </li>
-			    
-			    <li class="page_li" v-if="totalpage>endPage">
-			       <span class="mypost_page_next page_a" v-on:click="next()">
-			       ▶
-			       </span>
-			    </li>
-			 </ul> 
+             <li class="page_li" v-if="startPage>1">
+                <span class="mypost_page_pre page_a" v-on:click="prev()">
+                    ◀
+                 </span>
+             </li>
+             
+             <li class="page_li" v-for="i in range(startPage, endPage)" v-if="i===curpage">
+                  <span class="mypost_page page_a li_active" v-on:click="pageChage(i)">
+                  {{i}}
+                </span>
+             </li>
+             
+             <li class="page_li" v-else>
+                <span class="mypost_page page_a" v-on:click="pageChange(i)">
+                {{i}}
+                </span>
+             </li>
+             
+             <li class="page_li" v-if="totalpage>endPage">
+                <span class="mypost_page_next page_a" v-on:click="next()">
+                ▶
+                </span>
+             </li>
+          </ul> 
           </div> 
          </div>
      </c:if>
@@ -276,124 +276,124 @@ button:hover{
   </div>
 </div>
 <script>
-	new Vue({
-		el:'.rows',
-		data:{
-			faq_list:[],
-			curpage:1,
-			startPage:0,
-			endPage:0,
-			totalpage:0,
-			no:1,
-			ss:'',
-			search_list:[]
-		},
-		mounted:function(){
-			let _this=this
-			axios.get('http://localhost/web/customer/faq_list_vue.do',{
-				params:{
-					  page:this.curpage,
-	                  no:this.no
-				  }
-			}).then(function(response) {
-				   console.log(response.data)
-				  _this.faq_list = response.data
-				  _this.curpage = response.data[0].curpage
-				  _this.totalpage = response.data[0].totalpage
-				  _this.startPage = response.data[0].startPage
-				  _this.endPage = response.data[0].endPage
-			})
-		},
-		methods:{
-			send:function(){
-				let _this=this
-				axios.get('http://localhost/web/customer/faq_list_vue.do',{
-					params:{
-						  page:this.curpage,
-		                  no:this.no
-					  }
-				}).then(function(response) {
-					   console.log(response.data)
-					  _this.faq_list = response.data
-					  _this.curpage = response.data[0].curpage
-					  _this.totalpage = response.data[0].totalpage
-					  _this.startPage = response.data[0].startPage
-					  _this.endPage = response.data[0].endPage
-				})
-			}, //send
-			getData:function(){
-				let _this=this;
-				axios.get("http://localhost/web/customer/faq_find_vue.do",{
-					params:{
-						subject:this.ss
-					}
-				}).then(function(response){
-					console.log(resposne.data)
-					_this.search_list=response.data;
-		            _this.curpage=response.data[0].curpage
-		            _this.totalpage=response.data[0].totalpage
-		            _this.startPage=response.data[0].startPage
-		            _this.endPage=response.data[0].endPage
-				})
-			},
-			find:function(){
-				//this.curpage=1;
-				this.getData();
-			},
-			// 범위
-			range:function(min,max){
-	               let array=[],
-	               j=0
-	               for(let i=min; i<=max; i++){
-	                  array[j] =i
-	                  j++
-	               }
-	               return array
-	            },
-	       pageChange:function(page){
-	           this.curpage=page
-	           if(this.no==0)
-	                this.send()
-	           else
-	                this.change(this.no,page)
-	        },
-			find:function() {
-				this.curpage=1;
-				this.send();
-			},
-			prev:function(){
-	             this.curpage=this.startPage-1
-	             if(this.no==0)
-	               this.send()
-	             else
-	                this.change(this.no,this.curpage)
-	          },
-	       next:function(){
-	             this.curpage=this.endPage+1
-	             if(this.no==0)
-	                 this.send()
-	               else
-	                this.change(this.no,this.curpage)
-	        },
-			change:function(no,page){
-				this.curpage=page;
-				this.no=no
-				let _this=this;
-				axios.get("http://localhost/web/customer/faq_change_vue.do",{
-	                params:{
-		                   no:no,
-		                   page:this.curpage
-		                }
-		        }).then(function(response){
-		            console.log(response.data)
-		            _this.faq_list=response.data
-		            _this.curpage=response.data[0].curpage
-	                _this.totalpage=response.data[0].totalpage
-	                _this.startPage=response.data[0].startPage
-	                _this.endPage=response.data[0].endPage
-		    })
-		}
-	} //methods
+   new Vue({
+      el:'.rows',
+      data:{
+         faq_list:[],
+         curpage:1,
+         startPage:0,
+         endPage:0,
+         totalpage:0,
+         no:1,
+         ss:'',
+         search_list:[]
+      },
+      mounted:function(){
+         let _this=this
+         axios.get('http://localhost/web/customer/faq_list_vue.do',{
+            params:{
+                 page:this.curpage,
+                     no:this.no
+              }
+         }).then(function(response) {
+               console.log(response.data)
+              _this.faq_list = response.data
+              _this.curpage = response.data[0].curpage
+              _this.totalpage = response.data[0].totalpage
+              _this.startPage = response.data[0].startPage
+              _this.endPage = response.data[0].endPage
+         })
+      },
+      methods:{
+         send:function(){
+            let _this=this
+            axios.get('http://localhost/web/customer/faq_list_vue.do',{
+               params:{
+                    page:this.curpage,
+                        no:this.no
+                 }
+            }).then(function(response) {
+                  console.log(response.data)
+                 _this.faq_list = response.data
+                 _this.curpage = response.data[0].curpage
+                 _this.totalpage = response.data[0].totalpage
+                 _this.startPage = response.data[0].startPage
+                 _this.endPage = response.data[0].endPage
+            })
+         }, //send
+         getData:function(){
+            let _this=this;
+            axios.get("http://localhost/web/customer/faq_find_vue.do",{
+               params:{
+                  subject:this.ss
+               }
+            }).then(function(response){
+               console.log(resposne.data)
+               _this.search_list=response.data;
+                  _this.curpage=response.data[0].curpage
+                  _this.totalpage=response.data[0].totalpage
+                  _this.startPage=response.data[0].startPage
+                  _this.endPage=response.data[0].endPage
+            })
+         },
+         find:function(){
+            //this.curpage=1;
+            this.getData();
+         },
+         // 범위
+         range:function(min,max){
+                  let array=[],
+                  j=0
+                  for(let i=min; i<=max; i++){
+                     array[j] =i
+                     j++
+                  }
+                  return array
+               },
+          pageChange:function(page){
+              this.curpage=page
+              if(this.no==0)
+                   this.send()
+              else
+                   this.change(this.no,page)
+           },
+         find:function() {
+            this.curpage=1;
+            this.send();
+         },
+         prev:function(){
+                this.curpage=this.startPage-1
+                if(this.no==0)
+                  this.send()
+                else
+                   this.change(this.no,this.curpage)
+             },
+          next:function(){
+                this.curpage=this.endPage+1
+                if(this.no==0)
+                    this.send()
+                  else
+                   this.change(this.no,this.curpage)
+           },
+         change:function(no,page){
+            this.curpage=page;
+            this.no=no
+            let _this=this;
+            axios.get("http://localhost/web/customer/faq_change_vue.do",{
+                   params:{
+                         no:no,
+                         page:this.curpage
+                      }
+              }).then(function(response){
+                  console.log(response.data)
+                  _this.faq_list=response.data
+                  _this.curpage=response.data[0].curpage
+                   _this.totalpage=response.data[0].totalpage
+                   _this.startPage=response.data[0].startPage
+                   _this.endPage=response.data[0].endPage
+          })
+      }
+   } //methods
 }) //전체
 
 </script>
