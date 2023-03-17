@@ -73,11 +73,11 @@
                  </a>
                  </td>
                  <td width="15%" class="text-center" style="border-right: 0.5px solid lightgray">{{vo.dbday}}</td>
-                 <td width="10%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="vo.read_chk == 0">안읽음</td>
-                 <td width="10%" class="text-center" style="border-right: 0.5px solid lightgray" v-if="vo.read_chk == 1">읽음</td>
+                 <td width="10%" class="text-center" style="border-right: 0.5px solid lightgray; color:gray;" v-if="vo.read_chk == 0">안읽음</td>
+                 <td width="10%" class="text-center" style="border-right: 0.5px solid lightgray; color:blue; font-weight: bold " v-if="vo.read_chk == 1">읽음</td>
                  <td width="10%" class="text-center" style="border-right: 0.5px solid lightgray">
                  <a :href="'../letter/recv_letter_delete.do?lno='+vo.lno+'&recv_id='+vo.recv_id">
-                 삭제
+                 <img src="../images/delete.png" style="width:20px; height: 20px">
                  </a>
                  </td>
                </tr>

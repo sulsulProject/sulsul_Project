@@ -16,17 +16,18 @@ public class MemberDAO {
 		mapper.memberInsert(vo);
 	}
 	
-	public boolean memberIdCheck(String userId){
-		boolean flag = true;
-		int result = mapper.memberIdCheck(userId);
-		if(result==0) flag=false;
+	public boolean memberIdCheck(String id){
+		boolean flag = false;
+		int result = mapper.memberIdCheck(id);
+		System.out.println(result);
+		if(result==0) flag=true;
 		return flag;
 	}
 	
-	public boolean memberEmailCheck(String email) {
-		boolean flag = true;
+	public boolean memberEmailCheck(String email){
+		boolean flag = false;
 		int result = mapper.memberEmailCheck(email);
-		if(result==0) flag=false;
+		if(result==0) flag=true;
 		return flag;
 	}
 	
@@ -40,12 +41,24 @@ public class MemberDAO {
 				vo.setMsg("OK");
 				vo.setId(dbvo.getId());
 				vo.setName(dbvo.getName());
+				vo.setEmail(dbvo.getEmail());
+				vo.setAddr1(dbvo.getAddr1());
+				vo.setAddr2(dbvo.getAddr2());
+				vo.setPassword(dbvo.getPassword());
+				vo.setAdmin(dbvo.getAdmin());
+				vo.setTel(dbvo.getTel());
+				vo.setPostcode(dbvo.getPostcode());
+				
 			}
 			else {
 				vo.setMsg("WRONGPASSWORD");
 			}
 		}
 		return vo;
+	}
+	public MemberVO member_info(String id)
+	{
+		return mapper.member_info(id);
 	}
 	
 	//(마이페이지)비밀번호 변경 
@@ -68,99 +81,29 @@ public class MemberDAO {
 	    	return mapper.memberTelUpdate(password, id);
 	    }
 	
-	/*
-	// 아이디 찾기 => 전화번호로 찾기
-	// 아이디 찾기(전화번호) => 존재 유무 확인
-    @Select("SELECT COUNT(*) FROM sul_member_2_2 WHERE name=#{name} AND tel=#{tel}")
-    public int memberIdTelFind(String name, String tel);
-    
-    // 아이디 찾기(전화번호) => 아이디 공개
-    @Select("SELECT RPAD(SUBSTR(id,1,3),LENGTH(id),'*') "
-    		+ "FROM sul_member_2_2 "
-    		+ "WHERE name=#{name} AND tel=#{tel}")
-    public String memberIdTel_ID(String name, String tel);
-	 * 
-    public String memberIdtelfind(String name,String tel) {
-        String msg="";
-        try {
-           conn = dbConn.createConnection();
-           String sql = "select count(*) from HC_MEMBER_2 where name =? and tel=?";
-           ps = conn.prepareStatement(sql);
-           ps.setString(1, name);
-           ps.setString(2, tel);
-           ResultSet rs = ps.executeQuery();
-           rs.next();
-           int count = rs.getInt(1);
-           rs.close();
-
-           if(count == 0) {
-        	   msg="NO";
-           }else {
-              sql = "SELECT RPAD(substr(mid,1,3),LENGTH(mid), '*') from HC_MEMBER_2 "
-                  + "WHERE name =? and tel=?";
-              ps = conn.prepareStatement(sql);
-              ps.setString(1, name);
-              ps.setString(2, tel);
-              rs=ps.executeQuery();
-              rs.next();
-              msg = rs.getString(1);
-              rs.close();
-           }
-        } catch (Exception e)
-        {
-           e.printStackTrace();
-        }finally {
-           dbConn.closeConnection(ps, conn);
-        }
+	// 아이디 찾기(전화번호)
+    public String memberIdTelFindOpen(String name,String tel) {
+    	String msg="";
+    	int count = mapper.memberIdTelFind(name, tel);
+    	if(count==0){
+    		msg="NO";
+    	}
+    	else {
+    		msg=mapper.memberIdTelFindOpen(name, tel);
+    	}
         return msg;
-     }
-
-    // 아이디 찾기 -> 이메일로 찾기
-    // 아이디 찾기(이메일) => 존재 유무 확인
-    @Select("SELECT COUNT(*) FROM sul_member_2_2 WHERE name=#{name} AND email=#{email}")
-    public int memberIdEmailFind(String name, String email);
+    }
     
-    // 아이디 찾기(전화번호) => 아이디 공개
-    @Select("SELECT RPAD(SUBSTR(id,1,3),LENGTH(id),'*') "
-    		+ "FROM sul_member_2_2 "
-    		+ "WHERE name=#{name} AND email=#{email}")
-    public String memberIdEmail_ID(String name, String email);
-    public String memberIdemailfind(String name,String email) {
-        String msg="";
-        try {
-            conn = dbConn.createConnection();
-            String sql = "select count(*) from HC_MEMBER_2 where name =? and email=?";
-           ps = conn.prepareStatement(sql);
-           ps.setString(1, name);
-           ps.setString(2, email);
-           ResultSet rs = ps.executeQuery();
-           rs.next();
-           int count = rs.getInt(1);
-           rs.close();
-
-           if(count == 0) {
-        	   msg="NO";
-           }else {
-              sql = "SELECT RPAD(substr(mid,1,3),LENGTH(mid), '*') from HC_MEMBER_2 "
-                    +"where name =? and email=?";
-              ps = conn.prepareStatement(sql);
-              ps.setString(1, name);
-              ps.setString(2, email);
-              rs=ps.executeQuery();
-              rs.next();
-              msg = rs.getString(1);
-              rs.close();
-           }
-        }
-        catch (Exception e)
-        {
-           e.printStackTrace();
-        }
-        finally
-        {
-           dbConn.closeConnection(ps, conn);
-        }
-        return msg;
-     }
-	*/
+    // 아이디 찾기(이메일)
+    public String memberIdEmailFindOpen(String name,String email) {
+    	String msg="";
+    	int count = mapper.memberIdEmailFind(name, email);
+    	if(count==0) {
+    		msg="NO";
+    	}
+    	else {
+    		msg=mapper.memberIdEmailFindOpen(name, email);
+    	}
+    	return msg;
+    }
 }

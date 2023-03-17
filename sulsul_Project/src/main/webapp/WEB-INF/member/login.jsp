@@ -20,10 +20,13 @@
     </div>
   </div>
   <div class="untree_co-section log-in">
-    <div class="container " >
-      <div class="row  "style="padding-left: 38%">
-        <div>
-           <div class="col-md-5 mr-auto order-1" data-aos="fade-up" data-aos-delay="200">
+    <div class="container">
+      <div class="row rows">
+        <div class="col-lg-4">
+        
+        </div>
+        <div class="col-lg-4">
+           <div class="mr-auto order-1" data-aos="fade-up" data-aos-delay="200">
 	          <form action="#">
 	            <div class="row">
 	              <div class="col-12 mb-3">
@@ -41,17 +44,21 @@
 	              </div>
 	            </div>
 	          </form>
-	          <div class="text-center">
-	            <span>아직 회원이 아니신가요?</span>
-	            <a href="#" class="text-decoration-none">
-	                회원가입 GO
+	          <div class="text-center" style="margin-top: 40px">
+	            <!-- <span>아직 회원이 아니신가요?</span> -->
+	            <a href="../member/signup.do" class="text-decoration-none">
+	                회원가입
 	            </a>
 	            <div class="mb-3">
-	                <a href="#" class="text-secondary text-decoration-underline">아이디 찾기</a>
+	                <a href="../member/idfind.do" class="text-secondary text-decoration-underline">아이디 찾기</a>
+	                &nbsp;|&nbsp;
 	                <a href="#" class="text-secondary text-decoration-underline">비밀번호 찾기</a>
 	            </div>
 	          </div>
         	</div>
+          </div>
+          <div class="col-lg-4">
+          
           </div>
       	</div>
     </div>
@@ -97,12 +104,7 @@
 					  location.href="../main/main.do"
 				  }
 			  })
-		  }/* ,
-		  logout:function(){
-			  axios.get('http://localhost/web/member/logout_vue.do').then(function(response){
-				  location.href="../main/main.do";
-			  })
-		  } */
+		  }
 	  }
   })
 </script>

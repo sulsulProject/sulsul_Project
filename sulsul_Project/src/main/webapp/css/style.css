@@ -5,7 +5,7 @@
 * License: https://creativecommons.org/licenses/by/3.0/
 */
 body {
-  font-family: "Muli", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   line-height: 1.6;
   background-color: #ffffff;
   overflow-x: hidden;
@@ -756,8 +756,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   outline: none; }
 
 .untree_co-hero, .bg-img {
-  background-size: cover;
-  background-position: top center;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
   position: relative; }
   .untree_co-hero.overlay, .bg-img.overlay {
