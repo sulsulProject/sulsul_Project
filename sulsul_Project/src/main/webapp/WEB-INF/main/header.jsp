@@ -39,10 +39,11 @@ li a:hover {
 									</ul>
 								</li>
 								<li class="has-children"><a href="about.html" style="font-size: 14px">모임</a>
+								<li class="has-children"><a href="../regular/regular.do">모임</a>
 									<ul class="dropdown">
 										<li><a href="../regular/regular.do">정기모임</a></li>
-										<li><a href="#">번개모임</a></li>
-										<li><a href="#">채팅</a></li>
+										<li><a href="../regular/regular.do">번개모임</a></li>
+										<!-- <li><a href="#">채팅</a></li> -->
 									</ul>
 								</li>
 							</ul>

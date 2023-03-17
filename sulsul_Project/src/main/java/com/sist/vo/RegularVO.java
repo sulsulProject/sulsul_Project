@@ -9,6 +9,6 @@ import lombok.Setter;
 public class RegularVO {
 	private int no, head, rcate_no;
 	private Date regdate;
-	private String poster, content, tag, name;
+	private String poster, content, tag, name, dbday;
 
 }
