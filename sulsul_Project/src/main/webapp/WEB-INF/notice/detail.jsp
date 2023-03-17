@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,8 +37,10 @@ th,h1{font-family: "Playfair Display", serif;}
       </tr>
       <tr>
         <td colspan="6" class="text-right">
+        <c:if test="${sessionScope.admin=='y' }">
           <a :href="'../notice/update.do?no='+notice_detail.no" class="btn btn-xs btn-dark">수정</a>
           <a :href="'../notice/delete.do?no='+notice_detail.no" class="btn btn-xs btn-dark">삭제</a>
+          </c:if>
           <a href="../notice/list.do" class="btn btn-xs btn-dark">목록</a>
         </td>
       </tr>

@@ -73,6 +73,18 @@ public interface RegularMapper {
 			+ "from sul_regular_board_2_2)) "
 			+ "where rno=#{rno} and num between #{start} and #{end}")
 	public List<RegularBoardVO> regularBoardListData(Map map);
+	
+	// popularList
+	@Select("select no, regdate, poster, content, head, rcate_no, tag, name, rownum "
+			+ "from sul_regular_2_2  "
+			+ "where rownum <= 5 order by head desc")
+	public List<RegularVO> regularPopularListData();
+	
+	// newList
+	@Select("select no, regdate, poster, content, head, rcate_no, tag, name, rownum "
+			+ "from sul_regular_2_2  "
+			+ "where rownum <= 5 order by regdate desc")
+	public List<RegularVO> regularNewListData();
 
 	//총페이지 ////////////////////
 		@Select("select ceil(count(*)/20.0) from sul_regular_board_2_2")

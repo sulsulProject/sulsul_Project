@@ -1,5 +1,8 @@
 package com.sist.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -62,10 +65,9 @@ public class MemberDAO {
 	}
 	
 	//(마이페이지)비밀번호 변경 
-	 public int memberPwdUpdate(String password, String id)
+	 public void memberPwdUpdate(String password, String id)
 	 {
-		 System.out.println("2222222222");
-		 return mapper.memberPwdUpdate(password, id);
+		 mapper.memberPwdUpdate(password, id);
 	 }
 	 //(마이페이지) 전화번호 확인 , 변경
 	    public boolean memberTelCheck(String tel)
@@ -80,6 +82,31 @@ public class MemberDAO {
 	    {
 	    	return mapper.memberTelUpdate(password, id);
 	    }
+	 // (마이페이지) 회원정보 수정 업데이트
+	    public void memberInfoUpdateVue(MemberVO vo)
+	    {
+    	  mapper.memberInfoUpdateVue(vo);
+       }
+	    public String memberpwdchk(String id)
+	    {
+	    	return mapper.memberpwdchk(id);
+	    }
+	  //(어드민페이지) 멤버 정보 
+	    public List<MemberVO> admin_member_info(Map map)
+	    {
+	    	return mapper.admin_member_info(map);
+	    }
+	    //(어드민페이지) 멤버 정보 리스트 토탈
+	    public int adminMemberTotalPage()
+	    {
+	    	return mapper.adminMemberTotalPage();
+	    }
+	    //(어드민페이지) 회원 강퇴
+	    public void adminMemberDelete(String id)
+	    {
+	    	 mapper.adminMemberDelete(id);
+	    }
+	    
 	
 	// 아이디 찾기(전화번호)
     public String memberIdTelFindOpen(String name,String tel) {

@@ -51,7 +51,7 @@
       <div class="row align-items-center text-center">
         <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
           <h1>이벤트 상세</h1>
-          <p class="mb-4"><a href="index.html">Sul</a> / <strong>EventBoard</strong></p>        
+          <p class="mb-4"><a href="index.html"><span style="color: #c71585">Sul</span></a> / <strong>EventBoard</strong></p>        
         </div>
       </div>
     </div>

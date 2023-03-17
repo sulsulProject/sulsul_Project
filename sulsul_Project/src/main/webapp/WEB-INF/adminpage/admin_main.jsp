@@ -10,19 +10,6 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style type="text/css">
 th,h1,h2,li,hhh{font-family: "Playfair Display", serif;}
-.teduri{
-box-shadow: 0px 10px 40px 0px rgb(192 192 192 / 20%);
-margin-left:50px;
-} 
-.clickk:hover{
-cursor: pointer
-}
-.pwdcss{
-  margin-top: 5%;
-}
-.clickk{
-width: 50%;
-}
 .untree_co-section {
     padding: 10px 0;
     position: relative;
@@ -34,21 +21,22 @@ width: 50%;
     <div class="container">
       <div class="row align-items-center text-center">
         <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
-          <h1>Mypage</h1>
-          <p class="mb-4"><a href="index.html">Sul</a> / <strong>Mypage</strong></p>        
+          <h1 style="color: #eaa8b3;">Adminpage</h1>
+          <p class="mb-4"><a href="index.html">Sul</a> / <strong>Adminpage</strong></p>        
         </div>
       </div>
     </div>
   </div>
 <div class="untree_co-section rows">
   <div class="container">
-    <h2><b style="color: #92A8D1;">${sessionScope.name}</b>님의 Mypage 입니다.</h2>
     <div style="height: 30px"></div>
-      <jsp:include page="../mypage/mypage_menu.jsp"></jsp:include>
-      <div class="tab_content"> 
-      <jsp:include page="${mypage_jsp }"></jsp:include>
+     <h2><b style="color: #92A8D1;">관리자</b> 페이지 입니다.</h2>
+    <div style="height: 30px"></div>
+     <jsp:include page="../adminpage/admin_menu.jsp"></jsp:include>
+      <div class="content"> 
+      <jsp:include page="${admin_jsp }"></jsp:include>
     </div>
   </div>
-  </div>
+ </div>
 </body>
 </html>

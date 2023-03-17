@@ -33,21 +33,21 @@ public class MemberRestController {
 		return result;
 	}	
 	//(마이페이지) 회원정보
-   @GetMapping(value = "member/member_info_vue.do",produces = "text/plain;charset=UTF-8")
-   public String member_info(HttpSession session)
-   {
-      String id=(String)session.getAttribute("id");
-      MemberVO vo=dao.member_info(id);
-      JSONObject obj=new JSONObject();
-      obj.put("email", vo.getEmail());
-      obj.put("addr1", vo.getAddr1());
-      obj.put("addr2", vo.getAddr2());
-      obj.put("Bday", vo.getBday());
-      obj.put("password", vo.getPassword());
-      obj.put("tel", vo.getTel());
-      
-      return obj.toJSONString();
-   }
+		@GetMapping(value = "member/member_info_vue.do",produces = "text/plain;charset=UTF-8")
+		public String member_info(HttpSession session)
+		{
+			String id=(String)session.getAttribute("id");
+			MemberVO vo=dao.member_info(id);
+			JSONObject obj=new JSONObject();
+			obj.put("email", vo.getEmail());
+			obj.put("addr1", vo.getAddr1());
+			obj.put("addr2", vo.getAddr2());
+			obj.put("Bday", vo.getBday());
+			obj.put("tel", vo.getTel());
+			obj.put("postcode", vo.getPostcode());
+			
+			return obj.toJSONString();
+		}
    
    @GetMapping("member/idcheck_vue.do")
    public String member_idCheck(String id)
