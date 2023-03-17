@@ -121,12 +121,23 @@ img {
 </style>
 </head>
 <body>
+	<div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
+    <div class="container">
+      <div class="row align-items-center text-center">
+        <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
+          <h1>Cookie</h1>
+          <p class="mb-4"><a href="../main/main.do"><span style="color: #c71585">Sul</span></a> / <strong>상품</strong></p>        
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="untree_co-section">
   <div class="container">
    <div class="row rows">
    
    <div class="recent_cnt">
-            <h5>최근 본 상품 <span>최근 본 상품이 최대 50개까지 저장됩니다.</span>
+            <h5>최근 본 상품 <span>&nbsp;&nbsp;최근 본 상품이 최대 50개까지 저장됩니다.</span>
 
             <div class="item_box">
             <dl>

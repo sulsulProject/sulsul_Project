@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,16 +17,30 @@ th,h1{font-family: "Playfair Display", serif;}
     padding: 20px;
     border-bottom: 1px solid #ddd;
 }
+.untree_co-section {
+    padding: 10px 0;
+    position: relative;
+}
 </style>
 </head>
 <body>
-<div class="untree_co-section rows">
+<div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
     <div class="container">
-     <div style="height: 30px"></div>
-      <h1 style="margin-bottom: 20px">Notice</h1>
+      <div class="row align-items-center text-center">
+        <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
+          <h1>Notice</h1>
+          <p class="mb-4"><a href="index.html">Sul</a> / <strong>Notice</strong></p>        
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="untree_co-section rows" >
+    <div class="container">
      <!--   관리자 권한-->
       <div style="float: right;">
+         <c:if test="${sessionScope.admin=='y' }">
           <a href="../notice/insert.do" class="btn btn-xs btn-dark">new</a>
+         </c:if>
        </div> 
       <table class="table contents">
        <thead>

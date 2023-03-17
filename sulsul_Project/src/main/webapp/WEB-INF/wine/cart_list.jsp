@@ -34,7 +34,7 @@ function requestPay() {
        pay_method : 'card', // 'card' : 신용카드 | 'trans' : 실시간계좌이체 | 'vbank' : 가상계좌 | 'phone' : 휴대폰소액결제
        merchant_uid : 'merchant_' + new Date().getTime(),
        name : '주문명:결제테스트',
-       amount : $('.tp').text(),
+       amount : ${tCount},
        buyer_email : 'iamport@siot.do',
        buyer_name : '구매자이름',
        buyer_tel : '010-1234-5678',
@@ -89,17 +89,16 @@ function requestPay() {
  
 
 	<c:if test="${cCount<1 }">
-  <div class="page-heading bg-light">
+	<div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
     <div class="container">
-      <div class="row align-items-end text-center">
-        <div class="col-lg-7 mx-auto">
-          <h1>Cart</h1>  
-          <p class="mb-4"><a href="index.html">Home</a> / <strong>장바구니</strong></p>        
+      <div class="row align-items-center text-center">
+        <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
+          <h1>Cart</h1>
+          <p class="mb-4"><a href="../main/main.do"><span style="color: #c71585">Sul</span></a> / <strong>장바구니</strong></p>        
         </div>
       </div>
     </div>
   </div>
-	
 
 	  <div class="untree_co-section">
     <div class="container">
@@ -112,12 +111,12 @@ function requestPay() {
 
   
 	<c:if test="${cCount>0 }">
-	  <div class="page-heading bg-light">
+	 <div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
     <div class="container">
-      <div class="row align-items-end text-center">
-        <div class="col-lg-7 mx-auto">
-          <h1>Cart</h1>  
-          <p class="mb-4"><a href="../main/main.do">Home</a> / <strong>장바구니</strong></p>        
+      <div class="row align-items-center text-center">
+        <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
+          <h1>Cart</h1>
+          <p class="mb-4"><a href="../main/main.do"><span style="color: #c71585">Sul</span></a> / <strong>장바구니</strong></p>        
         </div>
       </div>
     </div>

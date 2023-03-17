@@ -2,15 +2,19 @@ package com.sist.web;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sist.dao.MemberDAO;
+import com.sist.vo.MemberVO;
+import com.sist.vo.NoticeVO;
 @RestController
 public class MypageRestController {
 	@Autowired
 	private MemberDAO dao;
+	//이메일 확인
 	//4. 컨트롤러 호출
 	@GetMapping(value = "mapage/mypage_email_chk_vue.do",produces="text/html;charset=UTF-8")
     public String mypage_email_update(String email)
@@ -28,37 +32,57 @@ public class MypageRestController {
 		//7. 값 return
 		return res;
     }
+	//비밀번호 확인 체크
+	@GetMapping(value = "mypage/mypage_pwd_chk_update_vue.do",produces ="text/html;charset=UTF-8" )
+	public String mypage_pwd_chk_update(String pwd, HttpSession session)
+	{
+		String res = "no";
+		String id = (String) session.getAttribute("id");
+		String db_pwd=dao.memberpwdchk(id);
+		if(db_pwd.equals(pwd))
+        {
+			res="yes";
+        }
+        
+	     return res;
+	}
+	//비밀번호 수정 
 	@GetMapping(value = "mypage/mypage_pwd_update_vue.do",produces ="text/html;charset=UTF-8" )
 	public String mypage_pwd_update(String pwd, HttpSession session)
 	{
-		String res = "";
 		String id = (String) session.getAttribute("id");
-		System.out.println("11111111111111");
-		int result =dao.memberPwdUpdate(pwd, id);
-		System.out.println("result : " + result);
-		//0 : 변경 안됨, !0 : 변경 완료
-		if(result == 0) {
-			res = "SUCCESSN"; //비번 변경 실패
-		}else {
-			res = "SUCCESSY"; //비번 변경 완료
-		}
-		return res;
+		dao.memberPwdUpdate(pwd, id);
+		return "";
 	}
+	//전화번호 확인
 	@GetMapping(value = "mapage/mypage_tel_chk_vue.do",produces ="text/html;charset=UTF-8" )
 	public String mypage_tel_update(String tel)
 	{
 		String res = "";
-		System.out.println("11111111111111");
 		boolean result =dao.memberTelCheck(tel);
-		System.out.println("tel:"+tel);
-		System.out.println("result : " + result);
-		//0 : 변경 안됨, !0 : 변경 완료
+		//0 : 변경 안됨, !0 : 변경 가능
 		if(result == false) {
 			res = "TELY"; //번호 사용 가능
 		}else {
 			res = "TELN"; //번호 사용 불가능
 		}
 		return res;
+	}
+	//회원정보 수정 업데이트
+	@GetMapping(value ="mypage/mypage_info_update_vue.do",produces ="text/html;charset=UTF-8")
+	public String mypage_info_update_vue(MemberVO vo,HttpSession session)
+	{
+		          String res="no";
+		          String id = (String) session.getAttribute("id");
+		          String db_pwd=dao.memberpwdchk(id);
+		          if(db_pwd.equals(vo.getPassword()))
+		          {
+		        	   vo.setId(id);
+		        	   dao.memberInfoUpdateVue(vo);
+		        	   res="yes";
+		          }
+		          
+		 	return res;
 	}
 }
 	

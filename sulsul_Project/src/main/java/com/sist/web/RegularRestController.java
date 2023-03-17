@@ -46,37 +46,9 @@ public class RegularRestController {
 	// regular 정기모임 게시판 인서트 ///////////////
 	@GetMapping(value="regular/board_insert_vue.do", produces = "text/plain;charset=utf-8")
 	public String regularBoardInsert(RegularBoardVO vo, HttpSession session) {
-//		List<MultipartFile> list = vo.getFiles();
-//		if(list==null) { //업로드 안된상태
-//			vo.setFilename("");
-//			vo.setFilesize("");
-//			vo.setFilecount(0);
-//		}else { // 업로드가 된상태
-//			String fn = "";
-//			String fs = "";
-//			for(MultipartFile mf:list) {
-//				String of = mf.getOriginalFilename();
-//				fn+=of+","; // 데이터베이스 첨부
-//				File file = new File("c:\\download\\"+of);//업로드
-//				fs+=mf.getSize()+",";
-//				try {
-//					mf.transferTo(file);
-//				}catch(Exception e) {}
-//			}
-//			vo.setFilename(fn.substring(0,fn.lastIndexOf(","))); // 마지막에 있는 "," 지우기 위해 쓴것
-//			vo.setFilesize(fs.substring(0,fs.lastIndexOf(",")));
-//			vo.setFilecount(list.size());
-//		}
 		String id = (String)session.getAttribute("id");
 		vo.setId(id);
 		dao.regularBoardInsert(vo);
-//		System.out.println("vo.getcontent:"+vo.getContent());
-//		System.out.println("vo.getrno:"+vo.getRno());
-//		System.out.println("vo.getFilecount:"+vo.getFilecount());
-//		System.out.println("vo.getFilename:"+vo.getFilename());
-//		System.out.println("vo.getRb_no:"+vo.getRb_no());
-		System.out.println("vo.getId:"+vo.getId());
-		System.out.println("id:"+id);
 		
 		return "rno:"+String.valueOf(vo.getRno());
 	}
@@ -137,9 +109,44 @@ public class RegularRestController {
 	    return arr.toJSONString();
 	}
 	
+	// regular 정기모임 popular 게시판 리스트 ///////////////
+	@GetMapping(value = "regular/regular_popularList_vue.do", produces = "text/plain;charset=utf-8")
+	public String regularPopularList() {
+		List<RegularVO> list = dao.regularPopularListData();
+		// json 변환
+		JSONArray arr = new JSONArray();
+			for (RegularVO vo : list) {
+				JSONObject obj = new JSONObject();
+				obj.put("rcate_no", vo.getRcate_no());
+				obj.put("poster", vo.getPoster());
+				obj.put("name", vo.getName());
+				obj.put("rno", vo.getNo());
+				arr.add(obj);
+			}
+		return arr.toJSONString();
+	}
+	
+	// regular 정기모임 new 게시판 리스트 ///////////////
+	@GetMapping(value = "regular/regular_newList_vue.do", produces = "text/plain;charset=utf-8")
+	public String regularNewList() {
+		List<RegularVO> list = dao.regularNewListData();
+		// json 변환
+		JSONArray arr = new JSONArray();
+		for (RegularVO vo : list) {
+			JSONObject obj = new JSONObject();
+			obj.put("rcate_no", vo.getRcate_no());
+			obj.put("poster", vo.getPoster());
+			obj.put("name", vo.getName());
+			obj.put("rno", vo.getNo());
+			arr.add(obj);
+		}
+		return arr.toJSONString();
+	}
+	
 	// regular detail페이지 게시글 상세페이지
 	@GetMapping(value ="regular/boardDetail_vue.do", produces = "text/plain;charset=utf-8")
-	public String regularBoardDetail(int rb_no) {
+	public String regularBoardDetail(int rb_no, HttpSession session) {
+		String sid = (String)session.getAttribute("id");
 		System.out.println("rb_no:"+rb_no);
 		RegularBoardVO vo = dao.regularBoardDetail(rb_no);
 		JSONObject obj = new JSONObject();
@@ -149,6 +156,8 @@ public class RegularRestController {
 		obj.put("hit", vo.getHit());
 		obj.put("id", vo.getId());
 		obj.put("rno", vo.getRno());
+		obj.put("sid", sid);
+		
 		return obj.toJSONString();
 	}
 

@@ -19,7 +19,7 @@ public class NoticeRestController {
 	@Autowired
     private NoticeDAO dao;
 	 @GetMapping(value="notice/list_vue.do",produces = "text/plain;charset=UTF-8")
-	   public String notice_list(int page) {
+	   public String notice_list(Integer page) {
 		   Map map=new HashMap();
 		   map.put("start", (page*10)-9);
 		   map.put("end", page*10);

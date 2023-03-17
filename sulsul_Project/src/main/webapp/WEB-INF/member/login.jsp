@@ -9,12 +9,12 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-  <div class="page-heading bg-light" >
+  <div class="page-heading bg-light" style="height: 250px; margin-top: 70px">
     <div class="container">
-      <div class="row align-items-end text-center">
-        <div class="col-md-7 mx-auto">
-          <h1>Login</h1>  
-          <p class="mb-4"><a href="../main/main.do">Home</a> / <strong>Login</strong></p>        
+      <div class="row align-items-center text-center">
+        <div class="col-lg-7 mx-auto" style="padding-bottom: 100px;">
+          <h1>Login</h1>
+          <p class="mb-4"><a href="index.html"><span style="color: #c71585">Sul</span></a> / <strong>Login</strong></p>        
         </div>
       </div>
     </div>

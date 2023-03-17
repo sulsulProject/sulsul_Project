@@ -33,6 +33,16 @@ public class RegularDAO {
 		}
 		return mapper.regularListData(rcate_no);
 	}
+	
+// popularList
+	public List<RegularVO> regularPopularListData(){
+		return mapper.regularPopularListData();
+	}
+	
+	// popularList
+	public List<RegularVO> regularNewListData(){
+		return mapper.regularNewListData();
+	}
 
 	// regularList no값 구하기(마지막 넘버)
 		// 		=> 방금 생성 된 디테일 페이지 가져오기위해서
