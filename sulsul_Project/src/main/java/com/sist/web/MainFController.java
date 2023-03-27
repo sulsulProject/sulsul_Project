@@ -1,6 +1,5 @@
 package com.sist.web;
 
-import java.net.http.HttpRequest;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +22,7 @@ import com.sist.vo.WineVO;
 
 
 @Controller
-public class MainController {
+public class MainFController {
 	@Autowired
 	private WineDAO dao;
 	@Autowired

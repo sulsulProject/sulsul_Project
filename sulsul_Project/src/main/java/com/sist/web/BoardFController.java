@@ -22,7 +22,7 @@ import com.sist.vo.AllReplyVO;
 import com.sist.vo.FreeBoardVO;
 
 @Controller
-public class BoardController {
+public class BoardFController {
 	@Autowired
 	private BoardDAO dao;
 	@Autowired

@@ -18,7 +18,7 @@ import com.sist.dao.LetterDAO;
 import com.sist.vo.LetterVO;
 
 @Controller
-public class LetterController {
+public class LetterFController {
 	@Autowired
 	private LetterDAO dao;
 

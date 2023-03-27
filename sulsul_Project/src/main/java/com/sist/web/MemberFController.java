@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.sist.dao.*;
 import com.sist.vo.*;
 @Controller
-public class MemberController{
+public class MemberFController{
 	@Autowired
 	private MemberDAO dao;
 	

@@ -1,5 +1,5 @@
 package com.sist.mapper;
-
+import com.sist.vo.*;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
@@ -228,5 +228,11 @@ public interface WineMapper {
 	// 전체 위스키 갯수 검색 - 기타
 	@Select("SELECT COUNT(*) FROM sul_item_2_2 where icno=2")
 	public int whiskeyCount();
+	
+	@Select("SELECT ino,name,price,poster,rownum "
+				  +"FROM (SELECT ino,name,price,poster "
+				  +"FROM sul_item_2_2 ORDER BY hit DESC) "
+				  +"WHERE rownum<=5")
+	public List<WineVO> wineTop5();
 	
 }

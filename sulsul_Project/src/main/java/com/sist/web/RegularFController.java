@@ -18,7 +18,7 @@ import com.sist.vo.RegularBoardVO;
 import com.sist.vo.RegularVO;
 
 @Controller
-public class RegularController {
+public class RegularFController {
 	@Autowired
 	private RegularDAO dao;
 

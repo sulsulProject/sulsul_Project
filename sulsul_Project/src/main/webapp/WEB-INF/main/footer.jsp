@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<style type="text/css">
+.product-item{
+	float: left;
+}
+.img-fluid-3{
+	width: 50px;
+}
+</style>
 </head>
 <body>
 	<div class="site-footer" style="border-top: solid 1px #cccccc; margin-top: 50px">
@@ -38,27 +46,27 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-2">
-					<div class="widget">
-						<h3>Shop</h3>
-						<ul class="list-unstyled">
-							<li><a href="../wine/list.do">와인</a></li>
-							<li><a href="../wine/whiskey_list.do">위스키</a></li>
-							<li><a href="../wine/cognac_list.do">브랜디&꼬냑</a></li>
-						</ul>
-					</div>
+				<div class="col-lg-4">
+  <div class="col-12">
+  			<h3>Weekly Item</h3>
+  			<div style="height: 20px;"></div>
+            <c:forEach var="vo" items="${list }" begin="1" end="6">
+              <div class="product-item">
+                <a href="../wine/before_detail.do?ino=${vo.ino }" class="product-img">
+
+                  <img src=${vo.poster } alt="Image" class="img-fluid-3">
+                </a>
+                <div class="info">
+                <p class="prd_name"><a href="../wine/before_detail.do?ino=${vo.ino }">${vo.name }</a></p>
+                <div class="price">
+                  <p class="price-font">${vo.price }원</p>
+                </div>
+              </div>
+              </div>
+              </c:forEach>
+              </div>
 				</div>
-				<div class="col-lg-2">
-					<div class="widget">
-						<h3>About</h3>
-						<ul class="list-unstyled">
-							<li><a href="../notice/list.do">공지사항</a></li>
-							<li><a href="../customer/faq.do">FAQ</a></li>
-							<li><a href="../customer/iu.do">이용안내</a></li>
-							<li><a href="../customer/ask.do">1:1문의하기</a></li>
-						</ul>
-					</div>
-				</div>
+
 				
 			</div>
 

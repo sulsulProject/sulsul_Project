@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 @Controller
-public class AdminController {
+public class AdminFController {
 	  @GetMapping("adminpage/admin_main.do")
 	  public String admin_main(Model model,HttpSession session)
 	  {

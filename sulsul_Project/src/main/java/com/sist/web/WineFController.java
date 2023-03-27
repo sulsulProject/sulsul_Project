@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.vo.*;
 @Controller
-public class WineController {
+public class WineFController {
    @Autowired
    private WineDAO dao;
    

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.sist.dao.MemberDAO;
 
 @Controller
-public class MypageController {
+public class MypageFController {
   @Autowired
    private MemberDAO dao;
   @GetMapping("mypage/mypage_main.do")

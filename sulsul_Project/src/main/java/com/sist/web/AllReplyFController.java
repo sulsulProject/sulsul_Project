@@ -12,7 +12,7 @@ import com.sist.dao.ReplyDAO;
 import com.sist.vo.AllReplyVO;
 
 @Controller
-public class AllReplyController {
+public class AllReplyFController {
 	private String[] url = {"", "../board/freeboard_detail.do", "../customer/ask_detail.do"};
 
 

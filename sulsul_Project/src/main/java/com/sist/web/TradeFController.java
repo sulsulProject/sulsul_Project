@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class TradeController {
+public class TradeFController {
 	
 	@GetMapping("trade/trade_list.do")
 	public String trade_list() {
